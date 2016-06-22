@@ -20,10 +20,10 @@
 
 function fizzbuzz(num) {
 	var container = [];
-	for (var i = 1; i <= num; i++){
-		if (i % 3 === 0) container.push('fizz')
-		if (i % 5 === 0) container.push('buzz');
+	for (var i = 1; i < num+1; i++){
 		if (i % 3 === 0 && i % 5 === 0) container.push('fizzbuzz');
+		else if (i % 3 === 0) container.push('fizz')
+		else if (i % 5 === 0) container.push('buzz');
 		else {
 			container.push(i);
 		} 
