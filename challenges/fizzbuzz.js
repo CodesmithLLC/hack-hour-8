@@ -18,20 +18,46 @@
 
 function fizzbuzz(num) {
 	let newArray = [];
-	for (var i = 1; i <= num; i++) {
-		newArray.push(i);
-        console.log(newArray);
+
+	// if there is an arguments issue
+	if (arguments.length === 0 || arguments.length > 1) {
+		return "You are the problem."
 	}
-	for (var i = 0; i < num; i++) {
-		if (newArray[i] % 3 == 0 && newArray[i] % 5 == 0) {
-			newArray[i] = "fizzbuzz";
-		} else if (newArray[i] % 5 == 0) {
-			newArray[i] = "buzz";
-		} else if (newArray[i] % 3 == 0) {
-			newArray[i] = "fizz"
+
+	// if given a negative number
+	if (arguments[0] < 0) {
+		newArray = [1, 0]
+		for (var i = 1; i <= (-num); i++) {
+			newArray.push(-i);
 		}
-	}
+		for (var i = 0; i < (-num) + 2; i++) {
+			if (newArray[i] % 3 == 0 && newArray[i] % 5 == 0) {
+				newArray[i] = "fizzbuzz";
+			} else if (newArray[i] % 5 == 0) {
+				newArray[i] = "buzz";
+			} else if (newArray[i] % 3 == 0) {
+				newArray[i] = "fizz"
+			}
+		}
 	return newArray;
+
+	// if given the expected argument
+	} else {
+		let newArray = [];
+		for (var i = 1; i <= num; i++) {
+			newArray.push(i);
+		}
+		for (var i = 0; i < num; i++) {
+			if (newArray[i] % 3 == 0 && newArray[i] % 5 == 0) {
+				newArray[i] = "fizzbuzz";
+			} else if (newArray[i] % 5 == 0) {
+				newArray[i] = "buzz";
+			} else if (newArray[i] % 3 == 0) {
+				newArray[i] = "fizz"
+			}
+		}
+		return newArray;
+	}
 }
 
 module.exports = fizzbuzz;
