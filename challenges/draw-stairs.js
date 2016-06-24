@@ -14,8 +14,23 @@
 */
 
 function drawStairs(n) {
+    if (n > 100 || n < 1) {
+        return;
+    }
 
+    var i;
+    var space = ' ';
+    var arr = [];
+    var star = "*";
+    arr.length = n;
+
+    for (i = 0; i < n; i++) {
+        arr.fill(space, -1, n - (i + 1));
+        arr.fill(star, n - (i + 1));
+        console.log(arr.join(''));
+    }
 }
+
 
 
 module.exports = drawStairs;
