@@ -32,18 +32,25 @@ var space = ' ';
 var asterisks = '*';
 var stepArr = [];
 var step;
-
+var output = [];
+  
 for (var i = 0; i < n; i++) {
 	stepArr.push(asterisks);
 }
 
-step = stepArr.join().split(',').join('')
-console.log(step);
+step = stepArr.join().split(',').join('');
+output.unshift(step);
 
-for (var i = 0; i < n-1; i++) {
-	stepArr[i] = space;
+
+for (var j = 0; j < n-1; j++) {
+	stepArr[j] = space;
 	step = stepArr.join().split(',').join('');
-	console.log(step);
+	output.unshift(step);
+  
+}
+  
+for (var k = 0; k < n; k++) {
+	console.log(output[k]);
 }
 
 }
