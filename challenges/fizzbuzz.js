@@ -1,4 +1,5 @@
-// Write a function that returns an array containing the numbers 1 to NUM. Put "fizz" in place of numbers divisble by 3, "buzz" in place of numbers divisble by 5, and "fizzbuzz" in place of numbers divisble by both 3 and 5
+// Write a function that returns an array containing the numbers 1 to NUM. Put "fizz" in place of numbers divisble by 3, 
+//"buzz" in place of numbers divisble by 5, and "fizzbuzz" in place of numbers divisble by both 3 and 5
 // fizzbuzz(16);  -> [ 1,
 //                     2,
 //                     'fizz',
@@ -22,13 +23,19 @@ function fizzbuzz(num) {
 	//create for loop with counter starting at 0, ending at num
 	for (var i = 1; i <= num; i++){
 		//push the counter value to the array
-		if (i % 3 !== 0 && i % 5 !== 0)	result.push(i);
-		//use modulus to determine if counter is divisible by three & five, if so push 'fizzbuzz' instead of counter
-		else if (i % 3 === 0 && i % 5 === 0) result.push('fizzbuzz');
-		//use modulus to determine if counter is divisible by three, if so push 'fizz' instead of counter
-		else if (i % 3 === 0) result.push('fizz');
-		//use modulus to determine if counter is divisible by five, if so push 'buzz' instead of counter
-		else result.push('buzz');
+		if (i % 3 === 0){
+			if (i % 5 === 0) result.push("fizzbuzz");
+			else result.push("fizz");
+		}
+		else if (i % 5 === 0) result.push("buzz");
+		else result.push(i);
+		// if (i % 3 !== 0 && i % 5 !== 0)	result.push(i);
+		// //use modulus to determine if counter is divisible by three & five, if so push 'fizzbuzz' instead of counter
+		// else if (i % 3 === 0 && i % 5 === 0) result.push('fizzbuzz');
+		// //use modulus to determine if counter is divisible by three, if so push 'fizz' instead of counter
+		// else if (i % 3 === 0) result.push('fizz');
+		// //use modulus to determine if counter is divisible by five, if so push 'buzz' instead of counter
+		// else result.push('buzz');
 	}
 	return result;
 }
