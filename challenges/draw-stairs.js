@@ -14,7 +14,16 @@
 */
 
 function drawStairs(n) {
-
+	if (n > 0 && n <= 100) {
+		let stair = '*';
+		let space = ' ';
+		
+		for (let i = 1; i <= n; i++) {
+			console.log(space.repeat(n-i) + stair.repeat(i));
+		}	
+	} else {
+		console.log('Enter a number between 1 and 100');
+	}
 }
 
 
