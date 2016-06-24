@@ -17,5 +17,16 @@ function drawStairs(n) {
 
 }
 
+var count = 6;
+var space = " ";
+var loop = function(n){				// blkjwe;rjwe;rh reversed. need to switch
+	while(count > 0){
+	
+	console.log(space);
+	count--;
+	space += " *";
+	}
+};
+loop(5);
 
 module.exports = drawStairs;
