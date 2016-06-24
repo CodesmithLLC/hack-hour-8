@@ -17,8 +17,9 @@ function drawStairs(n) {
   let stairs = 1;
   const spaces = ' ';
 
-  if (n < 1) {
-    return ('Please enter a number between 1 and 100 (inclusive).');
+  if (n < 1 || n > 100) {
+    console.log('Please enter a number between 1 and 100 (inclusive).');
+    return;
   }
 
   while (stairs <= n) {
