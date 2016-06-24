@@ -1,7 +1,7 @@
 {
   "name": "hack-hour-8",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hack hours are a series of algorithm problems to refine your problem solving skills. You will be presented a new algorithm problem every day starting after the algorithm unit.",
   "main": "index.js",
   "engines": {
     "node": ">= 5.5.0"
@@ -27,5 +27,18 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-8.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodesmithLLC/hack-hour-8/issues"
+  },
+  "homepage": "https://github.com/CodesmithLLC/hack-hour-8#readme",
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.9.2",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2"
+  }
 }
