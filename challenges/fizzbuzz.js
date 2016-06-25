@@ -30,7 +30,7 @@ function fizzbuzz(num) {
         }
         else if (i % 3 === 0){
             array.push('fizz');    
-        }
+        } 
         else if (i % 5 === 0){
             array.push('buzz');    
         }
