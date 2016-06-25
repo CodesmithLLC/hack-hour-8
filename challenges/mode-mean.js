@@ -29,7 +29,17 @@ function modemean(array) {
      		if(sorted.indexOf(sorted[i]) === i) uniques.push(sorted[i]);
    		}
    
-  		
+  		for(var j = 0; j < uniques.length; j++) {
+          var counter = 0;
+          for(var k = 0; k < sorted.length; k++) {
+            if(uniques[j] === sorted[k]) {
+              counter++;
+            }
+           }
+           uniquesCount.push(counter);
+        }
+
+        mode = uniques[uniquesCount.indexOf(Math.max.apply(null, uniquesCount))];  
 
    		return mode;
  	}
@@ -42,5 +52,6 @@ function modemean(array) {
  	console.log( mean === mode ? true : false );
  	return mean === mode ? true : false;
 }
+
 
 module.exports = modemean;
