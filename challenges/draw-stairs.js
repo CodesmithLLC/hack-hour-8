@@ -14,6 +14,7 @@
 */
 
 function drawStairs(n) {
+<<<<<<< HEAD
 	var i = 1;
 	while(i <= n){
 		var stairString = '';
@@ -40,6 +41,9 @@ function drawStairs(n) {
 		console.log(stairString);
 		i++;
 	}
+=======
+
+>>>>>>> 2ad08d5fbe0eb6ef7a8741fa3b9f91a29257505a
 }
 
 
