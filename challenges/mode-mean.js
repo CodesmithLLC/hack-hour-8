@@ -11,60 +11,65 @@
 
 
 function modemean(array) {
-   function mergeSort(array) {
-   if (array.length === 1) return array;
-   var halfSize = array.length/2;
-   var firstHalf = array.slice(halfSize);
-   var secondHalf = array.slice(0, halfSize);
-   function compareAndConcat(x, y){
-	var depth = x.length + y.length
-	var res = [];
-	while (res.length < depth){
-		if (x.length === 0){
-			res = res.concat(y);
-			return res;
+	if (arguments.length = 0 || typeof arguments[0] !== "object") return "you suck"
+	function mergeSort(array) {
+		if (array.length === 1) return array;
+		var halfSize = array.length/2;
+		var firstHalf = array.slice(halfSize);
+		var secondHalf = array.slice(0, halfSize);
+		function compareAndConcat(x, y){
+		var depth = x.length + y.length
+		var res = [];
+		while (res.length < depth){
+			if (x.length === 0){
+				res = res.concat(y);
+				return res;
+			}
+			if (y.length === 0){
+				res = res.concat(x);
+				return res;
+			}
+			if (x[0] < y[0]) {
+				res.push(x[0]);
+				x.shift();
+			} else {
+				res.push(y[0]);
+				y.shift();
+			}
 		}
-		if (y.length === 0){
-			res = res.concat(x);
-			return res;
 		}
-		if (x[0] < y[0]) {
-			res.push(x[0]);
-			x.shift();
-		} else {
-			res.push(y[0]);
-			y.shift();
+		return compareAndConcat(mergeSort(firstHalf), mergeSort(secondHalf));
 		}
-	}
-   }
-   return compareAndConcat(mergeSort(firstHalf), mergeSort(secondHalf));
-}
 	const sortedArray = mergeSort(array);
 	var multArray = [];
-	var currCount = 0;
-	var modeCount = 0;
-	var mode;
-	for (var i = 1; i < sortedArray.length; i++){
-		var current = sortedArray[i];
-		if (sortedArray[i] == sortedArray[i-1]){
-			currCount++;
-			if (currCount > modeCount){
-				modeCount = currCount;
-				mode = sortedArray[i];
-			}
-		} else {
-			currCount = 0;
+	var numArray = [];
+	for (var i = 0; i <= sortedArray.length; i++){
+		if (sortedArray[i] === sortedArray[i-1]) numArray.push(sortedArray[i]);
+		else {
+			multArray.push(numArray);
+			numArray = [sortedArray[i]];
 		}
 	}
-	function add(a, b) {
-    	return a + b;
+	var modeArray = [];
+	var modeLen = 0;
+	for (var j = 0; j < multArray.length; j++){
+		var arrayLen = multArray[j].length;
+		if (arrayLen > modeLen){ 
+			modeLen = arrayLen;
+			modeArray = [];
+			modeArray = modeArray.concat(multArray[j])
+		}
+		else if (arrayLen === modeLen) {
+			modeLen = arrayLen;
+			modeArray = modeArray.concat(multArray[j]);
+		}
 	}
-	if (multArray.length > 0){
-		// still in testing phase, stand by beep boop beep boop
-		mode = Math.max.apply(null, multArray);
+	var mode = modeArray[modeArray.length - 1];
+	function add(a, b) {
+		return a + b;
 	}
 	var mean = Math.floor(sortedArray.reduce(add, 0)/(sortedArray.length));
-	return (mean == mode);
+	return (mean === mode);
 }
 
 module.exports = modemean;
