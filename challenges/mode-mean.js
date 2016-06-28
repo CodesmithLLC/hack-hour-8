@@ -16,8 +16,8 @@ function modemean(array) {
 	})
 	var meanAvg = Math.floor(mean / array.length);
 	console.log(meanAvg)
-	
-	var max = 0; var biggest = 0;
+
+	var max = 0; var biggest = 0;atom
 	for (var i = 0; i < array.length; i++) {
 		var count = 0; 
 		for (var k = i; k < array.length; k++) {
