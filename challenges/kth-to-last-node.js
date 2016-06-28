@@ -16,13 +16,27 @@
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
 
+
 function Node(val) {
-  this.value = val;
-  this.next = null;
+    this.value = val;
+    this.next = null;
 }
 
 function kthToLastNode(k, head) {
 
+  if (k <= 0) return "Please enter an integer greater than 0";
+  if (head.next === null && k >= 1) return head.value;
+    var listExpansion = [];
+    var current = head;
+
+    while (current.next !== null) {
+        listExpansion.push(current);
+        current = current.next
+    }
+    return listExpansion[listExpansion.length - (k - 1)].value;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = {
+    Node: Node,
+    kthToLastNode: kthToLastNode
+};
