@@ -24,14 +24,26 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
+//this is just here to show how I would use/increase length 
+LinkedList.prototype.push = function(value) {
+	var newNode = new Node(value);
 
-function kthToLastNode(k, head) {
+	if(this.head === null){
+		this.head = newNode; 
+		this.tail = newNode;
+		this.length ++;
+	}else 
+	{
+		this.tail.next = newNode;
+		this.tail = newNode;
+		this.length ++;
+	}
+};
+LinkedList.prototype.kthToTheLast = function(k, head) {
 	var currentNode = this.head;
 	for (var i = this.length; i > k; i--){
 		currentNode = currentNode.next;
 	}
 	return currentNode.value;
-
-}
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
