@@ -8,15 +8,14 @@
  * Return true or false
  *
  */
-
-
 function modemean(array) {
-  let mean, sum, mode;
+  let mean;
+  let mode;
   let max = 0;
   const tally = {};
   const podium = [];
 
-  sum = array.reduce(function(prev, curr) {
+  const sum = array.reduce((prev, curr) => {
     if (tally[curr]) tally[curr]++;
     tally[curr] = 1;
     return prev + curr;
@@ -29,6 +28,7 @@ function modemean(array) {
     if (tally[key] > max) {
       max = tally[key];
       mode = key;
+    }
   }
 
   for (let key in tally) {
@@ -38,12 +38,11 @@ function modemean(array) {
   }
 
   if (podium.length > 1) {
-    mode = podium.reduce(function(prev, curr) {
+    mode = podium.reduce((prev, curr) => {
       return prev > curr ? prev : curr;
     });
   }
 
   return mode === mean;
 }
-
 module.exports = modemean;
