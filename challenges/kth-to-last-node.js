@@ -22,7 +22,38 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+	// wrapped function to traverse through linked list
+	function nodeTraverse(){
+		currentNode = nextNode;
+		nextNode = nextNode.next;
+		currentNode.next = nextNode;
+		nodeCount++;
+	}
 
+	// start at beginning of linked list and traverse through to get length
+	var nodeCount = 1;
+	var currentNode = head;
+	var nextNode = head.next;
+	currentNode.next = nextNode;
+	while (currentNode.next) {
+		nodeTraverse();
+	}
+
+	// account for first node
+	if (nodeCount === k) return head.value;
+
+	// reset to beginning of linkedlist, traverse through to find nth to last node (targetNode)
+	var targetNode = nodeCount - k;
+	nodeCount = 1;
+	currentNode = head;
+	nextNode = head.next;
+	currentNode.next = nextNode;
+	while (nodeCount !== targetNode) {
+		nodeTraverse();
+	}
+	return nextNode.value;
 }
+
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
