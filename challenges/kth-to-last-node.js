@@ -23,6 +23,7 @@ I'm going to try and build a function that
 1. traverses a linked list (probably use a while loop)
 2. pushes the value of each node into an array as it traverses
 3. returns the value of at k
+4. If there is time, set up the function to account for edge cases (i.e. k is > number of values)
 */
 
 
@@ -39,10 +40,14 @@ function kthToLastNode(k, head) {
   	obj = obj.next
   }
 
-  return valueContainer[valueContainer.length - k]
+  if (k > valueContainer.length) {
+  	console.log('Not enough values to get the '+k+' to the last node value!')
+  	console.log('There are '+valueContainer.length+' values in this linked list and '+valueContainer[0]+' is the first value.')
+  }
+  
+  return valueContainer[valueContainer.length - k];
 
 }
-
 
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
