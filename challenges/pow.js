@@ -8,5 +8,4 @@ function pow(base, power) {
   if (power < 0) return 1 / pow(base, Math.abs(power));
 }
 
-// module.exports = pow;
-console.log(pow(2,-3));
+module.exports = pow;
