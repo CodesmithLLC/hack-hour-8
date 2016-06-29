@@ -3,7 +3,10 @@
  */
 
 function pow(base, power) {
-
+  if (power === 0) return 1;
+  if (power > 0) return base * pow(base, power - 1);
+  if (power < 0) return 1 / pow(base, Math.abs(power));
 }
 
-module.exports = pow;
+// module.exports = pow;
+console.log(pow(2,-3));
