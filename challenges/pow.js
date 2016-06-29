@@ -4,13 +4,17 @@
 
  //SET BASE CASE: if power === 0, return base.  recurse down to the base case, then return each result back up to initial case. 
 
-function pow(base, power) {
+function pow(base, power) { 
+  if (isNaN(base) || isNaN(power)) return undefined; 
     if (power === 0) return 1; 
-    if (power === 1) return base; 
-    while (power > 1){
-    return pow(base * power-1); 
-   }
-   return base * pow(base * power); 
+    return base * pow(base, power-1);  
+   
 }
-
 module.exports = pow;
+//WITH A FOR LOOP 
+    // res = 1; 
+    // for (var i = 1; i <= power, i++){
+    //     res *= base; 
+    //     console.log (res); 
+    // }
+    // return res; 

@@ -44,9 +44,9 @@ function kthToLastNode(k, head) {
         // console.log(arr); 
         if (curr.next === null) break; 
         curr = curr.next; 
-   }
-   if (k > arr.length) return undefined; 
-   destination = arr[arr.length - k]; 
+    }
+    if (k > arr.length) return undefined; 
+    destination = arr[arr.length - k]; 
     return destination; 
     }
 }
