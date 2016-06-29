@@ -16,6 +16,16 @@
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
 
+ ///******************Set curr to this.head, then in a while loop for curr.value (until curr.value is null), 
+ ///push curr to an array - to avoid error, break if curr.next === null, then return arr[arr.length - k]; 
+ ///push and check for break before curr=curr.next
+
+
+
+
+
+
+
 function Node(val) {
   this.value = val;
   this.next = null;
