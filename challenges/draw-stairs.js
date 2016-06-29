@@ -21,7 +21,7 @@ function drawStairs(n) {
 		stairArr[j] = ' ';
 	}
 
-	// start replacing spaces with * looping backwards 
+	// start replacing spaces with * looping backwards
 	for (var i = stairArr.length - 1; i >= 0; i--) {
 		stairArr[i] = '*';
 		console.log(stairArr.join(''));

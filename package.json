@@ -27,5 +27,9 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-8.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "author": "",
+	"extends": "airbnb"
 }

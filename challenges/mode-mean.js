@@ -11,40 +11,25 @@
 
 
  function modemean(array) {
- 	// find mode
- 	// create an object for the
-
  	var sum = 0;
  	var modeObj = {};
+ 	var mode = array[0];
+ 	var modeCount = 0;
 
  	array.forEach(function(num) {
  		sum += num;
- 		modeObj[num] = 0;
+ 		if (modeObj.hasOwnProperty(num)) modeObj[num] += 1;
+ 		else modeObj[num] = 1;
+ 		if (modeObj[num] == modeCount && num > mode) {
+ 			mode = num;
+ 			modeCount = modeObj[num];
+ 		} else if (modeObj[num] > modeCount) {
+ 			mode = num;
+ 			modeCount = modeObj[num];
+ 		}
  	});
-
- 	array.forEach(function(num) {
- 		modeObj[num] += 1;
- 	});
-
- 	console.log(modeObj);
- 	var mode = { num: null, count: 0 };
- 	for (var key in modeObj) {
- 			if (mode.num === null) {
- 				mode.num = key;
- 				mode.count = modeObj[key];
- 			} else if (modeObj[key] === mode.count && Number(key) > mode.num) {
- 				mode.num = key;
- 				mode.count = modeObj[key];
- 			} else if (modeObj[key] > mode.count) {
- 				mode.num = key;
- 				mode.count = modeObj[key];
- 			}
- 	}
-
- 	console.log(mode.num);
- 	var mean = Math.floor(sum / array.length);
- 	console.log(mean);
- 	return mode.num == mean ? true : false;
+ 	var mean = Math.floor(sum/array.length);
+ 	return mode == mean ? true : false;
  }
 
 module.exports = modemean;
