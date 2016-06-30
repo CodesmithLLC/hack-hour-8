@@ -3,6 +3,7 @@
  */
 
 function pow(base, power) {
+<<<<<<< HEAD
 	if (power === 0) return 1;
     else{
   		ans = base;
@@ -11,5 +12,9 @@ function pow(base, power) {
   	}
 }
 
+=======
+
+}
+>>>>>>> acc0bae2fbc7892290d9c29fa20dd6b9f620a5d5
 
 module.exports = pow;
