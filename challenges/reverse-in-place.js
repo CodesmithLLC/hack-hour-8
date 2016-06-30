@@ -12,11 +12,36 @@
  */
 
 /*
-I'm sure we aren't supposed to use the built-in method...
+I'm sure we aren't supposed to use the built-in method... return array.reverse();
 */
 
 function reverseInPlace(array) {
-  return array.reverse();
+  const arr = array;
+  const len = array.length - 1;
+  let i = 0;
+  let temp;
+
+  if (!Array.isArray(array)) {
+    return null;
+  }
+
+  if (arr === []) {
+    return arr;
+  }
+
+  for (i; i < len; i++) {
+    if (arr[i] === arr[len - i]) {
+      return arr;
+    }
+    if (i > len - i) {
+      return arr;
+    }
+    temp = arr[i];
+    arr[i] = arr[len - i];
+    arr[len - i] = temp;
+  }
+
+  return arr;
 }
 
 module.exports = reverseInPlace;
