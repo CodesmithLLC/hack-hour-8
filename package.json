@@ -1,29 +1,38 @@
 {
   "name": "hack-hour-8",
   "version": "1.0.0",
-  "description": "Hack hours are a series of algorithm problems to refine your problem solving skills. You will be presented a new algorithm problem every day starting after the algorithm unit.",
+  "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">= 5.5.0"
+  },
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "export COHORT=8; node test/run-tests.js",
     "start": "export COHORT=8; node test/index.js"
   },
+  "dependencies": {
+    "async": "^1.4.2",
+    "aws-sdk": "^2.2.24",
+    "ejs": "^2.3.4",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.5",
+    "mocha-email-reporter": "1.0.2",
+    "request": "^2.65.0",
+    "sendgrid": "^1.8.0"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidvorona/hack-hour-8.git"
+    "url": "git+https://github.com/CodesmithLLC/hack-hour-8.git"
   },
-  "author": "David Vorona",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/davidvorona/hack-hour-8/issues"
-  },
-  "homepage": "https://github.com/davidvorona/hack-hour-8#readme",
   "devDependencies": {
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-react": "^5.2.2"
-  },
-  "dependencies": {
     "eslint-plugin-import": "^1.9.2",
-    "eslint-plugin-jsx-a11y": "^1.5.3"
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2"
   }
 }
