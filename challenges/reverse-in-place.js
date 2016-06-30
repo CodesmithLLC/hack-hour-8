@@ -12,7 +12,7 @@
  */
 
 function reverseInPlace(array) {
-	for(var i = 0; i<array.length; i++){
+	for(var i = 1; i<array.length; i++){
 		array.unshift(array[i]);
 		i++;
 	}
