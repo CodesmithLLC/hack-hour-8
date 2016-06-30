@@ -4,7 +4,8 @@
   "description": "Hack hours are a series of algorithm problems to refine your problem solving skills. You will be presented a new algorithm problem every day starting after the algorithm unit.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "export COHORT=8; node test/run-tests.js",
+    "start": "export COHORT=8; node test/index.js"
   },
   "repository": {
     "type": "git",
