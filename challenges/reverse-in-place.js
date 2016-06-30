@@ -11,12 +11,12 @@
  *
  */
 
-function reverseInPlace(array) {
-  var result = [];
+function reverseInPlace(array, idx) {
   array.forEach(function(string) {
-    result.push(string.split("").reverse().join(""));
+    array[idx] = string.split("").reverse().join("");
   });
-  return result;
+  
+  return array;
 }
 
 module.exports = reverseInPlace;
