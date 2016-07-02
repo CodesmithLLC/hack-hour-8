@@ -17,6 +17,7 @@ existing object.  So I pushed the items in the array on to the end of the array 
 then returned the 2nd half of the array.  
 
 
+
 */
 function reverseInPlace(array){
     for (var i = array.length-2; i >= 0; i--){
