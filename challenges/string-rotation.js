@@ -16,7 +16,9 @@ function stringRotation(s1, s2) {
 	var sortStr1 = s1.split("").sort().join("");
 	var sortStr2 = s2.split("").sort().join("");
 	
-	return (isSubstring(sortStr2, sortStr1));
+	if(sortStr2.length !== sortStr1.length) return false;
+	
+	return (isSubstring(sortStr1, sortStr2));
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
