@@ -23,44 +23,41 @@ function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
-function stringRotation(s1, s2) {
     function stringRotation(s1, s2) {
-if (s2.length > s1.length) return false; 
-for (var i = 0; i < s1.length; i++){
-    for (var j = 0; j < s1.length; j++)
-    if (s2[j] === s1[i]){
-            console.log('match', s2[j] + ' ' + s1[i]);
-        while (i < s1.length){
-            i++; 
-            j++; 
+    if (s2.length > s1.length) return false; 
+        let i = 0; 
+        for (var j = 0; j < s1.length; j++){
+            if (s2[j] === s1[i]){
+                console.log('match', s2[j] + ' ' + s1[i]);
+                while (i < s1.length){
+                    i++; 
+                    j++; 
+                
+                    if (j === s1.length){
+                        j = 0; 
+                   // console.log('new' + s2[j] + ' ' + s1[i]);
+                        if (s2[j] !== s1[i]){
+                            return false; 
+                        }
+                    }
+                    if (s2[j] !== s1[i]){
+                        console.log('no match', s2[j] + ' ' + s1[i]);
+                        return false; 
+                    }
+                    console.log('match', s2[j] + ' ' + s1[i]);
+                    if (i === s1.length - 1){
+                        return true; 
+                    }
+                
+                 }
+             
             
-            if (j === s1.length){
-                j = 0; 
-               // console.log('new' + s2[j] + ' ' + s1[i]);
-                if (s2[j] !== s1[i]){
-                    return false; 
-                }
             }
-            if (s2[j] !== s1[i]){
-                console.log(s2[j] + ' ' + s1[i]);
-                return false; 
-            }
-            console.log('match', s2[j] + ' ' + s1[i]);
-            if (i === s1.length - 1){
-                return true; 
-            }
-            
-            
-            
-            
-        }
-         
         
-    }
-    return true; 
-}
+        }
+        return true; 
 
-}
+    
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
