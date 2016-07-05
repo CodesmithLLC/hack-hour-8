@@ -36,9 +36,6 @@ function isSubstring(s1, s2) {
                     if (j === s1.length){
                         j = 0; 
                    // console.log('new' + s2[j] + ' ' + s1[i]);
-                        if (s2[j] !== s1[i]){
-                            return false; 
-                        }
                     }
                     if (s2[j] !== s1[i]){
                         console.log('no match', s2[j] + ' ' + s1[i]);
@@ -55,9 +52,6 @@ function isSubstring(s1, s2) {
             }
         
         }
-        return true; 
-
-    
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
