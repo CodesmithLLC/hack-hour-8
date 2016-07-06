@@ -24,8 +24,11 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  //doesn't accommodate for asymmetrical inputs :(
+    var strless = input.replace(/[^\[^\]^\{^\}^\(^\)]/gi, '');
+    var revStr = strless.split('').reverse().join('');
+    return strless === revStr;
 }
 
 module.exports = balancedParens;
