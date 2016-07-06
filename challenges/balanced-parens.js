@@ -36,7 +36,7 @@ function balancedParens(input){
   if (isOpeningBracket(input.charAt(0))) arr.push(input.charAt(0));
   else return false;
 
-  for (let i = 1, j < input.length; i++) {
+  for (let i = 1; i < input.length; i++) {
     const char = input.charAt(i);
     if (isOpeningBracket(char)) {
       arr.push(char);
