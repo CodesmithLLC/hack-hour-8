@@ -8,13 +8,16 @@
  */
 
 function isSubstring(s1, s2) {
-	return s1.indexOf(s2) >= 0;
+	return s1.indexOf(s2);
 }
 
 function stringRotation(s1, s2) {
 	if (s1.length !== s2.length) return false;
 	if (s1 === s2) return true;
-	else return (isSubstring(s1.split('').sort().join(''), s2.split('').sort().join('')));
+	var startPhrase = s1.substring(0, 2);
+	var startPlace = s2.indexOf(startPhrase);
+	s2 = startPhrase + s2.slice(startPlace+2) + s2.slice(0, startPlace);
+	if (s1 === s2) return true;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
