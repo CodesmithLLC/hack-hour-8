@@ -21,4 +21,6 @@ function stringRotation(s1, s2) {
   return isSubstring(firstString, secondString);
 }
 
+console.log(stringRotation('abc', 'jds'));
+
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
