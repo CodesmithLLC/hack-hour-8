@@ -25,6 +25,50 @@
  */
 
 function balancedParens(input){
+/*Approach: Off the bat, I'm confused about example 3:  balancedParens(')(');  // false.  Is
+this not balanced because the parens are not inside of each other?  I'm not sure I understand 
+balanced parens.  
+
+That said, when do we return false?  When the mirror image does not equal itself.  
+*/
+
+function balancedParens(input){
+let leftParen = 0, rightParen = 0, str = input.replace(/\w+/g, "");
+var firstHalf = str.slice(0, Math.floor(str.length/2));
+var secondHalf = str.slice(Math.floor(str.length/2));
+
+//The idea here is to flip the parens on the 2nd 
+//half of the string and then see if they match the parens
+//on the first half of the string - ran out of time
+//check second half against firstHalf, if they're equal, parens balance (return true)
+
+// for (var j = 0; j < secondHalf.length; j++){
+//  if (secondHalf[j] === ')'){
+//      secondHalf[j] = 'test';
+//  }
+//  else if (secondHalf[j] === ']'){
+//      secondHalf[j] = '[';
+//  }
+//  else if (secondHalf[j] === '}'){
+//      secondHalf[j] = '{';
+//  })
+//}
+
+
+    
+for (var i = 0; i < str.length; i++){
+    if (str[i] === '(' || str[i] === '[' || str[i] === '{'){
+        leftParen++;
+    }
+    else if (str[i] === ')' || str[i] === ']' || str[i] === '}'){
+        rightParen++; 
+    }
+    
+}
+if (leftParen == rightParen) return true; 
+return false; 
+
+}
 
 }
 
