@@ -7,6 +7,7 @@
  *              stringRotation("hello", "he") -> false
  */
 
+
 /*
 Approach:
 If length of the two strings do not match return false,
@@ -16,13 +17,7 @@ splice and put back together in order
 
 */
 
-
-function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
-}
-
-function stringRotation(s1, s2) {
-	if (s1.length !== s2.length) {
+if (s1.length !== s2.length) {
 		return false;
 	} else {
 		s2removed = s2.split('').splice(s2.indexOf(s1.charAt(0), s2.length-s2.indexOf(s1.charAt(0)))).join('')
@@ -31,11 +26,12 @@ function stringRotation(s1, s2) {
 		return 'removed '+s2removed
 		return s1 === s2 || isSubstring(s1, s2.split('').reverse().join(''));
 	}
-}
+
 
 //console.log(stringRotation("hello", "hello"));
 //console.log(stringRotation("hello", "llohe"));
 //console.log(stringRotation("hello", "he"));
+
 
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
