@@ -14,7 +14,9 @@
 */
 
 function drawStairs(n) {
-console.log(' a bunch of stairrrrs')
+for (var i = 0; i < n; i++) {
+  console.log('*')
+}
 }
 
 
