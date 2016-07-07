@@ -47,7 +47,6 @@ function modemean(array) {
       modes.max = freq[k]
       modes.key = k
     }
-    console.log('modes is ', modes)
   }
 
   // check if any keys have same mode, if so take the max key
@@ -57,5 +56,4 @@ function modemean(array) {
 
   return mean === mode
 }
-
 module.exports = modemean;
