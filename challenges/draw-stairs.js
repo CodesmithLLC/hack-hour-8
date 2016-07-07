@@ -14,7 +14,7 @@
 */
 
 function drawStairs(n) {
-
+console.log(' a bunch of stairrrrs')
 }
 
 
