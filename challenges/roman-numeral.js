@@ -150,5 +150,4 @@ console.log(romanNumeral(9));
 // // console.log(romanNumeral(500));
 // // console.log(romanNumeral(900));
 // console.log(romanNumeral(1550));
-
-//module.exports = romanNumeral;
+module.exports = romanNumeral;
