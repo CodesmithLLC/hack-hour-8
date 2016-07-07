@@ -13,10 +13,9 @@ function isSubstring(s1, s2) {
 
 
 function stringRotation(s1, s2) {
-	var sortStr1 = s1.split("").sort().join("");
-	var sortStr2 = s2.split("").sort().join("");
 	
 	if(sortStr2.length !== sortStr1.length) return false;
+	
 	
 	return (isSubstring(sortStr1, sortStr2));
 }
