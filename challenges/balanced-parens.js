@@ -61,4 +61,4 @@ console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
 // console.log(balancedParens('var hubble = function() { telescopes.awesome();'));
 // console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
 
-//module.exports = balancedParens;
+module.exports = balancedParens;
