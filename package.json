@@ -23,6 +23,7 @@
     "request": "^2.65.0",
     "sendgrid": "^1.8.0"
   },
+  "author": "Jared Fowler <jared@codesmith.io> (https://github.com/jafow)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-8.git"
