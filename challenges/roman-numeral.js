@@ -24,7 +24,7 @@ nuts. Almost done. hackhour solutions talk is cutting into hackhour time.
  */
 
 function romanNumeral(n) {
-  const nArr = n.toString().split('');
+  const nArr = n.toString().split('').reverse();
   let i;
   let rockyVII = '';
   let ones = '';
@@ -34,69 +34,6 @@ function romanNumeral(n) {
 
   if (typeof n !== 'number' || n < 0 || n > 4000) return false;
   if (n === 0) return 'nulla';
-
-  function hundredsPlace (n) {
-    const zNum = parseInt(n);
-    let hundreds = '';
-
-    switch (zNum) {
-      case zNum === 1:
-        hundreds = 'C';
-        break;
-      case zNum === 2:
-        hundreds = 'CC';
-        break;
-      case zNum === 3:
-        hundreds = 'CCC';
-        break;
-      case zNum === 4:
-        hundreds = 'CD';
-        break;
-      case zNum === 5:
-        hundreds = 'D';
-        break;
-      case zNum === 6:
-        hundreds = 'DC';
-        break;
-      case zNum === 7:
-        hundreds = 'DCC';
-        break;
-      case zNum === 8:
-        hundreds = 'DCCC';
-        break;
-      case zNum === 9:
-        hundreds = 'CM';
-        break;
-      case zNum === 0:
-        break;
-      default:
-        hundreds = '';
-    }
-    return hundreds;
-  }
-
-  function thousandsPlace (n) {
-    const aNum = parseInt(n);
-    let thousands = '';
-
-    switch (aNum) {
-      case aNum === 1:
-        thousands = 'M';
-        break;
-      case aNum === 2:
-        thousands = 'MM';
-        break;
-      case aNum === 3:
-        thousands = 'MMM';
-        break;
-      case aNum === 4:
-        thousands = 'MMMM';
-        break;
-      default:
-        thousands = '';
-    }
-    return thousands;
-  }
 
   for (i = 0; i < nArr.length; i++) {
     if (i === 0) {
@@ -172,15 +109,69 @@ function romanNumeral(n) {
           tens = '';
       }
     }
-    if (i === 2) return hundredsPlace(nArr[i]);
-    if (i === 3) return thousandsPlace(nArr[i]);
+
+    if (i === 2) {
+      const zNum = parseInt(nArr[i], 10);
+
+      switch (zNum) {
+        case zNum === 1:
+          hundreds = 'C';
+          break;
+        case zNum === 2:
+          hundreds = 'CC';
+          break;
+        case zNum === 3:
+          hundreds = 'CCC';
+          break;
+        case zNum === 4:
+          hundreds = 'CD';
+          break;
+        case zNum === 5:
+          hundreds = 'D';
+          break;
+        case zNum === 6:
+          hundreds = 'DC';
+          break;
+        case zNum === 7:
+          hundreds = 'DCC';
+          break;
+        case zNum === 8:
+          hundreds = 'DCCC';
+          break;
+        case zNum === 9:
+          hundreds = 'CM';
+          break;
+        case zNum === 0:
+          break;
+        default:
+          hundreds = '';
+      }
+    }
+
+    if (i === 3) {
+      const aNum = parseInt(nArr[i], 10);
+
+      switch (aNum) {
+        case aNum === 1:
+          thousands = 'M';
+          break;
+        case aNum === 2:
+          thousands = 'MM';
+          break;
+        case aNum === 3:
+          thousands = 'MMM';
+          break;
+        case aNum === 4:
+          thousands = 'MMMM';
+          break;
+        default:
+          thousands = '';
+      }
+    }
   }
 
   rockyVII = thousands + hundreds + tens + ones;
   return rockyVII;
-
 }
-
-
 
 module.exports = romanNumeral;
