@@ -9,17 +9,21 @@
  */
 
 function subsetSum(array, target) {
-  if (array.indexOf(target) > 0) return true;
-  const remaining = [...array];
-  let sum = remaining.shift();
+  const nums = array;
+  if (nums.indexOf(target) > 0) return true;
 
-  function findSum(sum, target, remaining) {
-    if (sum === target) return true;
-    if (!remaining.length) return false;
-
-    return findSum(sum + remaining.shift(), target, remaining) ||
-    findSum()
+  let count = 0;
+  while (count < nums.length) {
+    let sum = 0;
+    for (let i = 0; i < nums.length; i++) {
+      sum = sum + nums[i];
+      if (sum === target) return true;
+    }
+    nums.unshift(nums.pop());
+    count++;
   }
+
+  return false;
 }
 
 module.exports = subsetSum;
