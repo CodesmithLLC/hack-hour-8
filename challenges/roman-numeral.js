@@ -32,7 +32,7 @@ function romanNumeral(n) {
 	//take each and add letters based on numbers
 	for (var i = 0, j=0; i < numArray.length; i++) {
 		var numerals = ["M", "D", "C", "L", "X", "V", "I"];
-		if(numArray[i] ===0) resString += "";
+		if(numArray[i] ===0 || numArray[i] === undefined) resString += "";
 		else if(numArray[i] <4) resString += numerals[j].repeat(numArray[i]);
 		else if(numArray[i] ===4) resString += numerals[j]+ numerals[j-1]; //adds 4
 		else if(numArray[i] >4 && numArray[i] < 9 ) resString += numerals[j-1]+ numerals[j].repeat(numArray[i]-5);
