@@ -19,50 +19,52 @@
 
 function romanNumeral(n) {
     var romans = {
-        ['1']: 'I',
-        ['5']: 'V',
-        ['9']: 'IX',
-        ['10']: 'X',
-        ['40']: 'XL',
-        ['50']: 'L',
-        ['90']: 'XC',
-        ['100']: 'C',
-        ['400']: 'CD', 
-        ['500']: 'D',
+        ['1000']: 'M',
         ['900']: 'CM',
-        ['1000']: 'M'
+        ['500']: 'D',
+        ['400']: 'CD',
+        ['100']: 'C',
+        ['90']: 'XC',
+        ['50']: 'L',
+        ['40']: 'XL',
+        ['10']: 'X',
+        ['9']: 'IX',
+        ['5']: 'V',
+        ['4']: 'IV',
+        ['1']: 'I'
     }
 
-    var odd = {
-        ['4']: 'IV'
-    }
-
-    var factors = [];
+    var result = [];
     var nums = Object.keys(romans);
-
+    // console.log(nums);
     var i;
     var len = nums.length - 1;
-
-    for (i = len; i >= 0; i--) {
-        if (n == 1) {
-            factors.push(romans[0]);
-            break;
-        }
-        if (n % i == 0) {
-            factors.push(romans[i]);
-            n = n - i;
-            i++;
-        }
-
+    var k = n;
+    var high, mid, low;
+    if (k > 100) {
+        high = Math.floor(k / 100) * 100;
+        mid = Math.floor((k % 100) / 10) * 10;
+        low = (k % 100) % 10;
     }
 
-    return factors.join('');
-
+    function romanChunks() {
+        var factors = [];
+        for (i = len; i >= 0; i--) {
+            if (k === 0) break;
+            if (k % nums[i] === 0) {
+                factors.unshift(romans[nums[i]]);
+                k = k - nums[i];
+                i = len;
+            }
+        }
+        return factors.join('');
+    }
+    return romanChunks(high) + romanChunks(mid) + romanChunks(low);
 }
 
 
-// console.log(romanNumeral(999));
+console.log(romanNumeral(873));
 
 
 
-module.exports = romanNumeral;
+// module.exports = romanNumeral;
