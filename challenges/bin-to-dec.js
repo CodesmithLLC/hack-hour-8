@@ -14,8 +14,16 @@
  */
 
 function binToDec(binary) {
-  const binArr = binary.split('').reverse();
-  const len = binArr.length;
+  let binStr = binary;
+  let negative = false;
+
+  if (binary.charAt(0) === '-') {
+    binStr = binary.substring(1);
+    negative = true;
+  }
+
+  const binArr = binStr.split('').reverse();
+  const len = binStr.length;
   let res = 0;
   let i;
 
@@ -23,7 +31,7 @@ function binToDec(binary) {
     res += binArr[i] * Math.pow(2, i);
   }
 
-  return res;
+  return negative ? res * (-1) : res;
 }
 
 module.exports = binToDec;
