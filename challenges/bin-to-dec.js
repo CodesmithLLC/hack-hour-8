@@ -15,7 +15,6 @@
 
 function binToDec(binary) {
 	var binArr = binary.split('').reverse();
-	console.log(binArr);
 	return binArr.reduce(function(prev, curr, index){
 		if(curr === '1') return prev += Math.pow(2, index);
 		else return prev;
@@ -25,8 +24,7 @@ function binToDec(binary) {
 function decToBin(dec){
 	if (dec === 1) return '1';
 	var bin = '';
-	var binSpaces = Math.floor(Math.pow(dec));
-	console.log(binSpaces);
+	var binSpaces = Math.floor(Math.log2(dec));
 	while(binSpaces>=0){
 		if(dec >= Math.pow(2, binSpaces)){
 			bin += '1';
