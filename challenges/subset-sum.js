@@ -23,7 +23,22 @@ function subsetSum(array, target) {
   return false;
 }
 
-// console.log(subsetSum([10,-5,12, 1,1,0], 3));
+function ArrayAddition(arr, target) {
+    var max = target;
+    if (arr.reduce(function(a, b){return a + b;}) == max) return true;
+    function recursive(arr, int = 1, check = 1) {
+        if (check > arr.length || int > arr.length) return false;
+        var test = arr.slice(0, check);
+        if (test.reduce(function(a, b){return a + b;}) == max) return true;
+        var num = arr.shift();
+        arr.push(num);
+        return recursive(arr, ++int, check) || recursive(arr, 1, ++check);
+    }
+    return recursive(arr);
+}
+
+// console.log(subsetSum([7, 1, 15, 37, 89], 15+89));
+console.log(ArrayAddition([7, 1, 15, 37, 89], 15+89));
 // console.log(subsetSum([3, 34, 4, 12, 5, 12], 32) );
 // console.log(subsetSum([8, 2, 4, 12], 13));
 // console.log(subsetSum([8, -2, 1, -3], 6));
