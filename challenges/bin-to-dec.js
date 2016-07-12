@@ -30,9 +30,5 @@ function binToDec(binary) {
 	return value;
 
 }
-// console.log(binToDec('100100110'));
-// console.log(147%2);
-// var num = 147
-// console.log(num.toString());
 
 module.exports = binToDec;
