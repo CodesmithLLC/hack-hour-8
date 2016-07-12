@@ -14,7 +14,18 @@
  */
 
 function binToDec(binary) {
+  if (binary==0){return 0};
+	let newArr = [];
+	let counter = binary.length;
+	
+	for (let i = 0; i<binary.length; i++){
+		if (binary[i] == 1){
+			newArr.push(Math.pow(2,counter-1));
+		}
+		counter--;
+	}
 
+	return newArr.reduce(function(accum,prev){ return accum+prev});
 }
 
 module.exports = binToDec;
