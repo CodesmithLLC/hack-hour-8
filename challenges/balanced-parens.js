@@ -23,9 +23,30 @@
  *
  *
  */
-
+// loop thru array, if i is in, push its closing paren on a stack
+// if i is a closing paren, (check obj), pop stack and if !== it's not balanced
 function balancedParens(input){
+  var opens = {
+    '{': '}',
+    '(': ')',
+    '[': ']'
+  }
 
+  var closeds = {
+    '}': 1,
+    ')': 1,
+    ']': 1
+  }
+
+  var stack = []
+  var key
+  for (var i = 0; i < input.length; i++) {
+    key = input[i]
+    if (opens[key]) stack.push(opens[key])
+    if (closeds[key]) stack.pop()
+  }
+
+  return stack.length === 0
 }
 
 module.exports = balancedParens;
