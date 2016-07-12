@@ -80,5 +80,7 @@ function subsetSum(array, target) {
 	
 }
 
+console.log(subsetSum([3,5,7,13,23,11,19], 43)); 
+
 
 module.exports = subsetSum;
