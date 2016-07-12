@@ -25,6 +25,29 @@
  */
 
 function balancedParens(input){
+  let copy = input.slice();
+  copy = copy.split("");
+  let openCount = 0
+  let openIdx;
+
+ for(let i = 0; i < copy.length; i++) {
+  if(openParents(input[i])) {
+    
+  }
+ }
+
+function openParents(input) {
+  return input === "(";
+}
+
+function openArr(input) {
+  return input === "["
+}
+
+function openObj(input) {
+  return input === "{"
+}
+
 
 }
 
