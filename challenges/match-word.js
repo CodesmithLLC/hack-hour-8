@@ -8,6 +8,11 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  function isLetter(char) {
+    if (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) return true;
+    return false;
+  }
+
   if (str === '') return true;
   const input = str.toLowerCase();
   const pit = [];
@@ -15,7 +20,7 @@ function matchWord(str) {
 
   for (let i = 0; i < input.length; i++) {
     if (isLetter(input[i])) {
-      if (isLetter(input[i + 1])) {
+      if (i === input.length - 1 || isLetter(input[i + 1])) {
         word = word + input[i];
       } else {
         word = word + input[i];
@@ -32,11 +37,6 @@ function matchWord(str) {
 
   if (pit.length) return false;
   return true;
-
-  function isLetter(char) {
-    if (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) return true;
-    return false;
-  }
 }
 
 module.exports = matchWord;
