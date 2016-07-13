@@ -26,5 +26,5 @@ sum of all 1's (post 2 to the nth) to return number converted
   }
   return results.reduce((a, b) => a + b);
 }
-
+console.log(binToDec('101'))
 module.exports = binToDec;
