@@ -14,7 +14,7 @@
  */
 
 function binToDec(binary) {
-	var revStgArr = binary.split('').reverse();;
+	var revStgArr = binary.split('').reverse();
 	var num = 0;
 	for(var i = 0; i < revStgArr.length; i++){
 		num += (revStnArr[i] * Math.pow(2, i)); 
