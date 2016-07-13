@@ -7,8 +7,33 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
+/*
+if empty string return true
+replace non-characters with space and lower case characters.
+split string by spaces into array
+if array length is 1 return false
+take the first and last character string in the array and compare the reverse of last character string to first character string and return true if they match else return false
+*/
 
+function matchWord(str) {
+  if(str === '') {
+  	return true;
+  }
+  var arr = str.toLowerCase().replace(/[^a-z]/gi, ' ').split(' ');
+  var container = [];
+  
+  arr.forEach(function(current){
+  	if(current !== '') {
+  		container.push(current);
+  	}
+  });
+  
+  if(container.length === 1) {
+  	return false;
+  } else {
+  	return container[0] === container[container.length - 1].split('').reverse().join('');
+    }
 }
+
 
 module.exports = matchWord;
