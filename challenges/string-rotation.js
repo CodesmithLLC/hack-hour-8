@@ -12,19 +12,13 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  var split = s1.split(" ");
-  var sizes = []
-  for(var i = 0; i < split.length; i++) {
-    if (s2.length === split[i].length) {
-      sizes.push(split[i]);
-    }
+  if (s1.length !== s2.length) {
+    return false;
   }
 
-  if (sizes.length) === 0 { return false };
+  s1 = s1 + s1;
 
-  var s2Sorted = s2.split("").sort(function(a, b) { return a - b});
-  
-
+  return isSubstring(s1, s2);
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
