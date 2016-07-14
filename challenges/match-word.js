@@ -29,17 +29,19 @@ var temp ='';
       temp += str[i];
     } else {
       //push word, clear temp variable, restart. but issue with massive array...
-      wordsArr.push()
+      wordsArr.push(temp)
     }
+
   }
+  console.log(wordsArr);
 //console.log(temp.split('').reverse().join('') === temp);
 }
 
 module.exports = matchWord;
 
 
-//matchWord('__END_DNE-----'); // -> true
-//matchWord('__ENDDNE__'); // -> false    FAILS   (not separated by a space)
+matchWord('__END_DNE-----'); // -> true
+matchWord('__ENDDNE__'); // -> false    FAILS   (not separated by a space)
 //matchWord('IF()()fi[]'); // -> true        (should be case-insensitive)
 //matchWord('for__if__rof__fi'); // -> false     not properly closed. like ( [) ]
 //matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'); // -> true
