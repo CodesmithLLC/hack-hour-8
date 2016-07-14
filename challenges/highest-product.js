@@ -4,14 +4,14 @@
 
 function highestProduct(array) {
   if (array.length < 3) throw new Error('Array must contain at least 3 integers');
-  array.sort(function(a, b) {
-    return a - b;
-  });
-  function multiply(a, b, c) {
-    return a * b * c;
+  let biggest = array[0] * array[1] * array[2];
+  for (let i = 0; i < array.length - 2; i++) {
+    const test = array[i] * array[i + 1] * array[i + 2];
+    if (test > biggest) {
+      biggest = test;
+    }
   }
-  return multiply.apply(this, array.slice(-3));
+  return biggest;
 }
-
 
 module.exports = highestProduct;
