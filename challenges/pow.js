@@ -5,8 +5,15 @@
  //SET BASE CASE: if power === 0, return base.  recurse down to the base case, then return each result back up to initial case. 
 
 function pow(base, power) { 
+    let flag = false; 
   if (isNaN(base) || isNaN(power)) return undefined; 
     if (power === 0) return 1; 
+    if (power < 0){
+        flag = true; 
+    }
+    if (flag){
+        return 1/(base * pow(base, power-1));
+    }
     return base * pow(base, power-1);  
    
 }
