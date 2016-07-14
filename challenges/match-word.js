@@ -8,7 +8,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  if(str.length === 0) {
+    return true;
+  }
+  
+  str = str.match(/[a-z]+/gi);
+  
+  if (str.length % 2 !== 0) {
+    return false;
+  } 
+    
+  
+  for (var i = 0; i < str.length / 2; i++) {
+    var opening = str[i];
+    var closing = str[str.length - 1 - i].split("").reverse().join("");
+  
+    if (opening.toLowerCase() === closing.toLowerCase()) {
+      return true;
+    }
+  }
+  
+  return false;
 }
 
 module.exports = matchWord;
