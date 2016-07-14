@@ -8,7 +8,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  return false;
 }
 
 module.exports = matchWord;
