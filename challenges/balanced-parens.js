@@ -24,7 +24,6 @@
  *
  */
 
-<<<<<<< HEAD
  function balancedParens(input){
    if (input.length === 1) return false;
    input = input.split("");
@@ -50,10 +49,9 @@
    if (count1 === 0 && count2 === 0 && count3 === 0) return true;
    return false;
  }
-=======
+ 
 function balancedParens(input){
 
 }
->>>>>>> 711fc9de57b8977d5efa04a3f8d0a5f1b1791c5b
 
 module.exports = balancedParens;
