@@ -6,9 +6,27 @@
 // matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
-
-function matchWord(str) {
-
+function log(input){
+  console.log(input);
 }
 
+function matchWord(str) {
+  var letterStr = str.replace(/[^a-z]/gi, ' ');
+  var strArrayed = letterStr.trim().split(' ');
+  if(strArrayed.length % 2 === 1) return false;
+  var matchArr = [];
+  strArrayed.forEach(function(ele, idx){
+    var revStr = ele.split('').reverse().join('');
+    if((matchArr.indexOf(ele) < 0) && (matchArr.indexOf(revStr) < 0)){
+      matchArr.push(ele);
+    }
+    if(matchArr.indexOf(revStr) > -1){
+      matchArr.splice(matchArr.indexOf(revStr), 1);
+    }
+  })
+  return matchArr.length === 0;
+}
+
+
+// log(matchWord('__ENDDNE-----'));
 module.exports = matchWord;
