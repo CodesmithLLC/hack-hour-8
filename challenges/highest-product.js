@@ -28,6 +28,6 @@ function highestProduct(array) {
   var value = product(container);
   return value;
 }
-
+console.log(highestProduct([1,2,-1,-3]));
 
 module.exports = highestProduct;
