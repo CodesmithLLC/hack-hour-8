@@ -4,13 +4,11 @@
 
 function highestProduct(array) {
   if (array.length < 3) return 'error: you need to supply atleast 3 numbers';
-
   array.sort((a, b) => b - a);
-  let res = 1;
+  let res1 = 1;
+  let res2 = 1;
 
-  for (let i = 0; i > 3; i++) {
-    res = res * array[i];
-  }
+  
 
   return res;
 }
