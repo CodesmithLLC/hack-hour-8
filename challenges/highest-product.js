@@ -3,17 +3,12 @@
  */
 
 function highestProduct(array) {
-  function sortNumber(a, b) {
-    return a - b;
-  }
+  if (array.length < 3) return 'error: you need to supply atleast 3 numbers';
+  array.sort((a, b) => b - a);
+  let res1 = 1;
+  let res2 = 1;
 
-  const sortedArray = array.sort(sortNumber);
-  const lastIndex = array.length - 1;
-  let res = 1;
-
-  for (let i = lastIndex; i > lastIndex - 3; i--) {
-    res = res * sortedArray[i];
-  }
+  
 
   return res;
 }
