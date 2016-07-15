@@ -16,7 +16,6 @@ function matchWord(str) {
 
   // loop from out to in and see if same
   for (let i = 0, j = cleanedStr.length - 1; i < j; i++, j--) {
-    console.log('cleanedStr i ', cleanedStr[i], ' cleanJ ', cleanedStr[j])
     if (cleanedStr[i] !== cleanedStr[j]) return false
   }
   return true
