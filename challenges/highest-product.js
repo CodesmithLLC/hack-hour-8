@@ -3,7 +3,7 @@
  */
 
 function highestProduct(array) {
-
+  return 'definitely a test';
 }
 
 
