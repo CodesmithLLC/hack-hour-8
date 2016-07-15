@@ -8,7 +8,17 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  return false;
-}
+  // coerce to lowercase
+  var lowerStr = str.toLowerCase()
 
+  // replace everything but /\d/ with ''
+  var cleanedStr = lowerStr.replace(/[^\W]/g, '')
+
+  // loop from out to in and see if same
+  for (let i = 0, j = cleanedStr.length - 1; i < j; i++, j--) {
+    console.log('cleanedStr i ', cleanedStr[i], ' cleanJ ', cleanedStr[j])
+    if (cleanedStr[i] !== cleanedStr[j]) return false
+  }
+  return true
+}
 module.exports = matchWord;
