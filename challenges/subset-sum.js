@@ -24,7 +24,7 @@ compare the remaining elements in the array against the new value of t
 function subsetSum(array, target) {
   let t = target;
   const lessThanT = (val) => val <= t;
-  const sortAsc = (a, b) => a - b;
+  const sortAsc = array.sort((a, b) => a - b);
   let arr = array.filter(lessThanT);
   const len = arr.length;
   let i;

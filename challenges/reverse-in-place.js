@@ -21,21 +21,15 @@ function reverseInPlace(array) {
   let i = 0;
   let temp;
 
-  if (!Array.isArray(array)) {
-    return null;
-  }
+  if (!Array.isArray(array)) return null;
 
-  if (arr === []) {
-    return arr;
-  }
+  if (arr === []) return arr;
 
   for (i; i < len; i++) {
-    if (arr[i] === arr[len - i]) {
-      return arr;
-    }
-    if (i > len - i) {
-      return arr;
-    }
+    if (arr[i] === arr[len - i]) return arr;
+
+    if (i > len - i) return arr;
+
     temp = arr[i];
     arr[i] = arr[len - i];
     arr[len - i] = temp;

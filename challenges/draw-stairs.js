@@ -5,11 +5,6 @@
 
  For example:
  drawStairs(6) ->
-=======
- 
- For example:     
- drawStairs(6) ->          
->>>>>>> 2ad08d5fbe0eb6ef7a8741fa3b9f91a29257505a
      *
     **
    ***
@@ -20,13 +15,11 @@
 */
 
 function drawStairs(n) {
-<<<<<<< HEAD
   let stairs = 1;
   const spaces = ' ';
 
   if (n < 1 || n > 100) {
-    console.log('Please enter a number between 1 and 100 (inclusive).');
-    return;
+    return 'Please enter a number between 1 and 100 (inclusive).';
   }
 
   while (stairs <= n) {
@@ -35,10 +28,4 @@ function drawStairs(n) {
   }
 }
 
-=======
-
-}
-
-
->>>>>>> 2ad08d5fbe0eb6ef7a8741fa3b9f91a29257505a
 module.exports = drawStairs;

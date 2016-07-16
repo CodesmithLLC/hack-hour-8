@@ -8,12 +8,8 @@ function highestProduct(array) {
   const sortArr = array.sort((a, b) => a - b);
   const len = array.length;
 
-  let firstThreeMax = sortArr[0] * sortArr[1] * sortArr[2];
+  const firstThreeMax = sortArr[0] * sortArr[1] * sortArr[len - 1];
   const lastThreeMax = sortArr[len - 1] * sortArr[len - 2] * sortArr[len - 3];
-
-  if (sortArr[0] < 0 && sortArr[1] < 0 && sortArr[2] < 0) {
-    firstThreeMax = sortArr[0] * sortArr[1] * sortArr[len - 1];
-  }
 
   return Math.max(firstThreeMax, lastThreeMax);
 }
