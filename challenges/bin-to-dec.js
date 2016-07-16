@@ -30,28 +30,13 @@ function binToDec(binary) {
   return negative ? sum * -1 : sum;
 }
 
-// function decToBin(num) {
-//   const binary = [];
-//   let j = 0;
-//   while (Math.pow(2, j) < num) {
-//
-//     if (Math.pow(2, j)
-//      == num) {
-//       binary.unshift(1);
-//     } else {
-//       binary.unshift(0);
-//     }
-//     j++;
-//     // console.log(binary.join(''));
-//
-//   }
-//   return binary.join('');
-// }
+function decToBin(num) {
+  const binary = [];
+  for (let i = 1; i <= num; i++) {
+    
+
+  }
+}
 module.exports = binToDec;
 
-// console.log(binToDec('0'));
-// console.log(binToDec('11'));
-// console.log(binToDec('100'));
-console.log(binToDec('101'));
-console.log(binToDec('-100101'));
-// console.log(decToBin(16));
+console.log(decToBin(16));
