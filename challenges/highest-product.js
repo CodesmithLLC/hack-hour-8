@@ -2,12 +2,12 @@
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
 
- function highestProduct(array) {
-  	var combos = [];
+function highestProduct(array) {
+  var combos = [];
 
-  	permutation(array, []);
+  permutation(array, []);
 
-  	function permutation(begArr,arr) {
+  function permutation(begArr,arr) {
   	  if (begArr.length === 0) combos.push(arr.join(',').split(','));
   	  for (var i = 0, l = begArr.length; i < l; i++) {
   	    let s = begArr.splice(i,1);
