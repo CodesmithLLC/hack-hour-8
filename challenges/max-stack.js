@@ -8,6 +8,26 @@
 
 function Stack() {
   // body...
+  var obj = {};
+  obj.length = 0;
+  obj.max = 0;
+  obj.push = function(arr){
+  				obj[obj.length] = arr;
+  				obj.length++;
+  				var keys = Math.max(...Object.keys(obj).filter(function(x){return x>=0 }).map(function(y){return obj[y]}))
+  				obj.max= keys
+  				return obj.length;
+				 };
+  obj.pop = function(){
+  				var temp = obj[obj.length];
+  				delete obj[obj.length];
+  				obj.length--;
+  				var keys = Math.max(...Object.keys(obj).filter(function(x){return x>=0 }).map(function(y){return obj[y]}))
+  				obj.max= keys
+  				return temp;
+				 };
+  obj.getMax = function(){return obj.max};
+  return obj;
 }
 
 module.exports = Stack;
