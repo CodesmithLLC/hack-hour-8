@@ -8,6 +8,17 @@
 
 function Stack() {
   // body...
+  this.pancake = [];
+  this.push = function(value) {
+  	this.pancake.push(value);
+  	return this.pancake.length;};
+  this.pop = function() {
+  	if(this.pancake.length === 0) {return 'Stack is empty';}
+  	return this.pancake.pop();};
+  this.getMax = function() {
+  	if(this.pancake.length === 0) {return 'No max. Stack is empty';}
+  	return Math.max.apply(null, this.pancake);};
 }
+
 
 module.exports = Stack;
