@@ -10,8 +10,14 @@ function Node(val) {
   this.next = null;
 }
 
-function zip(l1, l2) {
-  return 'ziiiiip'
+function zip(l1, l2, zip = null) {
+  if (l1.next == null) {
+    zip.next = l1
+    return zip
+  }
+  else return 'zipppppp'
 };
-
+// var a = new Node(1)
+// a.next = new Node(2)
+// a.next.next = new Node(8)
 module.exports = {Node: Node, zip: zip};
