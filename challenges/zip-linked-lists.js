@@ -11,25 +11,22 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  var currentList = l1;
-  var count = 0;
-  var l3 = new Node(currentList.val);
+  var current = l1;
+  var l3 = new Node(current.val);
+  var head = l3;
   l1 = l1.next;
-  currentList = l2;
-  while (count < 5) {
-    node = new Node(currentList.val);
-    console.log(node);
-    l3.next = new Node
-    l3.next = node;
-    console.log(l3);
-    if (currentList === l1) {
-    	l1 = l1.next;
-    	currentList = l2;
+  current = l2;
+  while (l1 || l2) {
+    node = new Node(current.val);
+    head.next = node;
+    head = head.next;
+    if (current === l1) {
+      l1 = l1.next;
+      current = l2;
     } else {
-    	l2 = l2.next;
-    	currentList = l1;
+      l2 = l2.next;
+      current = l1;
     }
-    count++;
   }
   return l3;
 }
