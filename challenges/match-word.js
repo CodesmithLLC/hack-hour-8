@@ -7,17 +7,33 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+const rev = (str) => {
+  if (!str) return
+  let res = ''
+  for (let i of str) {
+    res = i + res
+  }
+  return res
+}
+
 function matchWord(str) {
+  if (!str.length) return true
+
+  var matched = false
   // coerce to lowercase
   var lowerStr = str.toLowerCase()
 
   // replace everything but /\d/ with ''
-  var cleanedStr = lowerStr.replace(/[^\W]/g, '')
+  var cleanedStr = lowerStr.split(/[^A-Za-z]/)
 
-  // loop from out to in and see if same
-  for (let i = 0, j = cleanedStr.length - 1; i < j; i++, j--) {
-    if (cleanedStr[i] !== cleanedStr[j]) return false
-  }
-  return true
+  // build table of words
+  cleanedStr.reduce((table, next) => {
+    let key = rev(next)
+    if (table[key])  matched = true
+    table[next] = '1'
+    return table
+  }, {})
+
+  return matched
 }
 module.exports = matchWord;
