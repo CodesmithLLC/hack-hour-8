@@ -11,6 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  return 'ziiiiip'
 };
 
 module.exports = {Node: Node, zip: zip};
