@@ -15,41 +15,25 @@ function Node(val) {
 function zip(l1, l2) {
 	if(!l1.val) return l2;
 	if(!l2.val) return l1;
-	var l1Node = new Node(l1);
-	l1Node.next = l1.next;
-	var l2Node = new Node(l2);
-	l2Node.next = l2.next;
-	var l3 = new Node(l1.val);
-	var l3Node = new Node(l3);
-	l3Node.next = l3.next;
-	var which = 1;
+  var l1Node = new Node(l1.val);
+  l1Node.next = l1.next;
+  var l2Node = new Node(l2.val);
+  l2Node.next = l2.next;
+  var l3 = new Node(l1.val);
+  var l3Node = l3;
 	while(l1Node.next || l2Node.next){
-		if (which === 1) {
-			l1jump(l1Node);
-			l3Add(l1Node);
-			which++;	
-		} else {
-			l2jump(l2Node);
-			l3Add(l2Node);
-			which--;
-		}
+		var newNewNode = new Node(l2Node.val);
+		l3Node.next = newNewNode;
+		l3Node = newNewNode;
+		l1Node = l1Node.next;
+  	l2Node = l2Node.next;
+  	var newNode = new Node(l1Node.val);
+    l3Node.next = newNode;
+		l3Node = newNode;
+
 	}
-	return l3;
-}
-
-function l1jump(l1Node){
-	l1Node = l1Node.next;
-	l1Node.next = l1Node.next.next;
-}
-
-function l2jump(l2Node){
-	l2Node = l2.node.next;
-	l2Node.next = l2Node.next.next;
-}
-
-function l3Add(lNode){
-	l3Node.next = lNode;
-	l3Node = lNode;
+	console.log(l3Node);
+	return l3Node;
 }
 
 console.log(zip({val: 1, next: {val: 2, next: { val: 3}}},{val: 4, next: {val: 5, next: { val: 6}}}));
