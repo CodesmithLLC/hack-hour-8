@@ -13,12 +13,12 @@
 
 */
 
-function drawStairs (n) {
+function drawStairs(n) {
 
   function makeStair(num) {
     let stair = "";
 
-    while(num > 0) {
+    while (num > 0) {
       stair += "*";
       num--;
     }
@@ -46,7 +46,7 @@ function drawStairs (n) {
     stairs += makeSpace(spacesMade);
     stairs += makeStair(i);
 
-    if(i + 1 !== n) {
+    if (i + 1 !== n) {
       stairs += "\n";
     }
 
