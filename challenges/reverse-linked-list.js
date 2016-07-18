@@ -31,8 +31,8 @@ function reverseLinkedList(head) {
   	node = node.next;
   }
 
-  for(var i = 0; i < container.length-1; i++) {
-  	container[i].next = container[i+1];
+  for(var i = 0; i < container.length; i++) {
+  	container[i].next = i === container.length -1 ? null : container[i+1];
   }
 
   return container[0];
