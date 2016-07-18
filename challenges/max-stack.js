@@ -7,7 +7,16 @@
  */
 
 function Stack() {
-  // body...
+  this.length = 0
 }
+
+Stack.prototype.push = function (v) {
+  return this.length += 1;
+}
+
+Stack.prototype.pop = function () {
+  return 'pop goes the test case';
+}
+
 
 module.exports = Stack;
