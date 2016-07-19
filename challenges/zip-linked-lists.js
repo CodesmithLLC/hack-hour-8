@@ -17,7 +17,8 @@ function zip(l1, l2) {
 	if (l1.value < l2.value) {
     	l1.next = zip(l1.next, l2);
     	return l1;
-  } else {
+  	} 
+  	else {
     	l2.next = zip(l2.next, l1);
     	return l2;
   }
