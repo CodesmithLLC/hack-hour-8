@@ -7,16 +7,26 @@
  */
 
 function Stack() {
-  this.length = 0
+  this.length = -1
+  this.store = {}
 }
 
 Stack.prototype.push = function (v) {
-  return this.length += 1;
+  this.length += 1;
+  this.store[this.length] = v
+  return this.length
 }
 
 Stack.prototype.pop = function () {
-  return 'pop goes the test case';
+  var popped = this.store[this.length]
+  if (this.length < 0) return undefined;
+  else {
+    delete this.store[this.length]
+  }
+  this.length -= 1
+  return popped
 }
+
 
 
 module.exports = Stack;
