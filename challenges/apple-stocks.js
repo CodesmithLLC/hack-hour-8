@@ -12,8 +12,18 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
 
+function bestProfit(stock_prices_yesterday) {
+  if(!Array.isArray(stock_prices_yesterday) && stock_prices_yesterday.length > 1) return 0;
+  var profit = 0;
+  for (var i = 1; i < stock_prices_yesterday.length; i++) {
+  	if (stock_prices_yesterday[i]-stock_prices_yesterday[i-1] > 0) {
+  		profit = profit + stock_prices_yesterday[i]-stock_prices_yesterday[i-1];
+  	}
+  }
+  return profit;
 }
+
+
 
 module.exports = bestProfit;
