@@ -14,14 +14,23 @@
 
 function bestProfit(stock_prices_yesterday) {
   var max = 0;
+  // if (isNaN(stock_prices_yesterday[0])) return 0;
   stock_prices_yesterday.reduce(function(a, b) {
+    if (isNaN(a)) {
+      max = 0;
+      return a;
+    }
+    if (isNaN(b)) {
+      max = 0;
+      return b;
+    }
     if ((a - b) > max) max = a - b;
     if (b > a) return b;
     else return a;
   });
-  return max;
+  return max > 0 ? max : 0
 }
 
-// console.log(bestProfit([3,1,2,7,3,1,11,2,5,3,10,3,5]));
+console.log(bestProfit([2,7,3,1,11,'bfafd',5,3,10,3,5]));
 
 module.exports = bestProfit;
