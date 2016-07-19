@@ -7,7 +7,7 @@
 //                     'fizz',
 //                     7,
 //                     8,
-//                     'fizz',
+//   /                     'fizz',
 //                     'buzz',
 //                     11,
 //                     'fizz',
@@ -17,7 +17,14 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+  const fizzBuzzArr = [];
+  for (let i = 1; i <= num; i++) {
+    if (num % 5 === 0  && num % 3 === 0) fizzBuzzArr.push('fizzbuzz');
+    else if (num % 3 === 0) fizzBuzzArr.push('fizz');
+    else if (num % 5 === 0) fizzBuzzArr.push('buzz');
+    else fizzBuzzArr.push(num);
+  }
+  return fizzBuzzArr;
 }
 
 module.exports = fizzbuzz;
