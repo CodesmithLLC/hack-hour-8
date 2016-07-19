@@ -13,7 +13,23 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+	let highestStock = 0;
 
+	if (stock_prices_yesterday === undefined) {
+		return 0;
+	}
+
+	for (let key in stock_prices_yesterday) {
+		if (stock_prices_yesterday[key] === undefined) {
+			return 0;
+		} else {
+			if (highestStock < stock_prices_yesterday[key]) {
+				highestStock = stock_prices_yesterday[key];
+			}
+		}
+	}
+
+	return highestStock;
 }
 
 module.exports = bestProfit;
