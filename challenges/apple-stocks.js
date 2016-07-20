@@ -12,8 +12,8 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-  const spy = stock_prices_yesterday;
+function bestProfit(stockPricesYesterday) {
+  const spy = stockPricesYesterday;
   const len = spy.length;
   let i;
   let j;
