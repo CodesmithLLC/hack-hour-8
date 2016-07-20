@@ -14,6 +14,35 @@
 
 function bestProfit(stock_prices_yesterday) {
 
+  //Straightforward, O(n^2) solution - not really efficient
+  // var maxDiff = 0;
+  // stock_prices_yesterday.forEach(function(ele,idx){
+    // stock_prices_yesterday.forEach(function(el,id){
+      // if(maxDiff < (ele - el) ) maxDiff = ele - el;
+    // })
+  // })
+  // return maxDiff;
+  //////////////
+
+  var cloneStocks = stock_prices_yesterday.slice(0);
+
+  var sorted = cloneStocks.sort(function(a,b){
+    return a - b;
+  })
+
+  var revSorted = sorted.reverse();
+  var maxDiff = 0;
+
+  revSorted.forEach(function(ele,idx){
+    stock_prices_yesterday.forEach(function(el,id){
+      console.log(ele,el);
+      if(ele === el) return stock_prices_yesterday.splice(id, 1);
+      if((ele > el) && (ele - el > maxDiff)) maxDiff = ele - el;
+    })
+  })
+  return maxDiff;
 }
 
-module.exports = bestProfit;
+
+console.log(bestProfit([4,3,8,6,1]));
+// module.exports = bestProfit;
