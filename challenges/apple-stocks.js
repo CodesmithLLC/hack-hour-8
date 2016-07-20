@@ -13,6 +13,7 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+<<<<<<< HEAD
 	var deltas = [];
 	var peak;
 	var peakTime;
@@ -61,4 +62,9 @@ function bestProfit(stock_prices_yesterday) {
 
 
 console.log(bestProfit([11,10,6,2,9,1,5,4,20]));
+=======
+
+}
+
+>>>>>>> 54305344fd1d336bf5cfc0b346523a52f798c1f0
 module.exports = bestProfit;
