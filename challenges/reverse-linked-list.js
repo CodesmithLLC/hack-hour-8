@@ -14,7 +14,22 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+// traverse from head to tail
+// store nodes in an array? then reverse through array once head is reassigned?
+// when at tail, set tail to head
+var nodeArr =[];
+var headNode = head;
+var currentNode = head;
+while(currentNode.next){
+  nodeArr.push(currentNode);
+  currentNode = this.next;
+}
+headNode = currentNode;
 
+
+
+// ultimately return headNode;
+return headNode;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
