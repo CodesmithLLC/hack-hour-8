@@ -12,13 +12,13 @@
  */
 
 function reverseInPlace(array) {
-  for(var i = 0; i < array.length / 2; i++) {
+  for (var i = 0; i < array.length / 2; i++) {
     var leftEndValue = array[i];
     var rightEndValue = array[array.length - 1 - i];
     array[i] = rightEndValue;
     array[array.length - 1 - i] = leftEndValue;
   }
-  
+
   return array;
 }
 

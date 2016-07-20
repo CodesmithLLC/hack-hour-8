@@ -9,12 +9,33 @@
  */
 
 function Node(value) {
-    this.value = value;
-    this.next = null;
+  this.value = value;
+  this.next = null;
 }
 
 function reverseLinkedList(head) {
+  var arr = []
+
+  var value = head.value;
+  while (value !== undefined) {
+    arr.push(value);
+    value = value.next.value;
+  }
+
+  arr.reverse();
+
+  var newList;
+  var tail;
+  arr.forEach(function(item) {
+    newList = new Node(item);
+    tail = newList.next;
+
+  });
+
 
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = {
+  Node: Node,
+  reverseLinkedList: reverseLinkedList
+};
