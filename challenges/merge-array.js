@@ -12,9 +12,24 @@
  * Complete in O(n) time and O(n) space 
  *
  */
+//BRUTE FORCE: two for loops that push the smaller number of the two arrays 
 
+// return arr1.concat(arr2).sort(function(a,b){ return a-b});
 function mergeArrays(arr1, arr2) {
-
+	var res = [];
+	var i =0;
+	var j=0;
+	while(i<arr1.length && j<arr2.length){
+		if(arr1[i] < arr2[j]){
+			res.push(arr1[i]);
+			i++;
+		}
+		else if(arr1[i] >= arr2[j]){
+			res.push(arr2[j]);
+			j++;
+		}
+	}
+	return res;
 }
 
 module.exports = mergeArrays;
