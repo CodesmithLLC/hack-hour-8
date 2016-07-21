@@ -13,6 +13,7 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+<<<<<<< HEAD
   var max = 0;
   // if (isNaN(stock_prices_yesterday[0])) return 0;
   stock_prices_yesterday.reduce(function(a, b) {
@@ -32,5 +33,9 @@ function bestProfit(stock_prices_yesterday) {
 }
 
 console.log(bestProfit([2,7,3,1,11,'bfafd',5,3,10,3,5]));
+=======
+
+}
+>>>>>>> 54305344fd1d336bf5cfc0b346523a52f798c1f0
 
 module.exports = bestProfit;
