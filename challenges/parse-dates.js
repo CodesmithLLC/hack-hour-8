@@ -40,7 +40,22 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  // create new Date Object; the use setDate methods on that object after string is parsed by type
+  // parse str, breaking it up into date components, then store in variable, then use set<methods> on instantiated Date object
+  // return date object
+  let dateParsed = new Date();
+
+  // iterate through str while str.charAt[i] is not a number
+  var dateVal = '';
+  var i = 0;
+  while(typeof str.charAt(i) !== 'number' && i < str.length){
+
+    dateVal += str.charAt(i)
+    i++;
+  }
+console.log(typeof str.charAt(9));
+
 }
 
+parseDates("Sunday 12:59 PM")
 module.exports = parseDates;
