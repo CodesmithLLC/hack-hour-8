@@ -1,8 +1,10 @@
 var path = require('path')
 var fs = require('fs')
+var userEmail = process.argv[2]
 var helper = require('sendgrid').mail
+console.log(`email to ${userEmail}`)
 var from_email = new helper.Email("hello@codesmith.io")
-var to_email = new helper.Email("yandri")
+var to_email = new helper.Email(`${userEmail}`)
 var subject = "Hack Hour Results"
 var body = fs.readFileSync(path.join(__dirname, '../body.html'))
 var content = new helper.Content("text/html", body.toString())
