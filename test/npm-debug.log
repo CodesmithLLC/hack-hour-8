@@ -1,0 +1,45 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/jared/.nvm/versions/node/v5.0.0/bin/node',
+1 verbose cli   '/home/jared/.nvm/versions/node/v5.0.0/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'try' ]
+2 info using npm@3.3.6
+3 info using node@v5.0.0
+4 verbose run-script [ 'pretry', 'try', 'posttry' ]
+5 info lifecycle hack-hour@1.0.0~pretry: hack-hour@1.0.0
+6 silly lifecycle hack-hour@1.0.0~pretry: no script for pretry, continuing
+7 info lifecycle hack-hour@1.0.0~try: hack-hour@1.0.0
+8 verbose lifecycle hack-hour@1.0.0~try: unsafe-perm in lifecycle true
+9 verbose lifecycle hack-hour@1.0.0~try: PATH: /home/jared/.nvm/versions/node/v5.0.0/lib/node_modules/npm/bin/node-gyp-bin:/home/jared/Development/codesmith/team/hack-hour-archive/node_modules/.bin:/home/jared/.nvm/versions/node/v5.0.0/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/home/jared/.rvm/gems/ruby-2.3.0/bin:/home/jared/.rvm/gems/ruby-2.3.0@global/bin:/home/jared/.rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin/:/bin:~/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:~/Development/algs4/bin:/home/jared/.rvm/bin:/home/jared/.rvm/bin:/home/jared/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin/:/bin:~/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:~/Development/algs4/bin:/home/jared/.rvm/bin
+10 verbose lifecycle hack-hour@1.0.0~try: CWD: /home/jared/Development/codesmith/team/hack-hour-archive
+11 silly lifecycle hack-hour@1.0.0~try: Args: [ '-c', './test/runtest' ]
+12 silly lifecycle hack-hour@1.0.0~try: Returned: code: 1  signal: null
+13 info lifecycle hack-hour@1.0.0~try: Failed to exec try script
+14 verbose stack Error: hack-hour@1.0.0 try: `./test/runtest`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/home/jared/.nvm/versions/node/v5.0.0/lib/node_modules/npm/lib/utils/lifecycle.js:233:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (/home/jared/.nvm/versions/node/v5.0.0/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:818:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid hack-hour@1.0.0
+16 verbose cwd /home/jared/Development/codesmith/team/hack-hour-archive/test
+17 error Linux 3.13.0-91-generic
+18 error argv "/home/jared/.nvm/versions/node/v5.0.0/bin/node" "/home/jared/.nvm/versions/node/v5.0.0/bin/npm" "run" "try"
+19 error node v5.0.0
+20 error npm  v3.3.6
+21 error code ELIFECYCLE
+22 error hack-hour@1.0.0 try: `./test/runtest`
+22 error Exit status 1
+23 error Failed at the hack-hour@1.0.0 try script './test/runtest'.
+23 error This is most likely a problem with the hack-hour package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     ./test/runtest
+23 error You can get their info via:
+23 error     npm owner ls hack-hour
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
