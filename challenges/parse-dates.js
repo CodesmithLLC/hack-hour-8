@@ -39,8 +39,62 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
-function parseDates(str) {
-  
+function parseDates (dateString){
+	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	var days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+	var year, month, day, hour, minute;
+	firstLetters = dateString.substring(0,3);
+	
+	//get current time and initiliazes the year-- WORKS
+	currentTime = new Date();
+	year = currentTime.getFullYear();
+	
+	
+	
+	//if today, then find current date --WORKS
+	if(firstLetters === 'Tod') {
+		// returns the month (from 0 to 11)
+		month = currentTime.getMonth();
+
+		// returns the day of the month (from 1 to 31)
+		day = currentTime.getDate() -1;
+	}
+	//if a month, has to find that day of the week --WORKS
+	else if(months.indexOf(firstLetters) !== -1){
+		month = months.indexOf(firstLetters);
+		day = parseInt(dateString.substr(4,2))-1;
+	}
+	//if a day, has to find the last occurence
+	else if(days.indexOf(firstLetters) !== -1){
+		var currentDay = currentTime.getDay();
+		var testDay = days.indexOf(firstLetters);
+		if(currentDay-1 === testDay){
+			currentTime.setDate(currentTime.getDate() - 7);
+		}
+		else {
+			var dayDiff = currentDay-1 - testDay;
+			if (dayDiff < 0) dayDiff +=7;
+			currentTime.setDate(currentTime.getDate() - dayDiff);
+		}
+		month = currentTime.getMonth();
+		day = currentTime.getDate()-1;
+
+	}
+	
+	//parse for hours and minutes --WORKS
+	minute = parseInt(dateString.substr(dateString.indexOf(':')+1, 2));
+	hour = parseInt(dateString.substr(dateString.indexOf(':')-2, 2));
+
+
+	//AM or PM --WORKS
+	if(dateString.match('PM')) hour += 12;
+	//make date object in the end (automatically determines invalid date)
+	
+	var date = new Date(year, month, day, hour, minute);
+	
+	//returns current time if invalid, otherwise date entered
+	if(isNaN( date.getTime() )) return currentTime;
+	else return date;
 }
 
 module.exports = parseDates;
