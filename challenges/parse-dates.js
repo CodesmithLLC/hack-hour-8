@@ -48,13 +48,19 @@ function parseDates(str) {
   // iterate through str while str.charAt[i] is not a number
   var dateVal = '';
   var i = 0;
-  while(typeof str.charAt(i) !== 'number' && i < str.length){
+  //required date components
+  var day = '';
+  var hour = '';
+  var minute = '';
+  var amPm = '';
+  // not required date components
+  var month = '';
 
-    dateVal += str.charAt(i)
-    i++;
-  }
-console.log(typeof str.charAt(9));
+for
 
+// check to see if ANY of the required date componenets are empty strings or null, if so, return newDate()..
+// else, use setDate on each of the required and options(if filled) components onto the date object and return it
+  return dateParsed;
 }
 
 parseDates("Sunday 12:59 PM")
