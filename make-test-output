@@ -1,2 +1,12 @@
-mocha --reporter mocha-email-reporter test/tests/$1 >> body.html
+#!/bin/bash
+CHALLENGES=./challenges/*
+for c in $CHALLENGES
+do
+  challPath=${c:0:13}
+  fileName=${c:13:(-3)}
+  testName=$fileName-test.js
+  echo "writing $testName "
+  mocha --reporter mocha-email-reporter test/tests/$testName >> body.html
+done
+
 
