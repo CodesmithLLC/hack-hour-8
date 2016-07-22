@@ -14,9 +14,18 @@
  */
 
 function mergeArrays(arr1, arr2) {
-  return arr1.concat(arr2).sort(function(a, b) {
-  	return a - b;
-  });
+  var merged = [];
+  for(var i = 0; arr1.concat(arr2).length; i++) {
+  	var highest = arr1[0] < arr2[0] ? arr1.splice(0,1) : arr2.splice(0,1);
+  	console.log(highest);
+  	merged = merged.concat(highest);
+  }
+  return merged
 }
+
+var my_array = [3,4,6,10,11,15,21];
+var another_array = [1,5,8,12,14,19];
+mergeArrays(my_array, another_array);
+
 
 module.exports = mergeArrays;
