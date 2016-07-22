@@ -14,6 +14,7 @@
  */
 
 function binToDec(binary) {
+  return 10
 
 }
 

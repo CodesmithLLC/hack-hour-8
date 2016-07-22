@@ -13,9 +13,21 @@
 
 */
 
-function drawStairs(n) {
-
+function makeSpaceArray(character, x) {
+  var str = [];
+  for (var i = 0; i < x; i++) {
+    str.push(character);
+  }
+  return str;
 }
+
+function drawStairs(n) {
+  var arr = makeSpaceArray(' ', n);
+  while (n > 0) {
+    arr[--n] = '*';
+    console.log(arr.join(''));
+  }
+}}
 
 
 module.exports = drawStairs;

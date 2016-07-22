@@ -8,11 +8,13 @@
  */
 
 function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
+  return s1.indexOf(s2) >= 0
 }
 
 function stringRotation(s1, s2) {
-
+  // can't be a rotation if they aint the same length
+  if (s2.length !== s1.length) return false
+  return isSubstring(s1+s1, s2)
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
