@@ -1,0 +1,2 @@
+mocha --reporter mocha-email-reporter test/tests/$1 >> body.html
+

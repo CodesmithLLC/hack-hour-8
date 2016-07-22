@@ -1,0 +1,3 @@
+export SENDGRID_API_KEY=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
+node manual-grades/manual-grades.js $1
+
