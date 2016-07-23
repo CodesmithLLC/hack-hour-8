@@ -39,24 +39,28 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
-var days = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':7}
-var months = {'Jan': 1, 'Feb':2, 'Mar':3, 'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
+var days = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':0};
+
+var months = {'Jan': 0, 'Feb':1, 'Mar':2, 'Apr':3,'May':4,'Jun':5,'Jul':6,'Aug':7,'Sep':8,'Oct':9,'Nov':10,'Dec':11};
 function parseDates(str) {
 	var today = new Date();
 	var todayDay = today.getDay();
 	var todayDate = today.getDate();
 	var todayMonth = today.getMonth();
  	var targetYear = today.getFullYear();
- 	console.log(targetYear);
 	var targetMonth;
 	var targetDate;
 	var targetDay;
 	var targetHours;
 	var targetMins;
 	var strArr = str.split(' ');
+	if (strArr[0] === 'Today') return today;
+	var keys = Object.keys(days).concat(Object.keys(months));
+	if (keys.indexOf(strArr[0]) < 0){
+		return today;
+	} 
 	//time
 	targetHours = parseInt(strArr[strArr.length-2].slice(0,-3));
-	console.log(targetHours);
 	targetMins = parseInt(strArr[strArr.length-2].slice(-2))
 	// month-date format
 	if(strArr[strArr.length-1] === 'PM') targetHours+=12;
@@ -71,8 +75,6 @@ function parseDates(str) {
 		targetDay = days[strArr[0]];
 		targetDate = todayDate - (todayDay-targetDay);
 	}
-	console.log(targetDate);
-	console.log(targetYear,targetMonth,targetDate,targetHours,targetMins);
 	return new Date(targetYear,targetMonth,targetDate,targetHours,targetMins);
 }
 
