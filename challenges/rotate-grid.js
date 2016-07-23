@@ -16,8 +16,28 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
+ /*
+1. Create a holder array.
+2. Create a for loop for n number of arrays
+3. Within the for loop create a temp array and push i position of each array in the matrix into the temp array 
+4. Use a for loop within the for loop  to traverse matrix.
+5. push the temp array into the holder array.
+6. When the loop is complete, return holder array.
 
+ */
+
+
+function rotateGrid(grid, n) {
+  var holder = [];
+  for (var i = 0; i < grid.length; i++) {
+  	var temp = [];
+  	for (var k = grid.length -1; k >= 0; k--) {
+  		temp.push(grid[k][i]);
+  	}
+  	holder.push(temp);
+  }
+  return holder;
 }
+
 
 module.exports = rotateGrid;

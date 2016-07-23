@@ -40,7 +40,12 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 }
+
+// console.log(new Date());
+console.log(new Date(...[2016, 11, 3, 3, 24]));
+//new Date(year, month[, day, hour, minutes)
+
 
 module.exports = parseDates;
