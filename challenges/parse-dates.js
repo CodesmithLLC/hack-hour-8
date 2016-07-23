@@ -40,7 +40,9 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+    var today = new Date();
+    var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    var daysBack = numOfDays * 86400000;
 }
 
 module.exports = parseDates;
