@@ -54,7 +54,7 @@ function parseDates(str) {
 	var targetHours;
 	var targetMins;
 	var strArr = str.split(' ');
-	if (strArr[0] === 'Today') return today;
+	if ((strArr[0] === 'Today')||(strArr.length < 3)) return today;
 	var keys = Object.keys(days).concat(Object.keys(months));
 	if (keys.indexOf(strArr[0]) < 0){
 		return today;
