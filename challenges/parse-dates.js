@@ -40,10 +40,13 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
+<<<<<<< HEAD
 	var strArr = str.split('');
 	//find the date for today 
 	var dateNow = Date.now().toString();
 	var dateNowArr = dateNow.split('');
+=======
+>>>>>>> 34461cb4c784d3e3c1719b096cc0eb7a8d8d10b6
   
 }
 
