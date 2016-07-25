@@ -1,8 +1,3 @@
-/**
- * Create a stack.Then create a queue using two stacks.
- */
-
-
 function Stack() {
 	this.value = [];
 	this.length = 0;
@@ -23,11 +18,6 @@ function Stack() {
 }
 
 
-/**
-* Queue Class
-*/
-
-
 function Queue() {
 	this.size = 0;
 	this.isEmpty = true;
@@ -41,16 +31,18 @@ function Queue() {
 	};
 
 	this.dequeue = function(){
-		if(this.outbox.length === 0){
 			while(this.inbox.length !== 0){
 				this.outbox.push(this.inbox.pop());
 			}
-			return this.outbox.pop();
-		}
-		this.size--;
-		if(this.size === 0)this.isEmpty = true;
+			var temp = this.outbox.pop();
+			while(this.outbox.length !== 0){
+				this.inbox.push(this.outbox.pop());
+			}
+			this.outbox = new Stack();
+			this.size--;
+			if(this.size === 0)this.isEmpty = true;
+		return temp;
 	};
-		
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
