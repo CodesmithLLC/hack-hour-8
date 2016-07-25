@@ -12,8 +12,34 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
-function numToWords(num) {
+// var num < 1;
+// num < 10
+// num < 100
+// num < 1000
+// num < 100000
+// num < 100000000
+// num < 100000000000
+// num < 100000000000000
 
+function numToWords(num) {
+  var baseNums = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+  var teens = ['Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen',];
+  var tens = ['Ten', 'Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+  var powers = ['Hundred', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+
+  var divided = num / 10;
+
+  function factored(num){
+    if(num < 20) return Math.round(num);
+    return [(num / 10), factored(num/10)];
+
+  }
+
+
+  switch(divided){
+    case divided < 1:
+
+  }
 }
 
-module.exports = numToWords;
+// module.exports = numToWords;
