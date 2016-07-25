@@ -47,9 +47,8 @@ Queue.prototype.enqueue = function(value){
 
 Queue.prototype.dequeue = function(value){
 	if (this.stack2.index === 0) return this.stack2;
-	this.stack2.pop();
 	this.deindex++;
-	return this.stack2;
+	return this.stack2.pop();
 }
 
 var queue = new Queue();
