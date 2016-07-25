@@ -43,7 +43,7 @@ replace all word characters and numbers with nothing) [this doesn't seem to be w
           (9) If it is indeed another opening brace, pull that substring and run it against the recursive brace checker.
         [This may be a recursive call]
         [never mind, do the other idea]
-        
+
 Find the first instance of an opening parens.
 Create a substring from the index of the opening parens to the first instance of a closing parens (that matches type).
 With that substring,
@@ -51,10 +51,33 @@ With that substring,
 
 function balancedParens(input) {
   if (typeof input !== 'string') return false;
-  //[need to determine base case]
-  if (input.charAt(0) === '(' || input.charAt(0) === '{' || input.charAt(0) === '[') {
-    input.substring(0, )
+  const arr = [];
+  const pairs = {
+    '[': ']',
+    '{': '}',
+    '(': ')',
+  };
+  const closers = {
+    ')': 1,
+    ']': 1,
+    '}': 1,
+  };
+  let i;
+  let cur;
+
+  for (i = 0; i < input.length; i++) {
+    cur = input[i];
+    if (pairs[cur]) {
+      arr.push(pairs[cur]);
+    } else if (cur in closers) {
+      if (arr[arr.length - 1] === cur) {
+        arr.pop();
+      } else {
+        return false;
+      }
+    }
   }
+  return !arr.length;
 }
 
 module.exports = balancedParens;
