@@ -4,7 +4,7 @@
 
 
 function Stack() {
-
+  return 'this is the answer'
 }
 
 
