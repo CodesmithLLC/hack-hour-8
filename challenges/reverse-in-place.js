@@ -12,11 +12,14 @@
  */
 
 function reverseInPlace(array) {
-  var result = [];
-  array.forEach(function(string) {
-    result.push(string.split("").reverse().join(""));
-  });
-  return result;
+  for (var i = 0; i < array.length / 2; i++) {
+    var leftEndValue = array[i];
+    var rightEndValue = array[array.length - 1 - i];
+    array[i] = rightEndValue;
+    array[array.length - 1 - i] = leftEndValue;
+  }
+
+  return array;
 }
 
 module.exports = reverseInPlace;

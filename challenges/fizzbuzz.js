@@ -17,15 +17,15 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-  var answer = [];
+  var answer = []
 
-  while(num >= 1) {
-    if(num % 3 === 0 && num % 5 === 0) {
+  while (num >= 1) {
+    if (num % 3 === 0 && num % 5 === 0) {
       answer.push("fizzbuzz");
-    } else if(num % 3 === 0) {
-      answer.push("fizz");
-    } else if(num % 5 === 0) {
-      answer.push("buzz");
+    } else if (num % 3 === 0) {
+      answer.push("fizz")
+    } else if (num % 5 === 0) {
+      answer.push("buzz")
     } else {
       answer.push(num);
     }
@@ -33,7 +33,7 @@ function fizzbuzz(num) {
     num--
   }
 
-  return answer.reverse();
+  return answer.reverse()
 }
 
 module.exports = fizzbuzz;
