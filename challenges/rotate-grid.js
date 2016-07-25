@@ -27,7 +27,6 @@ function rotateGrid(grid, n) {
         var arr = []
         while (times > 0) {
             arr.push(grid[gridArr][gridI])
-            grid
         }
     }
 
