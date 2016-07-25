@@ -32,7 +32,7 @@ function bestProfit(stockPricesYesterday) {
     }
   }
 
-  return maxChangeInPrice > 0 ? maxChangeInPrice : 0;
+  return maxChangeInPrice > 0 ? maxChangeInPrice : 0; // need to figure out why this didn't pass
 }
 
 module.exports = bestProfit;
