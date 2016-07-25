@@ -19,6 +19,7 @@ function Stack() {
   $.push = function(baz){
     $.collection[$.length++] = baz;
     if(baz > $.max) $.max = baz;
+    return $.length;
   }
 
   ///////////////////
