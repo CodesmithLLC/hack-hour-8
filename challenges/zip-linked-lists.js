@@ -10,7 +10,6 @@ function Node(val) {
   this.next = null;
 }
 
-// I don't think this is right... I'm not sure if assigning the lists to nodes was correct.
 function zip(l1, l2) {
   // base cases: when all nodes from one LL is exhausted, just return the rest of the other
   if (!l1) return l2;
