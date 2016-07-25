@@ -12,7 +12,6 @@
  * Complete in O(n) time and O(n) space
  *
  */
-
 function mergeArrays(arr1, arr2) {
   let i = 0;
   let j = 0;
