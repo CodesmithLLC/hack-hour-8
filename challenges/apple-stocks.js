@@ -36,7 +36,7 @@ if (stock_prices_yesterday.indexOf(min) < stock_prices_yesterday.indexOf(max)) r
 
 let arrMaxCheck = stock_prices_yesterday.slice(0, stock_prices_yesterday.indexOf(max)+1)
 let arrMinCheck = stock_prices_yesterday.slice(stock_prices_yesterday.indexOf(min)); 
-console.log('maxArr', arrMaxCheck, 'minArr', arrMinCheck); 
+// console.log('maxArr', arrMaxCheck, 'minArr', arrMinCheck); 
 let maxDiff = max - Math.min(...arrMaxCheck); 
 let minDiff = Math.max(...arrMinCheck) - min; 
 if (maxDiff === 0 && minDiff === 0)return 0; 
