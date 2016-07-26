@@ -14,7 +14,6 @@
  */
 
 function mergeArrays(arr1, arr2) {
-<<<<<<< HEAD
     let result = [];
 
     while (arr1.length > 0 || arr2.length > 0) {
@@ -28,9 +27,6 @@ function mergeArrays(arr1, arr2) {
     }
 
     return result;
-=======
-
->>>>>>> 905cb61e08b2cba496ed1dc1208588f9d4b16d96
 }
 
 module.exports = mergeArrays;
