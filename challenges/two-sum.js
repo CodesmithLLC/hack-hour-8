@@ -3,10 +3,10 @@
  */
 
  const twoSum = (arr, n) => {
-   for (let i = 0; i < arr.length; i++) {
-     for (let j = i + 1; j < arr.length; j++) {
-       if (arr[i] + arr[j] === n) return true;
-     }
+   let x = 0;
+   while (x < arr.length - 1) {
+     if (arr.indexOf(n - arr[x]) > -1) return true;
+     x++;
    }
    return false;
  };
