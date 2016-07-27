@@ -7,7 +7,7 @@
  */
 
 function Stack() {
-  this.storage = {};
+  this.storage = [];
   this.index = 0;
 }
 

@@ -21,7 +21,7 @@ function reverseInPlace(array) {
   let i = 0;
   let temp;
 
-  if (!Array.isArray(array)) return null;
+  if (!Array.isArray(array) || array.length === 0) return [];
 
   if (arr === []) return arr;
 
