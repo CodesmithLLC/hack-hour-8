@@ -15,8 +15,6 @@ function twoSum(arr, n) {
 		if (arr.slice(1).indexOf(n-arr[i]) > -1) return true;
 	}
 	return false;
-	
-	
 }
 
 module.exports = twoSum;
