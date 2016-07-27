@@ -3,38 +3,37 @@
  */
 
 function Stack() {
-  this.storage = {};
+  this.storage = [];
   this.index = 0;
 }
+
+Stack.prototype.push = function (value) {
+  this.storage[this.index] = value;
+  this.index++;
+  return this.index;
+};
+
+Stack.prototype.pop = function () {
+  const popped = this.storage[this.index - 1];
+  delete this.storage[this.index--];
+  return popped;
+};
 
 /**
 * Queue Class
 */
 function Queue() {
-  this.storage = {};
-  this.index = 0;
-  const stack = new Stack();
-  let i = 0;
-
-  while (i < 2) {
-    this.storage[this.index] = stack;
-    this.index++;
-    i++;
-  }
+  this.q = new Stack();
 }
 
-// function enqueue(value) {
-//   this.storage[this.index] = value;
-//   this.index++;
-//   return this.index;
-// }
-//
-// function twoStackQueue() {
-//   const q = new Queue();
-//   q.enqueue(stack);
-//   q.enqueue(stack);
-//
-//   return q;
-// }
+Queue.prototype.enqueue = function(value) {
+  this.q.push(value);
+  this.q.index++
+  return this.q.index;
+};
+
+Queue.prototype.dequeue = function() {
+
+};
 
 module.exports = { Stack: Stack, Queue: Queue };
