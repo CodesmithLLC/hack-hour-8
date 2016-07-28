@@ -9,6 +9,8 @@
 
 function gcd(a, b) {
 
+  if (isNaN(a) || isNaN(b)) {return 'NOT NUMBER'};
+
   let n = Math.min(a, b);
 
 	function helper (a, b, n) {
