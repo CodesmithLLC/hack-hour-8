@@ -3,6 +3,7 @@
  */
 
 function twoSum(arr, n) {
+<<<<<<< HEAD
 	var hash = {};
     
     for(var i = 0; i < arr.length; i++){
@@ -22,6 +23,9 @@ function twoSum(arr, n) {
     }
     
     return [];
+=======
+
+>>>>>>> dd1ec374824e7f4118721b57c72e556db9cb5e75
 }
 
 module.exports = twoSum;

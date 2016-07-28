@@ -12,6 +12,7 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+<<<<<<< HEAD
 	return validate(root, -Infinity, Infinity);
 }
 
@@ -24,6 +25,9 @@ function validate = function(node, min, max){
         return false;
     }
     return validate(node.left,min,node.val) && validate(node.right,node.val,max);
+=======
+
+>>>>>>> dd1ec374824e7f4118721b57c72e556db9cb5e75
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
