@@ -8,7 +8,16 @@
  */
 
 function gcd(a, b) {
-
+  var min = (a <= b) ? a : b;
+  for (var i = min; i >= 0; i--) {
+    if (a % i === 0 && b % i === 0) {
+      return i;
+    }
+  }
 }
+
+
+console.log(gcd(10, 5));
+
 
 module.exports = gcd;
