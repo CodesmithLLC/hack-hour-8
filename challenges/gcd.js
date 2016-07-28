@@ -9,6 +9,19 @@
 
 function gcd(a, b) {
 
+  let n = Math.min(a, b);
+
+	function helper (a, b, n) {
+
+		if (a % n === 0 && b % n === 0) {
+			return n;
+		}
+		else {
+			return helper (a, b, n-1);
+		}
+
+	}
+  	return helper(a, b, n);
 }
 
 module.exports = gcd;
