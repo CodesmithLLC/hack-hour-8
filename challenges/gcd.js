@@ -9,6 +9,22 @@
 
 function gcd(a, b) {
 
+  var denom = 1;
+  if(a === 0 || b === 0){
+    return denom;
+  }
+  var smallNum = Math.min(a,b);
+
+  var idx = 1;
+  while(idx <= smallNum){
+    if(a % idx === 0 && b % idx === 0){
+      denom = idx;
+    }
+    idx++;
+  }
+  return denom;
 }
 
+// console.log(gcd(20, 120));
 module.exports = gcd;
+
