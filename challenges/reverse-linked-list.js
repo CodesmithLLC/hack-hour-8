@@ -9,18 +9,18 @@
  */
 
 function Node(value) {
-    this.value = value;
-    this.next = null;
+		this.value = value;
+		this.next = null;
 }
 
 function reverseLinkedList(head){
 	var node = head;
 	var previous = null;
 	while(node){
-		var save = node.next;
+		var temp = node.next;
 		node.next = previous;
 		previous = node;
-		node = save;
+		node = temp;
 	}
 	return previous;
 }
