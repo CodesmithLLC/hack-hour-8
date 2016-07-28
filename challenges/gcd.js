@@ -7,24 +7,42 @@
  *
  */
 
+// function gcd(a, b) {
+
+  // var denom = 1;
+  // if(a === 0 || b === 0){
+    // return denom;
+  // }
+  // var smallNum = Math.min(a,b);
+
+  // var idx = 1;
+  // while(idx <= smallNum){
+    // if(a % idx === 0 && b % idx === 0){
+      // denom = idx;
+    // }
+    // idx++;
+  // }
+  // return denom;
+// }
+
+
+//should be faster than above
 function gcd(a, b) {
 
-  var denom = 1;
   if(a === 0 || b === 0){
-    return denom;
+    return 1;
   }
   var smallNum = Math.min(a,b);
 
-  var idx = 1;
-  while(idx <= smallNum){
+  var idx = smallNum;
+  while(idx >= 1){
     if(a % idx === 0 && b % idx === 0){
-      denom = idx;
+      return idx;
     }
-    idx++;
+    idx--;
   }
-  return denom;
+  // return denom;
 }
+// console.log(gcd(39, 120));
 
-// console.log(gcd(20, 120));
 module.exports = gcd;
-
