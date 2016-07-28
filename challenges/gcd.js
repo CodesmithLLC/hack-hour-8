@@ -8,7 +8,18 @@
  */
 
 function gcd(a, b) {
-
+	if (!a || !b ) return 0;
+	var prod = 1;
+	i=2;
+	while(i<Math.max(a,b)){
+		if(a%i ===0 && b%i === 0 ){
+			a /= i;
+			b /= i;
+			prod *= i;
+		}
+		else i++;
+	}
+	return prod;
 }
 
 module.exports = gcd;
