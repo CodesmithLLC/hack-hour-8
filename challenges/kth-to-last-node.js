@@ -34,11 +34,11 @@ function kthToLastNode(k, head) {
 
 // edge case: k is < 1 and unusable
   if (k < 1) {
-    return 'undefined';
+    return undefined;
   }
 // edge case: list undefined
   if (this.value == null) {
-    return 'undefined';
+    return undefined;
   }
 // check for list length of one
   if (this.value === head && this.next == null) {

@@ -5,19 +5,17 @@
 function twoSum(arr, n) {
   if (arr.length < 2) return false;
 
-  let res = false;
   let i;
   let diff;
 
   for (i = 0; i < arr.length; i++) {
     diff = n - arr[i];
     if (arr.includes(diff)) {
-      res = true;
-      break;
+      return true;
     }
   }
 
-  return res;
+  return false;
 }
 
 module.exports = twoSum;

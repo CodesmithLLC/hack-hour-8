@@ -7,13 +7,13 @@ function Stack() {
   this.index = 0;
 }
 
-Stack.prototype.push = function (value) {
+Stack.prototype.push = (value) => {
   this.storage[this.index] = value;
   this.index++;
-  return this.index;
+  return value;
 };
 
-Stack.prototype.pop = function () {
+Stack.prototype.pop = () => {
   const popped = this.storage[this.index - 1];
   delete this.storage[this.index--];
   return popped;
@@ -23,17 +23,24 @@ Stack.prototype.pop = function () {
 * Queue Class
 */
 function Queue() {
-  this.q = new Stack();
+  this.inbox = new Stack();
+  this.outbox = new Stack();
 }
 
-Queue.prototype.enqueue = function(value) {
-  this.q.push(value);
-  this.q.index++
-  return this.q.index;
+Queue.prototype.enqueue = (value) => {
+  this.inbox.push(value);
+  return value;
 };
 
-Queue.prototype.dequeue = function() {
+Queue.prototype.dequeue = () => {
+  if (this.outbox.index === 0) {
+    if (this.inbox.index === 0) return undefined;
+    while (this.inbox.index > 0) {
+      this.outbox.push(this.inbox.pop());
+    }
+  }
 
+  return this.inbox.pop();
 };
 
 module.exports = { Stack: Stack, Queue: Queue };

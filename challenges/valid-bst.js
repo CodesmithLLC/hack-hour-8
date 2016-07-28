@@ -4,7 +4,6 @@
  *      at any given node, the value of all the nodes in its right tree must be > its value
  */
 
-
 function BinaryTree(val) {
   this.value = val;
   this.left = null;
