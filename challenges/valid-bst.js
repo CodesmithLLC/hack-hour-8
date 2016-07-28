@@ -12,6 +12,48 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+  let currentValue = tree.value;
+  let leftVal = tree.left;
+  let rightVal = tree.left.right;
+
+  while(leftVal !== null) {
+    if(leftVal > currentValue || rightVal <= currentValue) {
+      return false
+    } else {
+      currentValue = leftVal
+      leftVal = currentValue.left;
+      rightVal = 
+    }
+  }
+
+  let currentVal = tree.value
+
+
+
+  function check(tree) {
+    if (tree.left === null && tree.right === null) {
+      return;
+    }
+
+  let currentValue = tree.value;
+  let leftVal = tree.left;
+  let rightVal = tree.right;
+
+    if(leftVal > currentValue || rightVal <= currentValue) {
+      return false;
+    } else {
+      currentValue = leftVal
+      leftVal = currentValue.left;
+      rightVal = 
+    }
+  }
+
+  let currentVal = tree.value
+
+
+
+
+  }
 
 }
 
