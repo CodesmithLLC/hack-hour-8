@@ -6,9 +6,9 @@
  * For example:     sampleGrid before:  [   [1, 2, 3],
  *                                          [4, 5, 6],
  *                                          [7, 8, 9]  ]
- *                  
+ *
  *                  rotateGrid(sampleGrid, 3);
- *                  
+ *
  *                  sampleGrid after:   [   [7, 4, 1],
  *                                          [8, 5, 2],
  *                                          [9, 6, 3]  ]
@@ -17,6 +17,12 @@
  */
 
 function rotateGrid(grid, n) {
+  var len = grid.length
+  for (var i = 0; i < n; i++) {
+    var row = grid[i]
+    for (var j = len; j > 0; j--) {
+      // copy bottom left to top left
+      var temp = 
 
 }
 
