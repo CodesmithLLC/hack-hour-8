@@ -8,7 +8,14 @@
  */
 
 function gcd(a, b) {
-
+  if (a === b) return a;
+  let s = a < b ? a : b;
+  let l = a < b ? b : a;
+  for (let i = s; i >= 1; i--) {
+    if (s % i === 0 && l % i === 0) {
+      return i;
+    }
+  }
 }
 
 module.exports = gcd;
