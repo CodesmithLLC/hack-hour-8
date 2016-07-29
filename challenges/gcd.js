@@ -8,7 +8,7 @@
  */
 
 
-function gcd(a, b) {
+function gcdFirstTry(a, b) {
   if (!Number.isInteger(a)) return false;
   if (!Number.isInteger(b)) return false;
 
@@ -21,6 +21,7 @@ function gcd(a, b) {
     for (i = Math.floor(x / 2); i >= 2; i--) {
       if (x % i === 0) return false;
     }
+  
     return true;
   };
 
@@ -40,6 +41,11 @@ function gcd(a, b) {
   }
 
   return factors[factors.length - 1];
+}
+
+function gcd(a, b) {
+  if (b === 0) return a;
+  return gcdEuclid(a, a % b);
 }
 
 module.exports = gcd;

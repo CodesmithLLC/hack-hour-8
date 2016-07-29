@@ -26,7 +26,8 @@
  */
 
 function applyIt(func, args) {
-
+  if (!Array.isArray(args)) return false;
+  return args.map(func);
 }
 
 module.exports = applyIt;
