@@ -26,7 +26,10 @@
  */
 
 function applyIt(func, args) {
-
+	var argus = args;
+	return function(argus){
+		return func.apply(null,args);
+	} 
 }
 
 module.exports = applyIt;
