@@ -25,8 +25,26 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
+/*
+Pseudo approach. Take the array and run a for loop to extract the args. Stringify the args, concat them together, and save into arguments variable. Return the func with the arguments variable passed in. I'm assuming I'll need to use eval. Could also use bind.
+*/
 
+function applyIt(func, args) {
+	
+	return function(){
+		var argString ='';
+		var output= func;
+		for(var i = 0; i < args.length; i++){
+			if(i === args.length-1){
+				argString = argString+JSON.stringify(args[i]);
+			} else {
+				argString = argString+JSON.stringify(args[i])+',';
+			}
+	    }
+	    
+	    return eval('output('+argString+')');
+	};
 }
+
 
 module.exports = applyIt;
