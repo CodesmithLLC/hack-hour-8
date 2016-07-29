@@ -26,7 +26,15 @@
  */
 
 function applyIt(func, args) {
+	// grab list of arguments
+	let arg = arguments[1];
+	let final;
 
+
+	// find a way to loop through arguments and insert them into function
+	for (var i = 0; i < arg.length; i++) {
+		final = func.call(this, arg[i]);
+	}	
 }
 
 module.exports = applyIt;
