@@ -8,19 +8,23 @@
  */
 
 function gcd(a, b) {
+	//hack hour solution way. very nice!
+	if (b===0) return a;
+	return gcb(b, a%b);
+
 	// handle negatives
-	a = Math.abs(a);
-	b = Math.abs(b);
+	// a = Math.abs(a);
+	// b = Math.abs(b);
 
 	// handle same integer
-	if(a === b) return a;
+	// if(a === b) return a;
 
 	// faster, cleaner O(n)
-	let less = Math.min(a,b);
-	let more = Math.max(a,b);
-	for(let i = less; i > 0; i--){
-		if( (less % i === 0) && (more % i === 0) ) return i;
-	}
+	// let less = Math.min(a,b);
+	// let more = Math.max(a,b);
+	// for(let i = less; i > 0; i--){
+	// 	if( (less % i === 0) && (more % i === 0) ) return i;
+	// }
 
 	// brute force method O(n^2)
 

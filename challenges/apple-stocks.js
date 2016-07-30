@@ -12,59 +12,17 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-<<<<<<< HEAD
-	var deltas = [];
-	var peak;
-	var peakTime;
-	var valley;
-	var valleyTime;
-	var delta;
-	var i = 0;
-	var current = stock_prices_yesterday[i];
-	var next = stock_prices_yesterday[i+1];
-	console.log(current, next);
-	while(i < stock_prices_yesterday.length){
-		console.log('hi');
-		findValley(current, next, i);
-		findPeak(current, next, i);
-	}
-	function findValley(current, next, i){
-		while(current > next){
-			i++;
-			current = stock_prices_yesterday[i];
-  	  next = stock_prices_yesterday[i+1];
-		}
-		valley = current;
-		valleyTime = i;
-		console.log("valley ", current, next, i);
-	}
-
-	function findPeak(current, next, i){
-		while(current<next){
-			i++;
-			current = stock_prices_yesterday[i];
-  	  		next = stock_prices_yesterday[i+1];
-		}
-		peak = current;
-		peakTime = i;
-		delta = peak - valley;
-		console.log("peak ",current, next, i);
-		deltas.push(delta);
-	}
-	console.log(deltas);
-	var max = deltas.reduce(function(max, item){
-		if (item > max) return item;
-		else return max;
-	});
+function bestProfit(stp) {
+	if(typeof stp[0] !== 'number') return 0;
+	var low = stp[0];
+	var max = stp[1]-low;
+	stp.forEach(function(time){
+		if(typeof time !== 'number') return 0;
+		if(time < low) low = time;
+		if(time - low > max) max = time-low;
+	})
+	if( max < 1 ) return 0;
 	return max;
 }
 
-
-console.log(bestProfit([11,10,6,2,9,1,5,4,20]));
-=======
-
-}
-
->>>>>>> 54305344fd1d336bf5cfc0b346523a52f798c1f0
 module.exports = bestProfit;
