@@ -37,12 +37,12 @@ function mergeArrays(arr1, arr2) {
 	
 	if (arr1.length > arr2.length) {
 		slicedArr = arr1.slice(arr2.length);
-		storage.concat(slicedArr1)
+		storage.concat(slicedArr)
 	}
 	
 	if (arr1.length < arr2.length) {
 		slicedArr = arr2.slice(arr1.length);
-		storage.concat(slicedArr2)
+		storage.concat(slicedArr)
 	}
 	
 	return storage;
