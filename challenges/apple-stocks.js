@@ -14,35 +14,38 @@
 
 function bestProfit(stock_prices_yesterday) {
 
-  //Straightforward, O(n^2) solution - not really efficient
-  // var maxDiff = 0;
-  // stock_prices_yesterday.forEach(function(ele,idx){
+    //Straightforward, O(n^2) solution - not really efficient
+    // var maxDiff = 0;
+    // stock_prices_yesterday.forEach(function(ele,idx){
     // stock_prices_yesterday.forEach(function(el,id){
-      // if(maxDiff < (ele - el) ) maxDiff = ele - el;
+    // if(maxDiff < (ele - el) ) maxDiff = ele - el;
     // })
-  // })
-  // return maxDiff;
-  //////////////
+    // })
+    // return maxDiff;
+    //////////////
 
-  var cloneStocks = stock_prices_yesterday.slice(0);
+    //This should be O(n) time complexity
+    var arr = stock_prices_yesterday.slice(),
+        len = stock_prices_yesterday.length,
+        cache = [],
+        i = len - 3,
+        max = Math.max(arr[len - 1], arr[len - 2]);
+    min = Math.min(arr[len - 1], arr[len - 2]);
 
-  var sorted = cloneStocks.sort(function(a,b){
-    return a - b;
-  })
+    for (; i >= 0; i--) {
+        if (arr[i] > max) {
+            cache.push(max - min);
+            max = arr[i];
+        }
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
 
-  var revSorted = sorted.reverse();
-  var maxDiff = 0;
+    return Math.max(...cache);
 
-  revSorted.forEach(function(ele,idx){
-    stock_prices_yesterday.forEach(function(el,id){
-      console.log(ele,el);
-      if(ele === el) return stock_prices_yesterday.splice(id, 1);
-      if((ele > el) && (ele - el > maxDiff)) maxDiff = ele - el;
-    })
-  })
-  return maxDiff;
 }
 
 
-console.log(bestProfit([4,3,8,6,1]));
-// module.exports = bestProfit;
+// console.log(bestProfit([400, 300, 800, 600, 100]));
+module.exports = bestProfit;
