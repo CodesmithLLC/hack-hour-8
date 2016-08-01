@@ -13,8 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-  const sorted = stock_prices_yesterday.sort((a, b) => a - b);
-  return sorted[sorted.length - 1] - sorted[0];
+  const price = [...stock_prices_yesterday];
+  let minPrice = Number.POSITIVE_INFINITY;
+  let highestProfit = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    if (price[i] < minPrice) minPrice = price[i];
+    if (price[i] - minPrice > highestProfit) highestProfit = price[i] - minPrice;
+  }
+
+  return highestProfit;
+//  failed solution 1
+//  const sorted = stock_prices_yesterday.sort((a, b) => a - b);
+//  return sorted[sorted.length - 1] - sorted[0];
 }
 
 module.exports = bestProfit;
