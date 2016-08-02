@@ -25,27 +25,22 @@
  */
 
 function balancedParens(input){
-  if (input.length % 2 !== 0) return false;
-  // for (let i = 0, j = input.length - 1; i < input.length / 2; i++, j--) {
-  //   if (input.charAt(i) + input.charAt(j) !== '()') return false;
-  // }
-  // return true;
-
+  const parens = input.replace(/[^\(\)\{\}\[\]]/g, '');
   const arr = [];
 
-  if (isOpeningBracket(input.charAt(0))) arr.push(input.charAt(0));
+  if (isOpeningBracket(parens.charAt(0))) arr.push(parens.charAt(0));
   else return false;
 
-  for (let i = 1; i < input.length; i++) {
-    const char = input.charAt(i);
+  for (let i = 1; i < parens.length; i++) {
+    const char = parens.charAt(i);
     if (isOpeningBracket(char)) {
       arr.push(char);
-      break;
     } else if (isMatched(arr[arr.length-1], char)) {
       arr.pop();
-      break;
-    } else return false;
+    }
   }
+
+  return arr.length === 0 ? true : false;
 
   function isMatched(open, close) {
     switch (open + close) {
