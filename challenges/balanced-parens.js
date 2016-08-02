@@ -25,10 +25,35 @@
  */
 
 function balancedParens(input) {
-  //doesn't accommodate for asymmetrical inputs :(
+    //doesn't accommodate for asymmetrical inputs :(
     var strless = input.replace(/[^\[^\]^\{^\}^\(^\)]/gi, '');
-    var revStr = strless.split('').reverse().join('');
-    return strless === revStr;
+
+    var beginParens = {
+        ['(']: 0,
+        ['{']: 0,
+        ['[']: 0
+    }
+    var endParens = {
+        [')']: '(',
+        ['}']: '{',
+        [']']: '['
+    }
+
+    var parenArr = [];
+    for (var i = 0; i < strless.length; i++) {
+        if (strless[i] in beginParens) {
+            parenArr.push(strless[i]);
+        } else {
+            endParens[strless[i]] === parenArr[parenArr.length - 1] ? parenArr.pop() : null;
+        }
+    }
+    return !parenArr.length
 }
 
-module.exports = balancedParens;
+// console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
+// console.log(balancedParens('('));  // false
+// console.log(balancedParens('()')); // true
+// console.log(balancedParens(')('));  // false
+// console.log(balancedParens('(())'));  // true
+// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
+// module.exports = balancedParens;
