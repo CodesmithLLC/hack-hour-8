@@ -13,6 +13,9 @@
 
 function reverseInPlace(array) {
   if (!Array.isArray(array)) return 'type error: argument needs to be type Array';
+  if (array.length < 1) return array;
+  if (!array) return [];
+
   let j = array.length - 1;
   const len = array.length / 2;
 
