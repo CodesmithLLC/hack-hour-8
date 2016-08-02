@@ -24,7 +24,7 @@ function rotateGrid(grid, n) {
         k;
 
     //this loop indicates how many `rotations` take place
-    for (i = 0; i < n; i++) {
+    for (i = 1; i < n; i++) {
 
         //this loop iterates through the 1st dimension
         for (j = 0; j < grid.length; j++) {
@@ -35,13 +35,11 @@ function rotateGrid(grid, n) {
                     if (k === grid[j].length - 1) {
                         temp = grid[j + 1][grid[j + 1].length - 1];
                         grid[j + 1][grid[j + 1].length - 1] = grid[j][k];
-                        // temp = grid[j][k];
                         grid[j][k] = grid[j][k - 1];
                     } else {
                         grid[j][k] = grid[j][k - 1];
                     }
                 }
-                // grid[0][0] = grid[1][0];
             }
 
             //rotates `bottom` part of grid
@@ -49,6 +47,7 @@ function rotateGrid(grid, n) {
                 for (k = 0; k < grid[j].length - 1; k++) {
                     if (k === 0) {
                         grid[j - 1][0] = grid[j][k];
+                        grid[j][k] = grid[j][k + 1];
                     } else if (k === grid[j].length - 2) {
                         grid[j][k] = temp;
                     } else {
@@ -72,11 +71,12 @@ function rotateGrid(grid, n) {
     return grid;
 }
 
-// module.exports = rotateGrid;
-var sampleGrid = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
 
-console.log(rotateGrid(sampleGrid, 3));
+module.exports = rotateGrid;
+// var sampleGrid = [
+    // [1, 2, 3],
+    // [4, 5, 6],
+    // [7, 8, 9]
+// ]
+
+// console.log(rotateGrid(sampleGrid, 3));

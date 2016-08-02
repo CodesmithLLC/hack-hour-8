@@ -25,12 +25,12 @@ function drawStairs(n) {
     arr.length = n;
 
     for (i = 0; i < n; i++) {
-        arr.fill(space, -1, n - (i + 1));
+        arr.fill(space, 0, n - (i + 1));
         arr.fill(star, n - (i + 1));
         console.log(arr.join(''));
     }
 }
 
-
+// console.log(drawStairs(6));
 
 module.exports = drawStairs;

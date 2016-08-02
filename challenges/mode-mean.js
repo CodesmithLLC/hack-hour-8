@@ -1,3 +1,4 @@
+'use strict';
 /*
  * Given an array of numbers, determine if the mode and mean of the array are equivalent
  *
@@ -67,4 +68,4 @@ function modemean(array) {
     //Edge cases need to be filled in
 }
 
-module.exports = modemean;
+// module.exports = modemean;

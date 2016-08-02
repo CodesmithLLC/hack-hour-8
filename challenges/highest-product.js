@@ -29,6 +29,8 @@ function lol(input){
 // }
 
 function highestProduct(array){
+  if(array.length < 3) return 0;
+  if(array.length === 3) return array.reduce(function(p,c){return p + c;});
   var cloneArr = array.slice();
 
   cloneArr.sort(function(a,b){

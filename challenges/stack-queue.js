@@ -48,7 +48,7 @@ function Queue() {
   //if there are no elements, or if there are elements, we move existing elements
   //to stack2, then add new element to stack1, then move back existing elements
   //that were added to stack2 to stack1, thus giving us the desired queue order
-  this.enQueue = function(foo){
+  this.enqueue = function(foo){
     if(stack1.length > 0){
       for(var k in stack1){
         stack2.push(stack1.collection[k]);
@@ -66,7 +66,7 @@ function Queue() {
 
   //Since we have desired order in place in stack1, we simply pop from stack1
   //to return the first-most element added
-  this.deQueue = function(){
+  this.dequeue = function(){
     return stack1.pop();
   }
 }

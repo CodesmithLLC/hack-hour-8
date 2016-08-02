@@ -63,8 +63,8 @@ function romanNumeral(n) {
 }
 
 
-console.log(romanNumeral(873));
+// console.log(romanNumeral(873));
 
 
 
-// module.exports = romanNumeral;
+module.exports = romanNumeral;
