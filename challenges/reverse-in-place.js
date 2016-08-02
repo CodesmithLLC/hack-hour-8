@@ -28,5 +28,5 @@ function reverseInPlace(array) {
   // return array.reverse();
 }
 
-// module.exports = reverseInPlace;
-console.log(reverseInPlace(thing));
+module.exports = reverseInPlace;
+// console.log(reverseInPlace(thing));
