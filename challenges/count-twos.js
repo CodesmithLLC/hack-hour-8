@@ -13,7 +13,28 @@ then for each,
 array[i].toString, match(/[2]/gm)
 */
 
+/*
+working on finding something more efficient:
+10:  1
+100:  20
+1000:  300
+10000:  4000
+100000:  50000
+1000000: 600000
+
+100:  20
+200:  41
+300:  160
+400:  180
+500:  200
+600:  220
+700:  240
+800:  260
+900:  280
+*/
+
 function countTwos(num) {
+  if (typeof num !== 'number') return false;
   const numArr = [];
   let i;
 
