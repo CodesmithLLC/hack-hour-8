@@ -77,6 +77,7 @@ function balancedParens(input) {
       }
     }
   }
+
   return !arr.length;
 }
 
