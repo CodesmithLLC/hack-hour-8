@@ -25,8 +25,28 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
+ 'use strict'
 
+function applyIt(func, args) {
+  // convert args into array
+  var argToPass;
+  var argStr = args.toString();
+  argToPass = argStr.split(',')
+console.log(argToPass.length)
+ return func(argToPass)
 }
 
+
+///// examples
+   var jasmine = function(name, age) {
+     if(!age){
+       return "We don't know how old " + name + " is!";
+     }
+
+     else{
+       return name + " is " + age + " years old!";
+     }
+   };
+   var jmoney = applyIt(jasmine, ["Jasmine, 18"]);
+  console.log(jmoney)
 module.exports = applyIt;
