@@ -8,7 +8,17 @@
 
 
 function countTwos(num) {
-
+	if (num <= 1) return 0;
+	var twoCount = 0;
+	for(var i = 0; i <= num; i++){
+		var numString = i.toString();
+		var index = numString.indexOf('2');
+		while(index != -1){
+			twoCount++;
+			index = numString.indexOf('2', index+1);
+		}
+	}
+	return twoCount;
 }
 
 module.exports = countTwos;
