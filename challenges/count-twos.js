@@ -8,7 +8,15 @@
 
 
 function countTwos(num) {
-
+  let c = 0;
+  for (let i = 1; i <= num; i++) {
+    let n = i + '';
+    n = n.split('');
+    for (let j = 0; j < n.length; j++) {
+      if (n[j] === '2') c++;
+    }
+  }
+  return c;
 }
 
 module.exports = countTwos;
