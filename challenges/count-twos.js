@@ -8,7 +8,23 @@
 
 
 function countTwos(num) {
+  let twos = 0;
 
+  for (let i = 1; i <= num; i++) {
+    let numString = i + "";
+    
+    if (numString.indexOf("2") > -1 ) {
+      let numArr = numString.split("");
+
+      numArr.filter(function(item) {
+        if (item === "2") {
+          twos++;
+        }
+      });
+    }
+  }
+
+  return twos;
 }
 
 module.exports = countTwos;
