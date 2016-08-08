@@ -6,9 +6,20 @@
 // countTwos(1000);  -> 300
 // countTwos(11420);  -> 4483
 
-
+//brute force: count from 1 to n
+//every number, stringify number and check how many 2s it has
+//add number of 2s it has to overall count
 function countTwos(num) {
+	var count=0;
+	var numString;
+	for(var i=0; i<=num; i++){
+		numString = i.toString();
 
+		for(var j =0; j<numString.length ; j++){
+			if(numString[j] == 2) count++;
+		}
+	}
+	return count;
 }
 
 module.exports = countTwos;
