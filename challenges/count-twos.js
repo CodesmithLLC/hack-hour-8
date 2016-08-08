@@ -9,6 +9,22 @@
 
 function countTwos(num) {
 
+  var twoCount = 0,
+    idx = 0,
+    str,
+    i;
+
+  while(idx <= num){
+    str = idx.toString();
+    for(i = 0; i < str.length; i++){
+      if(str[i] === '2'){
+        twoCount++;
+      }
+    }
+
+    idx++;
+  }
+  return twoCount;
 }
 
 module.exports = countTwos;
