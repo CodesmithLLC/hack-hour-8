@@ -24,23 +24,13 @@ function validBST(tree) {
 }
 
 // var tree = new BinaryTree(5);
-// var three = new BinaryTree(3)
-// var two = new BinaryTree(2)
-// var one = new BinaryTree(1)
-// var four = new BinaryTree(4)
-// var six = new BinaryTree(6)
-// var seven = new BinaryTree(7)
-// var eight = new BinaryTree(8)
-// var nine = new BinaryTree(9)
-
-// tree.left = two
-// tree.right = eight
-// tree.right.right = nine
-// tree.right.left = six
-// tree.left.left = one
-// tree.left.right = three
-// tree.left.right.left = three
-// console.log(tree)
+// tree.left = new BinaryTree(2)
+// tree.right = new BinaryTree(8)
+// tree.right.right = new BinaryTree(9)
+// tree.right.left = new BinaryTree(6)
+// tree.left.left = new BinaryTree(1)
+// tree.left.right = new BinaryTree(3)
+// tree.left.right.left = new BinaryTree(3)
 // validBST(tree)
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
