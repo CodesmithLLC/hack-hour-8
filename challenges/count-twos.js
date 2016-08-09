@@ -8,7 +8,24 @@
 
 
 function countTwos(num) {
-
+	var curr = 1;
+	var total = 0;
+	for(var i = 0; i < num; i++) {
+		var now = curr += 1 
+		var stringed = now.toString()
+		for(var j = 0; j < stringed.length; j++) {
+			if(stringed.charAt(j) === 2 ||stringed.charAt(j) === '2') {
+				total += 1
+			}
+		}	
+	}
+	return total
 }
+ 
+
+
+//increment by 1 every time and check current number for 2'S
+//increment total counter variable if there is a 2.
+//var currentNumber += 1, check number, increase or leave counter
 
 module.exports = countTwos;
