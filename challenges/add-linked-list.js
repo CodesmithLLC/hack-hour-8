@@ -14,7 +14,19 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  const num1 = [];
+  const num2 = [];
+  let current;
 
+  for (current = l1.head; current; current = current.next) {
+    num1.unshift(current.value);
+  }
+
+  for (current = l2.head; current; current = current.next) {
+    num2.unshift(current.value);
+  }
+
+  return parseInt(num1.join(''), 10) + parseInt(num2.join(''), 10);
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node: Node, addLinkedList: addLinkedList };
