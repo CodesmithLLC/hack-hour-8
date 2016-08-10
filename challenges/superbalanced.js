@@ -15,6 +15,22 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
 
+    function minDepth(node) {
+      if (typeof node === 'undefined') {
+        return 0;
+      }
+      return 1 + Math.min(minDepth(node.left), minDepth(node.right));
+    }
+
+    function maxDepth(node) {
+      if (typeof node === 'undefined') {
+        return 0;
+      }
+      return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+    }
+
+  return maxDepth(tree) - minDepth(tree) <= 1
+
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
