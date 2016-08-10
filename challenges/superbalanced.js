@@ -7,6 +7,14 @@
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
 
+ /*
+Approach: 
+Superbalanced function will return true (if balanced) or false (if not balanced).
+If the tree is empty (null), return true
+If the tree is not empty, traverse left and right trees and if the difference between 
+min height and max height from root is greater than 1 return false else return true.
+ */
+
 function BinaryTree(value) {
   this.value = value;
   this.left = null;
@@ -14,7 +22,14 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  if(tree === null) {
+  	return true;
+  }
+
+  var height = [];
+
 
 }
+
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
