@@ -14,7 +14,27 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+	if(typeof tree === 'undefined') {
+		return undefined
+	}
+	//recursively scan down tree checking for highest value
+	//compare heights? check is difference in total is <= 1
+	function depthCheckerLeft(node) {
+		node = newBinaryTree()
+		if(!node) {
+			return 0
+		}
+		return 1 + (depthChecker(tree.left) 
+	}
+	function depthCheckerRight(node) {
+		node = newBinaryTree()
+		if(!node) {
+			return 0
+		}
+		return 1 + (depthChecker(tree.right) 
+	}
 }
+//check if tree isn't null
+//check if L and R of tree are balanced and check the height/depth of each sub tree
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
