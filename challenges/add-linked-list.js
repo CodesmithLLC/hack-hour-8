@@ -14,7 +14,24 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  var arr = []
 
+  var l1value = l1.value;
+  var l2value = l2.value;
+  while (value !== undefined) {
+    arr.push(l1value + l2.value);
+    l1value = l1value.next.value;
+    l2value = l2value.next.value;
+  }
+
+  // var newList;
+  // var tail;
+  // arr.forEach(function(item) {
+  //   newList = new Node(item);
+  //   tail = newList.next;
+
+  // });
+  console.log(arr);
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
