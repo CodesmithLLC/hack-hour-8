@@ -12,6 +12,15 @@
 
 function repeatNumbers(array) {
 
+  let table = {};
+
+  array.forEach(function(item) {
+    if (table[item] === undefined) {
+      table[item] = 1;
+    } else {
+      return item;
+    }
+  });
 }
 
 module.exports = repeatNumbers;
