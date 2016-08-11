@@ -15,6 +15,36 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
 
+  //traverse-left side
+    //count how many levels deeps it goes
+      //save it
+
+  //traverse-right side
+    //count how many levels deep it goes
+      //save it somever
+
+  //substract the one sides deep levels from the other if its 0 or 1 as the difference
+    //then tree is superbalanced
+  // else its not.
+  function inOrder(node){
+    if (node){
+
+      //traverse the left subtree
+      if (node.left !== null){
+          inOrder(node.left);
+      }            
+
+        //traverse the right subtree
+        if (node.right !== null){
+            inOrder(node.right);
+        }
+    }
+}
+
+//start with the root  
+}
+
+inOrder(tree);
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
