@@ -25,7 +25,19 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
+
+
+
 function applyIt(func, args) {
+    /* APPROACH: So we run each element through a function and return result.  
+    One way to attach the arguments to the function is through binding.  You can bind each argument to the function in a loop, then simply return the 
+    function with all arguments already attached.  
+    */
+  
+   args.forEach(function(elem){
+    func = func.bind(null, elem);
+   });
+    return func; 
 
 }
 

@@ -16,6 +16,13 @@ function gcd(a, b) {
     //and since both arrays are already sorted, you can just check if the last
     //item in one array exists in another and pop if it doesn't, and check 'til
     //popped array is empty.  
+
+
+    /*
+    Dope recursive Euclidian Answer - dbl check with Hack Hour slides
+    if (b === 0) return a; 
+    gcd(b, a % b)
+    */
     
     let resA = [], resB = [];  
     for (var i = 0; i <= a/2; i++){
