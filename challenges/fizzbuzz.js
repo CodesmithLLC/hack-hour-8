@@ -17,7 +17,7 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-console.log('a change was made')  var buzz = [];
+  var buzz = [];
   for (var i = 1; i <= num; i++) {
     if (i % 15 === 0) buzz.push('fizzbuzz')
     else if (i % 5 === 0) buzz.push('buzz')
@@ -31,3 +31,18 @@ console.log('a change was made')  var buzz = [];
 
 
 module.exports = fizzbuzz;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
