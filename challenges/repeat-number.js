@@ -12,7 +12,7 @@
 //BRUTE FORCE: store in another array and everytime check if it an indexOf that array
 //O(n^2) time and O(n) space
 
-//O(n^2) time because of indexOf 
+//O(n^2) time because of indexOf and the for loop
 function repeatNumbers(array) {
 	for(var i =array.length-1; i>=0; i--){
 		array[i] *= -1;
