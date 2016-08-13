@@ -6,17 +6,29 @@
 
 function sumMultiples3Or5Below1000() {
   var sum = 0;
-
+	for(var i = 0; i < 10; i+=5) {
+		if(i % 3 !== 0) {
+			sum+= i
+		}
+	}
+	for(var j = 0; j < 10; j+=3) {
+		sum += j
+	}
   return sum;
 }
-
+sumMultiples3Or5Below1000()
 //extension make it dynamic function that takes input x,y,z
 //and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x,y,z) {
   var sum = 0;
-
+	for(var i = 0; i < z; i++) {
+		if(i % y === 0 || i % x === 0) {
+			sum += i
+		}
+	}
   return sum;
 }
+
 
 var objectToExport={
   sumMultiples3Or5Below1000:sumMultiples3Or5Below1000,
