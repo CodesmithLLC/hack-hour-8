@@ -18,6 +18,7 @@ function mergeRanges(array) {
     return res;
   }
 
+  // sort times ascending according to start time
   const input = [...array];
   for (let i = 1; i < input.length; i++) {
     let j = i - 1;
@@ -29,6 +30,7 @@ function mergeRanges(array) {
     input[j + 1] = temp;
   }
 
+  // check each time with the next time for overlaps and combine as necessary
   const res = [];
   for (let i = 0; i < input.length - 1; i++) {
     if (input[i][1] >= input[i + 1][0]) {
