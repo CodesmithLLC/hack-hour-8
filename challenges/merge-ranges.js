@@ -11,6 +11,9 @@
 
 
 function mergeRanges(array) {
+  // array.sort(function(a,b){
+  //   return a[0] > b[0];
+  // })
   let retArr = [array[0]];
   for (let i=2; i < array.length; i+=2){
 	   let comb = array[i].concat(array[i - 1]);
