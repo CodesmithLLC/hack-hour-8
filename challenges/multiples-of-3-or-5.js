@@ -5,22 +5,37 @@
 //below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  var sum = 0;
+    var sum = 0;
 
-  return sum;
+    var idx = 0;
+    while (idx < 1000) {
+        if (idx % 3 === 0 || idx % 5 === 0) {
+            sum += idx;
+        }
+        idx++;
+    }
+    return sum;
 }
 
 //extension make it dynamic function that takes input x,y,z
 //and returns the sum of multiples of x and y below z
-function sumMultiplesXOrYBelowZ(x,y,z) {
-  var sum = 0;
+function sumMultiplesXOrYBelowZ(x, y, z) {
+    var sum = 0;
 
-  return sum;
+    var idx = 0;
+    while (idx < z) {
+        if (idx % x === 0 || idx % y === 0) {
+            sum += idx;
+        }
+        idx++;
+    }
+
+    return sum;
 }
 
-var objectToExport={
-  sumMultiples3Or5Below1000:sumMultiples3Or5Below1000,
-  sumMultiplesXOrYBelowZ:sumMultiplesXOrYBelowZ
+var objectToExport = {
+    sumMultiples3Or5Below1000: sumMultiples3Or5Below1000,
+    sumMultiplesXOrYBelowZ: sumMultiplesXOrYBelowZ
 };
 
 module.exports = objectToExport;
