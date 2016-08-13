@@ -6,15 +6,31 @@
 
 function sumMultiples3Or5Below1000() {
   var sum = 0;
+  //brute force  O(N)
+  // for(let i = 0; i < 1000 ; i++){
+  //   if(i % 3 === 0){
+  //     sum+= i;
+  //   } else if( i % 5 === 0){
+  //     sum+= i;
+  //   }
+  // }
 
-  return sum;
+  function unitSum
+
+  return sum3s + sum5s;
 }
 
 //extension make it dynamic function that takes input x,y,z
 //and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x,y,z) {
   var sum = 0;
-
+  for(let i = 0; i < z ; i++){
+    if(i % x === 0){
+      sum+= i;
+    } else if( i % y === 0){
+      sum+= i;
+    }
+  }
   return sum;
 }
 
@@ -24,3 +40,5 @@ var objectToExport={
 };
 
 module.exports = objectToExport;
+
+console.log(sumMultiples3Or5Below1000());
