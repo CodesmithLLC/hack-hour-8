@@ -27,4 +27,20 @@ function countTwos(num) {
   return twos;
 }
 
+//altternative
+// function countTwos(target, num) {
+//   var count = 0;
+  
+//   var regex = new RegExp(target, 'g');
+  
+//   for (var i = target; i <= num; i++) {
+//     i.toString().replace(regex, function() {
+//       count++;
+//     })
+//   }
+//   return count;
+// }
+
 module.exports = countTwos;
+
+
