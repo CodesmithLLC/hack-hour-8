@@ -11,6 +11,11 @@
 
 
 function mergeRanges(array) {
+  let sorted = [];
+
+  array.sort(function(a, b) {
+    a[0] - b[0]
+  });
 
 }
 

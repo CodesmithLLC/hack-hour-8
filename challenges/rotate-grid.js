@@ -17,34 +17,19 @@
  */
 
 function rotateGrid(grid, n) {
-    var result = [];
-    var row = n;
-    var gridArr = 0;
-    var gridI = 0;
-
-    while (row > 0) {
-        var times = n;
-        var arr = []
-        while (times > 0) {
-            arr.push(grid[gridArr][gridI])
+    let newGrid = [];
+    
+    for(let i = 0; i < n; i++) {
+        let newRow = [];
+        
+        for (let j = n - 1; j >= 0; j--) {
+            newRow.push(grid[j][i]) 
         }
+        
+        newGrid.push(newRow);
     }
-
-
-
-
-    function createArray(array) {
-        var newArray = [];
-
-
-        array.forEach(function(item) {
-            var arr = [];
-            newArr.unshift(item)
-        });
-
-
-    }
-
+    
+    return newGrid;
 }
 
 module.exports = rotateGrid;
