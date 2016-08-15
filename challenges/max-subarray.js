@@ -7,8 +7,19 @@
  *
  */
 
-function maxSubarray(arr) {
+const maxSubarray = (arr) => {
+  let tempMax = Number.NEGATIVE_INFINITY;
+  let resMax = Number.NEGATIVE_INFINITY;
+  let i = 0;
 
-}
+  if (!arr) return 0;
+
+  for (i; i < arr.length; i++) {
+    tempMax = Math.max(arr[i], tempMax + arr[i]);
+    resMax = Math.max(resMax, tempMax);
+  }
+
+  return resMax;
+};
 
 module.exports = maxSubarray;
