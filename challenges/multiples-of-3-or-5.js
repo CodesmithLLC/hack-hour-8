@@ -5,7 +5,7 @@
 //below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000(n) {
-  var sum = 0;
+  let sum = 0;
 
   while (i < n) {
   	if (i % 3 === 0 || i % 5 === 0) sum += i; i++;
@@ -20,23 +20,10 @@ function sumMultiplesXOrYBelowZ(x,y,z) {
   let sum = 0,
   		i = 1;
 
-  while (i < z && sum < z) {
-  	if (i % x === 0) {
-  		if (sum + i > z) {
-  			return sum;
-  		} else if (sum < z) {
-  			sum += i;
-  		}
-  	}
-  	if (i % y === 0) {
-  		if (sum + i > z) {
-  			return sum;
-  		} else if (sum < z) {
-  			sum += i;
-  		}
-  	}
-  	i++;
+  for (let i = 0; i < z; i++) {
+    if (i % x === 0 || i % y === 0) sum += i;
   }
+
   return sum;
 }
 
