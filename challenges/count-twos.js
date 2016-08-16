@@ -8,7 +8,19 @@
 
 
 function countTwos(num) {
-
+  for (var i = 0; i < num; i++) {
+    if (num < 100) {
+      var startVal = 0;
+    } else if (num < 1000) {
+      var startVal = 20;
+    } else if (num < 10000) {
+      var startVal = 1000;
+    }
+    var mult = num.toString().split('')[0];
+    var count = startVal * parseInt(mult);
+    num = num.shift();
+    return count + countTwos(num);
+  }
 }
 
 module.exports = countTwos;
