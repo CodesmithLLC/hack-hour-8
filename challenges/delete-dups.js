@@ -11,16 +11,19 @@
  */
 
 function deleteDups(head) {
+  if (!head) return null;
   let current = head;
   const store = {};
+  let previous = head;
 
   while (current) {
     if (!store.current) {
       store.current = current.value;
     } else {
-      current.next = current.next.next;
+      previous.next = current.next.next;
     }
 
+    previous = current;
     current = current.next;
   }
 
