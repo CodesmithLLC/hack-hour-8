@@ -7,12 +7,22 @@
  */
 
 /**
-  * example:
-  * var result = anagrams('abc');
-  * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
-  */
+ * example:
+ * var result = anagrams('abc');
+ * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+ */
 
-function anagrams(string) {
+function anagrams(str) {
+
+  var grams = {};
+  var recurse = function(ana, str) {
+    if (str === '')
+      grams[ana] = 1;
+    for (var i = 0; i < str.length; i++)
+      recurse(ana + str[i], str.slice(0, i) + str.slice(i + 1));
+  };
+  recurse('', str);
+  return Object.keys(grams);
 
 }
 
