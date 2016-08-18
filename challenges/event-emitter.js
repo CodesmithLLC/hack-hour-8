@@ -21,7 +21,17 @@
  */
 
 function EventEmitter() {
-
+	this.events = [];
+	this.on = function(str, func) {
+		let obj = {};
+		obj[str] = func;
+		this.events.push(obj);
+	}
+	this.trigger = function(str) {
+		for (var i = 0; i < this.events.length; i++) {
+			if (this.events[i][str]) this.events[i][str]();
+		}
+	}
 }
 
 module.exports = EventEmitter;
