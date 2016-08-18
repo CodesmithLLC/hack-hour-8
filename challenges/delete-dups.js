@@ -14,19 +14,17 @@
 
 function deleteDups(head) {
 	var vals = [];
-	var trail = head;
-	var node = trail.next;
-	while(node){
-		if(vals.indexOf(node.value) === -1){
-			vals.push(node.value);
-			trail = node;
-		} else {
-			trail.next = node.next;
+	vals.push(head.value);
+	for(var current = head; current.next;){
+		if(vals.indexOf(current.next.value) > -1){
+			current.next = current.next.next;
 		}
-		console.log(vals);
-		node = node.next;
+		else{
+			vals.push(current.next.value);
+			current=current.next;
+		}
 	}
-	console.log("node ",trail);
+	return head;
 }
 
 module.exports = deleteDups;
