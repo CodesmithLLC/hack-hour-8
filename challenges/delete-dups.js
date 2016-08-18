@@ -13,7 +13,20 @@
 
 
 function deleteDups(head) {
-
+	var vals = [];
+	var trail = head;
+	var node = trail.next;
+	while(node){
+		if(vals.indexOf(node.value) === -1){
+			vals.push(node.value);
+			trail = node;
+		} else {
+			trail.next = node.next;
+		}
+		console.log(vals);
+		node = node.next;
+	}
+	console.log("node ",trail);
 }
 
 module.exports = deleteDups;
