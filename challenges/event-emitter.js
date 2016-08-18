@@ -21,7 +21,31 @@
  */
 
 function EventEmitter() {
+  // store events into an object closure
+  // if it does not exist, add to closure and return closure func
+  // save IIF for trigger
+  var eventObj = {};
 
+  this.on = function(eventName, callback){
+    if(eventObj[eventName]){
+      return eventObj[eventName]
+    } else {
+    eventObj[eventName] = callback;
+    }
+  }
+
+  this.trigger = function (argumentInput){
+    let funcToCall = eventObj[arguments[0]];
+    return funcToCall();
+  }
 }
 
 module.exports = EventEmitter;
+var instance = new EventEmitter();
+var counter = 0;
+ instance.on('increment', function() {
+   counter++;
+ }); // counter should be 0
+ instance.trigger('increment'); // counter should be 1
+ instance.trigger('increment'); // counter should be 2
+console.log(counter)
