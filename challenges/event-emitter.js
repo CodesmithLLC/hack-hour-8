@@ -21,7 +21,22 @@
  */
 
 function EventEmitter() {
-
+  this.cache = {};
 }
 
+EventEmitter.prototype.on = function(name, callback) {
+  if (this.cache[name]) this.cache[name].push(callback);
+  else this.cache[name] = [callback];
+};
+
+EventEmitter.prototype.trigger = function(name) {
+  const args = [...arguments];
+  args.splice(0, 1);
+
+  if (this.cache[name]) {
+    this.cache[name].forEach(func => {
+      func(...args);
+    });
+  }
+};
 module.exports = EventEmitter;
