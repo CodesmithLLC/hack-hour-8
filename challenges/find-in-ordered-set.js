@@ -10,8 +10,16 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
-function findInOrderedSet(arr, target) {
-
+function findInOrderedSet(arr, target, i = 0) {
+    
+    if ( arr[i] === target || arr[arr.length - 1 - i] === target) {
+        return true;
+    } else if ( i > arr.length - 1) {
+        return false;
+    }
+    
+    i += 1;
+    return findInOrderedSet(arr, target, i);
 }
 
 
