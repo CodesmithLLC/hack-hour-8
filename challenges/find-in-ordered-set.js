@@ -11,8 +11,7 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+  return arr.indexOf(target) > -1 ? true : false;
 }
-
 
 module.exports = findInOrderedSet;
