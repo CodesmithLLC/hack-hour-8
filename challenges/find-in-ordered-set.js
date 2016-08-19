@@ -11,6 +11,26 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+  let middle = Math.floor(arr.length/2);
+  let low = 0;
+  let high = arr.length - 1;
+  let counter = 0;
+
+  while (arr[middle] !== target) {
+  	if (target > arr[middle]) {
+  		low = middle;
+  		middle = Math.floor((high + low) / 2)
+  	} else if (target < arr[middle]) {
+  		high = middle
+  		middle = Math.floor((high + low)  /2 )
+  	}
+  	counter++;
+  	if (counter > arr.length){
+  		break;
+  	}
+  };
+
+  return counter < arr.length ? true : false;
 
 }
 
