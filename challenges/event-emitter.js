@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Make an EventEmitter that
  *
@@ -22,6 +23,33 @@
 
 function EventEmitter() {
 
+  this.listeners = {};
+  this.on = function(event, func) {
+    if (!this.listeners[event]) {
+      this.listeners[event] = [];
+      this.listeners[event].push(func);
+    }else{
+      this.listeners[event].push(func); 
+    }
+  }
+
+  this.trigger = function(eve) {
+    var args = [...arguments].slice(1)
+    this.listeners[eve].forEach(function(ele, idx){
+      ele(...args);
+    })
+  }
+
 }
 
+// var instance = new EventEmitter();
+// var counter = 0;
+// instance.on('increment', function() {
+  // counter++;
+// }); // counter should be 0
+// instance.trigger('increment'); // counter should be 1
+// instance.trigger('increment'); // counter should be 2
+// instance.trigger('increment'); // counter should be 2
+
+// console.log(counter);
 module.exports = EventEmitter;
