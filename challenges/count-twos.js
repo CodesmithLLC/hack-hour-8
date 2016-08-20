@@ -8,19 +8,32 @@
 
 
 function countTwos(num) {
-  for (var i = 0; i < num; i++) {
-    if (num < 100) {
-      var startVal = 0;
-    } else if (num < 1000) {
-      var startVal = 20;
-    } else if (num < 10000) {
-      var startVal = 1000;
-    }
+  	var startVal, detractor, twoCase;
+  	if (num < 100) {
+  		var count = 0;
+  		for (var i = 0; i < num; i++) {
+  			if (i.toString().split('')[0] === '2' || i.toString().split('')[1] === '2') count++;
+  			else if (i.toString().split('')[0] === '2' && i.toString().split('')[1] === '2') count = count+2;
+  		}
+  		return count;
+	} else if (num < 1000) {
+	  startVal = 20;
+	  detractor = 100;
+	  twoCase = 100;
+	} else if (num < 10000) {
+	  startVal = 300;
+	  detractor = 1000;
+	  twoCase = 1000;
+	} else if (num < 100000) {
+		startVal = 4000;
+		detractor = 10000;
+		twoCase = 10000;
+	}
     var mult = num.toString().split('')[0];
-    var count = startVal * parseInt(mult);
-    num = num.shift();
+    if (mult > 1) var count = startVal * parseInt(mult) + twoCase;
+    else count = startVal * parseInt(mult);
+    num = num - (detractor * parseInt(mult));
     return count + countTwos(num);
-  }
 }
 
 module.exports = countTwos;
