@@ -25,6 +25,3 @@ function findInOrderedSet(arr, target) {
 
 
 module.exports = findInOrderedSet;
-
-var nums = [1, 4, 6, 7, 9, 17, 45, 46]
-console.log(findInOrderedSet(nums, 1))
