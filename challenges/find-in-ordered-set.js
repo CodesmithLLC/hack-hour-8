@@ -9,8 +9,25 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
+// return arr.includes(target);
+
+/*
+write a binary search
+split array into two
+*/
 
 function findInOrderedSet(arr, target) {
+  const mid = Math.floor(arr.length / 2);
+  let left;
+  let right;
+  const split = (array) => {
+    left = array.slice(0, mid);
+    right = array.slice(mid);
+  };
+
+  const checkSet = (a, t) => {
+
+  };
 
 }
 

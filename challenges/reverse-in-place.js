@@ -11,10 +11,6 @@
  *
  */
 
-/*
-I'm sure we aren't supposed to use the built-in method... return array.reverse();
-*/
-
 function reverseInPlace(array) {
   const arr = array;
   const len = array.length - 1;
