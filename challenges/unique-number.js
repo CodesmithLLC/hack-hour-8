@@ -10,7 +10,18 @@
  *
  */
 function uniqueNumber(array) {
-
+  let numObj = {};
+  for(let i = 0; i < array.length; i++){
+    if(numObj[array[i]]){
+      numObj[array[i]]++;
+    } else {
+    numObj[array[i]] = 1;
+    }
+  }
+  for(key in numObj){
+    if(numObj[key] === 1) return key;
+  }
 }
 
 module.exports = uniqueNumber;
+console.log(uniqueNumber([1,2,2,1,3,6,3]));
