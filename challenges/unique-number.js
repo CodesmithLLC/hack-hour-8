@@ -10,7 +10,23 @@
  *
  */
 function uniqueNumber(array) {
+	var outputObj = {};
+	array.sort(function(a, b) {
+		return a - b;
+	});
 
+	for(var i = 0; i <= array.length-1; i++){
+		if(array.indexOf(array[i]) === i){
+			outputObj[array[i]] = array[i];
+		}
+		if(array.indexOf(array[i]) !== i){
+			delete outputObj[array[i]];
+		}
+	}
+	for(var k in outputObj){
+		return outputObj[k];
+	}
 }
+
 
 module.exports = uniqueNumber;
