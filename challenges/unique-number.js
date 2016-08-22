@@ -1,5 +1,6 @@
 /**
- * Given an array of IDs, which contains many duplicate (there are two) integers and one unique integer,
+ * Given an array of IDs, which contains many duplicate (there are two)
+ * integers and one unique integer,
  * find the unqiue integer.
  *
  * uniqueNumber([1,2,1,3,3]); -> 2
@@ -10,7 +11,15 @@
  *
  */
 function uniqueNumber(array) {
+  const unique = [];
+  let i;
 
+  for (i = 0, unique; i < array.length; i++) {
+    if (array.indexOf(array[i], array.indexOf(array[i]) + 1) === -1) {
+      unique.push(array[i]);
+    }
+  }
+  return unique;
 }
 
 module.exports = uniqueNumber;
