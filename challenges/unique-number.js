@@ -14,7 +14,7 @@ function uniqueNumber(array) {
   const unique = [];
   let i;
 
-  for (i = 0, unique; i < array.length; i++) {
+  for (i = 0; i < array.length; i++) {
     if (array.indexOf(array[i], array.indexOf(array[i]) + 1) === -1) {
       unique.push(array[i]);
     }
