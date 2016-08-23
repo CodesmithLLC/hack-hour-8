@@ -10,7 +10,12 @@
  */
 
 function getAllProducts(array) {
-
+	var res = [];
+	var productsBelow = [];
+	var productsAbove = [];
+	for (var i = 0; i < array.length; i++) {
+		productsBelow[array.length] 
+	}
 }
 
 module.exports = getAllProducts;

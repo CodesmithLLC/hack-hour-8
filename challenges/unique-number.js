@@ -10,7 +10,16 @@
  *
  */
 function uniqueNumber(array) {
-
+	var store = {};
+	for (var i = 0; i < array.length; i++) {
+		if(store[array[i]]) store[array[i]] = false;
+		else store[array[i]] = true;
+	}
+	console.log(store);
+	for (var prop in store) {
+		console.log(store[prop])
+		if(store[prop]) return parseInt(prop);
+	}
 }
 
 module.exports = uniqueNumber;

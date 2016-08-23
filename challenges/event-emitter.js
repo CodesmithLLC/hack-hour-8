@@ -31,8 +31,9 @@ function EventEmitter() {
 
 	this.trigger = function(name, ...args) {
 		var times = this.funcFreq[name];
+		console.log(args)
 		for(var i = 0; i < times; i++){
-			this.funcStore[name](args);
+			this.funcStore[name](...args);
 		}
 	};
 }
