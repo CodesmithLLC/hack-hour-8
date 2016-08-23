@@ -10,14 +10,14 @@
  */
 
 function getAllProducts(array) {
-	let res = [];
+	let res = []
 	for (let i = 0; i < array.length; i++) {
-		let temp = array[i];
+		let temp = array.slice(0, i).concat(array.slice(i + 1));
 		let product = 1;
-		for (let j = 0; j < array.length; j++) {
-			if (j !== i) product *= array[j];
+		for (let j = 0; j < temp.length; j++) {
+			product *= temp[j]
 		}
-		res.push(product);
+		res.push(product)
 	}
 	return res;
 }
