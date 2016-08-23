@@ -10,7 +10,16 @@
  *
  */
 function uniqueNumber(array) {
+    let table = {};
 
+    for (let i = 0; i < array.length; i++) {
+        
+        if (table[array[i]] === undefined) {
+            table[array[i]] = 1;
+        } else {
+            return array[i];
+        }
+    }
 }
 
 module.exports = uniqueNumber;
