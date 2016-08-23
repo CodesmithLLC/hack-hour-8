@@ -10,7 +10,24 @@
  */
 
 function getAllProducts(array) {
-
+    let answ = [];
+    
+    for (var i = 0; i < array.length; i++) {
+        let first = array.slice(0, i);
+        let second = array.slice(i + 1, array.length);
+        let toProcessArr = first.concat(second);
+        
+        answ.push(multiply(toProcessArr));
+    }
+    
+    
+    function multiply(arr) {
+        return arr.reduce(function(acc, item) {
+            return acc * item;  
+        }, 1);  
+    }
+    
+    return answ;
 }
 
 module.exports = getAllProducts;
