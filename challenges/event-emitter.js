@@ -21,6 +21,10 @@
  */
 
 function EventEmitter() {
+  var EventEmitter = function () {
+    
+  }
+
 
 }
 
