@@ -19,13 +19,13 @@ function getAllProducts(array) {
     return p;
   };
   let arr = array.slice();
-
   let i;
   let resArr = [];
+
   for (i = array.length; i > 0; i--) {
-  const last = arr.splice(arr.length - 1, 1);
-  resArr.push(multiplyArray(arr));
-  arr.unshift(last);
+    const last = arr.splice(arr.length - 1, 1);
+    resArr.push(multiplyArray(arr));
+    arr.unshift(last);
   }
 
   return resArr;
