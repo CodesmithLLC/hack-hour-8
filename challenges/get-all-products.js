@@ -9,7 +9,7 @@
  * do not use division, because zero might be in the array and you cannot divide by zero
  */
 
-function rotateArr(array) {
+function getAllProducts(array) {
   const multiplyArray = (a) => {
     let p = 1;
     let j;
