@@ -1,3 +1,4 @@
+'use strict';
 /* Accepts an array of integers and returns an array of all the possible products made by
  * multiplying all but one number. In other words, find all the products of multiplying any
  * array.length-1 numbers in the array.
@@ -11,6 +12,31 @@
 
 function getAllProducts(array) {
 
+  var products = [],
+    len = array.length,
+    i, 
+    j;
+
+  for(i = 0; i < len; i++){
+    products.push(multiplyAll(array.slice(0, i).concat(array.slice(i + 1))));
+  }
+
+  return products;
+
 }
 
+function multiplyAll(array){
+  var result;
+  array.forEach( (ele, idx) => {
+    if (result === undefined){
+      result = ele;
+    }else{
+      result *= ele;
+    }
+  })
+  return result;
+}
+
+// let arr = [1, 7, 3, 4]
+// console.log(getAllProducts(arr));
 module.exports = getAllProducts;
