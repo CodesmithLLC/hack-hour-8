@@ -11,7 +11,7 @@
   * var result = anagrams('abc');
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
-
+//need to turn string into array, then functionality holds
 function anagrams(input) {
     var permArr = [],
         usedChars = [];
