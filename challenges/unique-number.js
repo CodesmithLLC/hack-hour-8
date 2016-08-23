@@ -10,7 +10,13 @@
  *
  */
 function uniqueNumber(array) {
-
+	var cache = {};
+	array.forEach(function(num){
+		if(!cache[num]) cache[num] = true;
+		else delete cache[num];
+	})
+	if (Object.keys(cache).length !== 1) return false;
+	return parseInt(Object.keys(cache)[0]);
 }
 
 module.exports = uniqueNumber;
