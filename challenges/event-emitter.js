@@ -22,6 +22,25 @@
 
 function EventEmitter() {
 
+  this.on = function(listener, callback) {
+    this[listener] = callback;
+  }
+
+  this.trigger = function(listener) {
+    return this[listener]();
+  }
 }
 
 module.exports = EventEmitter;
+
+var instance = new EventEmitter();
+var counter = 0;
+
+instance.on('test', function() {
+  counter++;
+});
+
+instance.trigger('test');
+console.log(counter);
+instance.trigger('test');
+console.log(counter);
