@@ -3,7 +3,7 @@
 // matchWord('__END_DNE-----');  -> true
 // matchWord('__ENDDNE__');  -> false       (not separated by a space)
 // matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
-// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
+// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ]
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
@@ -11,23 +11,23 @@ function matchWord(str) {
   if(str.length === 0) {
     return true;
   }
-  
+
   str = str.match(/[a-z]+/gi);
-  
+
   if (str.length % 2 !== 0) {
     return false;
-  } 
-    
-  
+  }
+
+
   for (var i = 0; i < str.length / 2; i++) {
     var opening = str[i];
     var closing = str[str.length - 1 - i].split("").reverse().join("");
-  
+
     if (opening.toLowerCase() === closing.toLowerCase()) {
       return true;
     }
   }
-  
+
   return false;
 }
 
