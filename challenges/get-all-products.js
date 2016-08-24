@@ -10,7 +10,18 @@
  */
 
 function getAllProducts(array) {
-
+var finalArr = []; 
+    for (var i = 0; i < array.length; i++){
+      let sum = 1; 
+      for (var j = 0; j < array.length; j++){
+        if (j !== i){
+          sum *= array[j]; 
+        }
+      }
+      finalArr.push(sum); 
+    } 
+    return finalArr; 
 }
+
 
 module.exports = getAllProducts;
