@@ -1,3 +1,4 @@
+'use strict';
 /**
  * We have our lists of orders sorted numerically already, in arrays.
  * Write a function to merge our arrays of orders into one sorted array.
@@ -14,35 +15,22 @@
  */
 
 function mergeArrays(arr1, arr2) {
-  // O(nlogn) complexity
-  // return arr1.concat(arr2).sort(function(a,b){
-    // return a - b;
-  // })
-
-  // wrong...
-  // for(var i = 0; i < arr1.length; i++){
-    // if(arr1[i] < arr2[i]){
-      // return arr1[i].concat(mergeArrays(arr1.slice(i)), arr2);
-    // }else{
-      // return arr2[i].concat(mergeArrays(arr2.slice(i)), arr1);
-    // }
-  // }
   
-  //Another wrong..
-  // for(var i = 0; i < arr1.length; i++){
-    // if((arr1[i] < arr2[i]) && (arr1[i + 1] > arr2[i + 1])){
-      // arr1.splice(i + 1, 0, arr2.splice(i + 1, 1));
-    // }else if((arr1[i] > arr2[i]) && (arr1[i + 1] < arr2[i + 1])){
-      // arr1.splice(i + 1, 0, arr2.splice(i + 1, 1));
-    // }
-  // }
+  let idx1 = 0,
+    idx2 = 0,
+    result = [];
 
-    return arr1.concat(arr2).
-      reduce(function(prev, curr, idx){
-        // return prev.concat(prev.concat(curr));
-        // if(curr < prev) return curr.concat(prev);
-      });
+  for(var i = 0; i < arr1.length; i++){
 
+    if(arr1[idx1] >= arr2[idx2]){
+      result.push(arr2[idx2++])
+    }else{
+      result.push(arr1[idx1++])
+    }  
+    
+    if(idx1 === arr1.length) return result.concat(arr2[idx2]);
+    if(idx2 === arr2.length) return result.concat(arr1[idx1]);
+  }
 }
 
 var my_array = [3,4,6,10,11,15,21];
