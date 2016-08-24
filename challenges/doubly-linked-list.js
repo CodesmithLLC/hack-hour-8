@@ -17,14 +17,40 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  
+	let newNode = new Node(val);
+
+  if (!this.head) {
+  	this.head = newNode;
+  } else if (!this.tail) {
+  	this.tail = newNode;
+  } else {
+  	// if there is an existing node, add node to end of list
+  	this.tail.next = newNode;
+  	newNode.prev = this.tail;
+  	this.tail = newNode;
+  }
 };
 
 /*
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  
+	let current = this.head,
+			nextNode = current.next;;
+
+	this.head = current.next;
+
+	if (!this.head) {
+
+	  while (current.next) {
+	  	// if next node contains inputted value
+	  	if (nextNode.val === val) {
+	  		// set current pointer two nodes down the list to skip the target value
+	  		current.next = newNode.next;
+	  	}
+	  	current = current.next;
+	  }
+	}
 };
 
 module.exports = LinkedList;
