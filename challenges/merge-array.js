@@ -18,11 +18,12 @@ function mergeArrays(arr1, arr2) {
   
   let idx1 = 0,
     idx2 = 0,
-    result = [];
+    result = [],
+    len = arr1.length + arr2.length;
 
-  for(var i = 0; i < arr1.length; i++){
+  for(var i = 0; i < len; i++){
 
-    if(arr1[idx1] >= arr2[idx2]){
+    if(arr1[idx1] > arr2[idx2]){
       result.push(arr2[idx2++])
     }else{
       result.push(arr1[idx1++])
@@ -33,8 +34,8 @@ function mergeArrays(arr1, arr2) {
   }
 }
 
-var my_array = [3,4,6,10,11,15,21];
-var another_array = [1,5,8,12,14,19];
-console.log(mergeArrays(my_array, another_array)); //[1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
+// var my_array = [3,4,6,10,11,15,21];
+// var another_array = [1,5,8,12,14,19];
+// console.log(mergeArrays(my_array, another_array)); //[1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
 
-// module.exports = mergeArrays;
+module.exports = mergeArrays;
