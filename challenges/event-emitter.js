@@ -21,7 +21,18 @@
  */
 
 function EventEmitter() {
-
+  this.store = {};
 }
 
+EventEmitter.prototype.on = function (str, cb) {
+  return this.store[str]
+    ? this.store[str].concat(cb)
+    : this.store[str] = [cb]
+}
+
+EventEmitter.prototype.trigger = function (str, ...args) {
+  this.store[str].forEach(function (f) {
+    f.apply(this, args);
+  }
+}
 module.exports = EventEmitter;
