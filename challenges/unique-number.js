@@ -10,7 +10,12 @@
  *
  */
 function uniqueNumber(array) {
-
+  var t = {};
+  for (let i = 0; i < array.length; i++) {
+    var key = array[i];
+    if (t[key]) return key;
+    t[key] = 1;
+  }
+  return false;
 }
-
 module.exports = uniqueNumber;
