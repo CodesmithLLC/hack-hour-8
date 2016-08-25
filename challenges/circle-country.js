@@ -23,7 +23,16 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  function isInside(x, y, centerX, centerY, radius) {
+    if (Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2) < Math.pow(radius)) return true
+    else return false;
+  }
 
+  let count = 0;
+  for (let i = 0; i < x.length; i++) {
+    if (start_x, start_y, x[i], y[i], r[i]) count++;
+    if (end_x, end_y, x[i], y[i], r[i]) count++;
+  }
 }
 
 module.exports = circleCountry;
