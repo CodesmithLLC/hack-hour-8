@@ -17,7 +17,20 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  
+  let head = this.head
+  let current = head
+  let previous = head
+  //is each node object, or array ?
+  if(!head) {
+  	this.head={value: val, previous: null, next: null}
+  }
+  else {
+  	while(current.next && current) {
+  		previous = current;
+  		current=current.next;
+  	}
+  	current.next = {value: val, previous: current, next: null}
+  }
 };
 
 /*
@@ -28,3 +41,4 @@ LinkedList.prototype.remove = function(val) {
 };
 
 module.exports = LinkedList;
+

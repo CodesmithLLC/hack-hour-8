@@ -14,6 +14,7 @@ function insertionSort(array) {
 		}
 		array[j+1] = temp
 	}
+	return array
 }
 
 module.exports = insertionSort;
