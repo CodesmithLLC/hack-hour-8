@@ -35,22 +35,48 @@ LinkedList.prototype.add = function(val) {
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-	let current = this.head,
-			nextNode = current.next;;
+	let current = this.head;
 
-	this.head = current.next;
+  // Hack Hour solution
+  while (current) {
 
-	if (!this.head) {
+    // If our current node matches the value we're looking for
+    if (current.val === val) {
+      // Removing the head node
+      if (current === this.head) {
+        this.head = current.next;
+        this.head.prev = null;
+      }
+      // Removing the tail node
+      else if (current === this.tail) {
+        this.tail = current.prev;
+        this.tail.next = null;
+      }
+      else {
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+      }
+      return this;
+    }
 
-	  while (current.next) {
-	  	// if next node contains inputted value
-	  	if (nextNode.val === val) {
-	  		// set current pointer two nodes down the list to skip the target value
-	  		current.next = newNode.next;
-	  	}
-	  	current = current.next;
-	  }
-	}
+    current = current.next;
+  }
+
+
+  // Binh's approach
+	// this.head = current.next;
+
+	// if (!this.head) {
+
+	//   while (current.next) {
+	//   	// if next node contains inputted value
+	//   	if (nextNode.val === val) {
+	//   		// set current pointer two nodes down the list to skip the target value
+	//   		current.next = newNode.next;
+	//   	}
+	//   	current = current.next;
+	//   }
+	// }
 };
 
 module.exports = LinkedList;

@@ -24,6 +24,14 @@
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
+	// Need counter to determine how many border's Tyus has crossed
+	let borders = 0;
+
+	// Find out how far the starting point and ending points 
+
+	// Loop through arrays(circles) to see which path is the shortest by keeping track of borders tracked
+
+	// I don't understand
 }
 
 module.exports = circleCountry;
