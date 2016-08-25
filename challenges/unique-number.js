@@ -9,6 +9,8 @@
  * Complete the challenge in O(1) space
  *
  */
+ //store in object, switch either true or false
+ //or use bitwise ^ operator
 function uniqueNumber(array) {
 
 }
