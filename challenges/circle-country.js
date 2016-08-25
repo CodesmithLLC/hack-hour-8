@@ -1,3 +1,4 @@
+'use strict';
 /**
  *  Circle Country is a country that contains several circular-shaped districts.
  *  Some districts may be situated inside other districts, but their borders do not intersect or touch.
@@ -24,6 +25,32 @@
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
+  var circleCache = {};
+  var idx = 0;
+
+  for(var i = 0; i < x.length; i++){
+    if(inCircle(start_x, start_y, x[i], y[i], r[i])){
+      if(!circleCache['' + x[i] + ' ' + y[i]]){ 
+        circleCache['' + x[i] + ' ' + y[i]];
+        idx++;
+      }
+    }
+    if(inCircle(end_x, end_y, x[i], y[i], r[i])){
+      if(!circleCache['' + x[i] + ' ' + y[i]]){ 
+        circleCache['' + x[i] + ' ' + y[i]];
+        idx++;
+      }
+    }
+  }
+
+  return idx;
 }
 
+function inCircle(xCrd, yCrd, xCntr, yCntr, rad){
+//(x - center_x)^2 + (y - center_y)^2 < radius^2
+  return (Math.pow((xCrd - xCntr), 2) - Math.pow((yCrd - yCntr), 2) < Math.pow(rad, 2))
+}
+
+//need circle coords to test this
 module.exports = circleCountry;
+
