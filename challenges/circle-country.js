@@ -21,7 +21,10 @@
  *    - no circle borders intersect/touch (but they can be nested)
  *
  */
-
+//find a way to calculate border lines
+//need some sort of line checker
+//x = [2,4,5,6] y =[2,2,4,2] r=[1,2,3,1]
+//start  = [1,2] end = [7,1]
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
 }
