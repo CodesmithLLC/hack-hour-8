@@ -22,8 +22,13 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+ // just got the logic before solutions but the plan is to loop through all districts, check for every circle district tyus starts in
+ // and all the districts the end point is nested in and discount any overlapping circles.
 
+function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+	function checkInCircle(center_x,center_y,r,curr_x,curr_y){
+		if( ( Math.pow(curr_x - center_x, 2) + Math.pow(curr_y - center_y, 2) ) < Math.pow(r, 2)
+	}
 }
 
 module.exports = circleCountry;
