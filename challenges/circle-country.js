@@ -21,9 +21,44 @@
  *    - no circle borders intersect/touch (but they can be nested)
  *
  */
+/*
+Pseudo code
+Compare (x - center_x)^2 + (y - center_y)^2 to Radius^2.
+If < coordinates are inside the circle
+If === coordinates are points on circle
+if > coordinates are outside the circle
+
+Take the start and end coordinates and determine number of circles the coordinates are inside of. 
+Return max of the number os circles
+*/
+
+function coorInside(x, y, center_x, center_y, circle_radius){
+	return Math.pow(x - center_x, 2) + Math.pow(y - center_y, 2) < Math.pow(circle_radius, 2) ? true : false;
+}
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+	var startCount = 0;
+	var endCount = 0;
+	for(var i = 0; i < x.length; i++){
+		if(coorInside(start_x, start_y, x[i], y[i], r[i])){
+			startCount++;
+		}
+		if(coorInside(end_x, end_y, x[i], y[i], r[i])){
+			endCount++;
+		}
+	}
 
+	return Math.max(startCount,endCount);
 }
+
+// var xc = [0,0,0]
+// var yc = [0,0,0]
+// var rc = [2,4,10]
+// var startx = 0
+// var starty = 0
+// var endx = 9
+// var endy = 0
+
+console.log(circleCountry(xc,yc,rc,startx,starty,endx,endy))
 
 module.exports = circleCountry;
