@@ -26,9 +26,18 @@
  // and all the districts the end point is nested in and discount any overlapping circles.
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-	function checkInCircle(center_x,center_y,r,curr_x,curr_y){
-		if( ( Math.pow(curr_x - center_x, 2) + Math.pow(curr_y - center_y, 2) ) < Math.pow(r, 2)
+	var count = 0;
+	for(var i = 0; i < x.length; i++){
+		var start = checkInCircle(x[i], y[i], r[i], start_x, start_y);
+		var end = checkInCircle(x[i], y[i], r[i], end_x, end_y);
+		if((start !== end) && (start || end)) count++;
 	}
+	function checkInCircle(center_x,center_y,r,curr_x,curr_y){
+		if( ( Math.pow(curr_x - center_x, 2) + Math.pow(curr_y - center_y, 2) ) <= Math.pow(r, 2) ) return true;
+	}
+	return count;
 }
+
+console.log(circleCountry([1,1,5,3],[1,5,5,3],[1,1,5,5],10,10,50,50));
 
 module.exports = circleCountry;
