@@ -1,3 +1,4 @@
+'use strict';
 /**
 * You are given an array of arrays.  The subarrays are first names and phone numbers.
 *
@@ -19,11 +20,20 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  for(var i =0; i < jazbook.length; i++){
+  	if(jazbook[i][0] === name) {
+  		return jazbook[i][1];
+  	} 
+  }
+  return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
+  var phonebook = {};
+  
+  for(var i = 0; i < jazbook.length; i++){
+  	phonebook[jazbook[i][0]] = jazbook[i][1];
+  }
 
   return phonebook;
 }
@@ -33,5 +43,6 @@ var objectToExport = {
   findName: findName,
   makeJazBookIntoARealPhoneBookObject: makeJazBookIntoARealPhoneBookObject
 };
+
 
 module.exports=objectToExport;

@@ -39,6 +39,7 @@ function coorInside(x, y, center_x, center_y, circle_radius){
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 	var startCount = 0;
 	var endCount = 0;
+	var overlap = 0;
 	for(var i = 0; i < x.length; i++){
 		if(coorInside(start_x, start_y, x[i], y[i], r[i])){
 			startCount++;
@@ -46,9 +47,12 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 		if(coorInside(end_x, end_y, x[i], y[i], r[i])){
 			endCount++;
 		}
+		if(coorInside(start_x, start_y, x[i], y[i], r[i]) && coorInside(end_x, end_y, x[i], y[i], r[i])){
+			overlap++;
+		}
 	}
 
-	return Math.max(startCount,endCount);
+	return startCount + endCount - overlap;
 }
 
 // var xc = [0,0,0]
@@ -59,6 +63,6 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 // var endx = 9
 // var endy = 0
 
-console.log(circleCountry(xc,yc,rc,startx,starty,endx,endy))
+// console.log(circleCountry(xc,yc,rc,startx,starty,endx,endy))
 
 module.exports = circleCountry;
