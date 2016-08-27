@@ -19,11 +19,32 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  for (let key in jazbook) {
+  	if (jazbook[key] === name) {
+  		return number;
+  	}
+  }
+
+  return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
+	let phonebook = {};
+
+	// sort array - O(n log n)
+	jazbook.sort(function(a,b) {
+		return a[0] - b[0];
+	});
+
+	// For loop attempt
+	// for (let i = 0; i < jazbook.length; i++) {
+	// 	phonebook[jazzbook[i][0]] = jazbook[i][1];
+	// }
+
+	// For-in loop
+	for (let key in jazbook) {
+		phonebook[key[0]] = jazbook[key[1]];
+	}
 
   return phonebook;
 }
