@@ -25,30 +25,43 @@
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
-  var circleCache = {};
-  var idx = 0;
+  // var circleCache = {};
+  // var idx = 0;
 
-  for(var i = 0; i < x.length; i++){
-    if(inCircle(start_x, start_y, x[i], y[i], r[i])){
-      if(!circleCache['' + x[i] + ' ' + y[i]]){ 
-        circleCache['' + x[i] + ' ' + y[i]];
-        idx++;
-      }
-    }
-    if(inCircle(end_x, end_y, x[i], y[i], r[i])){
-      if(!circleCache['' + x[i] + ' ' + y[i]]){ 
-        circleCache['' + x[i] + ' ' + y[i]];
-        idx++;
-      }
-    }
-  }
+  // for(var i = 0; i < x.length; i++){
+    // if(inCircle(start_x, start_y, x[i], y[i], r[i])){
+      // if(!circleCache['' + x[i] + ' ' + y[i]]){ 
+        // circleCache['' + x[i] + ' ' + y[i]];
+        // idx++;
+      // }
+    // }
+    // if(inCircle(end_x, end_y, x[i], y[i], r[i])){
+      // if(!circleCache['' + x[i] + ' ' + y[i]]){ 
+        // circleCache['' + x[i] + ' ' + y[i]];
+        // idx++;
+      // }
+    // }
+  // }
 
-  return idx;
+  // return idx;
+
+  let startMap = [],
+    endMap = [];
+
+  x.forEach( (ele, idx) => {
+    startMap.push(inCircle(start_x, start_y, ele, y[idx], r[idx]));
+    endMap.push(inCircle(end_x, end_y, ele, y[idx], r[idx]));
+  })
+
+  return startMap.filter( (ele, idx) => {
+    return ele != endMap[idx];
+  }).length;
+
 }
 
 function inCircle(xCrd, yCrd, xCntr, yCntr, rad){
-//(x - center_x)^2 + (y - center_y)^2 < radius^2
-  return (Math.pow((xCrd - xCntr), 2) - Math.pow((yCrd - yCntr), 2) < Math.pow(rad, 2))
+// use pythagorem theorem --> (x - center_x)^2 + (y - center_y)^2 < radius^2
+  return (Math.pow((xCrd - xCntr), 2) + Math.pow((yCrd - yCntr), 2) < Math.pow(rad, 2))
 }
 
 //need circle coords to test this
