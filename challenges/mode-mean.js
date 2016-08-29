@@ -11,18 +11,19 @@
 
 
 function modemean(array) {
+	if( array.length === 1 ) return true;
 	// find mean
-	var mean = array.reduce(function(a,b){
- 		return a + b;
-	})/(array.length);
+	var mean = array.reduce(function(a,b){return a + b;})/(array.length);
 	// find mode
-	var newArray = array.sort();
+	var newArray = array.sort(function(a,b){return a-b});
 	var currentModeCt = 1;
 	var masterModeCt = 1;
 	var currentSpot = 0;
 	var masterSpot = 0;
 	var i = 1;
-	while (i + currentSpot < newArray.length){
+	while (i + currentSpot <= newArray.length){
+		// check if no other number can become mode
+		if (masterModeCt > newArray.length-currentSpot) break;
 		// check if next number is same as current spot, add one to modeCt
 		if (newArray[currentSpot] === newArray[currentSpot+i]){
 			currentModeCt++;
@@ -38,13 +39,11 @@ function modemean(array) {
 		}
 		// if currentModeCt is less than masterModeCt, move on to next number
 		else{
-			currentSpot = currentSpot+i;
+			currentSpot = currentSpot+1;
 			currentModeCt = 1;
 			i = 1;
 		}
 	}
-	console.log(mean, masterModeCt);
-	return masterModeCt === mean;
+	return newArray[masterSpot] === mean;
 }
-
 module.exports = modemean;

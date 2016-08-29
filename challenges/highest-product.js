@@ -11,6 +11,12 @@ function highestProduct(array) {
 	array.sort(function(a,b){
 		return b-a;
 	});
+	// helper function to get product
+	function returnHighest(array){
+		return array.reduce(function(product, item){
+			return product *= item;
+		}, 1);
+	}
 	// find # of negatives in three largest numbers
 	if(array[array.length-1]*array[array.length-2]>array[1]*array[2]) return returnHighest(array.splice(1, array.length-3);
 	var negArray = array.slice(0,3);
@@ -25,10 +31,6 @@ function highestProduct(array) {
 	return returnHighest(array.slice(0, 3));
 }
 
-// helper function to get product
-function returnHighest(array){
-	return array.reduce(function(product, item){
-			return product *= item;
-	}, 1);
-}
+
+
 module.exports = highestProduct;

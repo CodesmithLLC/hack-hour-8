@@ -38,11 +38,9 @@ function balancedParens(input){
 		else if ((stripped.charAt(i) === ')' || stripped.charAt(i) === ']' || stripped.charAt(i) === '}') && (stripped.charCodeAt(i) - parenType.charCodeAt() <= 2)){
 			count--;
 			parenType = stripped.charAt(parenCount-count+1);
-			console.log("count "+count);
 		}
 	}
 	return (count === 0) ? true : false;
 }
-console.log(balancedParens('[({})(){}[]]'));
 
 module.exports = balancedParens;
