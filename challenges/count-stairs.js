@@ -3,7 +3,13 @@
  */
 
 function countStairs(n) {
-
+	var count = 0;
+	(function step(n){
+		if(n === 0) return count++;
+		if(n >= 1) step(n-1);
+		if(n > 1) step(n-2);
+	}(n));
+	return count;
 }
 
 module.exports = countStairs;
