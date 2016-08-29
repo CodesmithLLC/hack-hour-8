@@ -13,15 +13,15 @@
   */
 
 function anagrams(string) {
-    function recursive(string, prefix) {
-        if (string.length === 0) {
+    function recursive(nice, prefix) {
+        if (nice.length === 0) {
             return [prefix];
         } else {
             var out = [];
-            for (var i = 0; i < string.length; i++) {
-                var pre = string.substring(0, i);
-                var post = string.substring(i + 1);
-                out = out.concat(recursive(pre + post, string[i] + prefix));
+            for (var i = 0; i < nice.length; i++) {
+                var pre = nice.substring(0, i);
+                var post = nice.substring(i + 1);
+                out = out.concat(recursive(pre + post, nice[i] + prefix));
             }
             return out;
         }
@@ -33,4 +33,5 @@ function anagrams(string) {
     return Object.keys(distinct);
 }
 
-module.exports = anagrams;
+anagrams('sup')
+// module.exports = anagrams;
