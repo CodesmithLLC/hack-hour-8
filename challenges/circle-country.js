@@ -25,26 +25,6 @@
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
-  // var circleCache = {};
-  // var idx = 0;
-
-  // for(var i = 0; i < x.length; i++){
-    // if(inCircle(start_x, start_y, x[i], y[i], r[i])){
-      // if(!circleCache['' + x[i] + ' ' + y[i]]){ 
-        // circleCache['' + x[i] + ' ' + y[i]];
-        // idx++;
-      // }
-    // }
-    // if(inCircle(end_x, end_y, x[i], y[i], r[i])){
-      // if(!circleCache['' + x[i] + ' ' + y[i]]){ 
-        // circleCache['' + x[i] + ' ' + y[i]];
-        // idx++;
-      // }
-    // }
-  // }
-
-  // return idx;
-
   let startMap = [],
     endMap = [];
 
@@ -64,6 +44,5 @@ function inCircle(xCrd, yCrd, xCntr, yCntr, rad){
   return (Math.pow((xCrd - xCntr), 2) + Math.pow((yCrd - yCntr), 2) < Math.pow(rad, 2))
 }
 
-//need circle coords to test this
 module.exports = circleCountry;
 
