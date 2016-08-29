@@ -1,0 +1,118 @@
+f001f4e (HEAD -> master, origin/master, origin/HEAD) could use some refactoring, but I think it works
+42e12f1 (upstream/master) create add-linked-list.js
+53a9a8c seems inefficient, but it works
+04da031 create count-twos.js
+83c8c19 done using destructuring
+7fb3373 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+6cb9b6d create apply-it.js
+c937939 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+dd1ec37 create gcd.js
+0a37d13 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+52353c7 create valid-bst.js
+497529f testing my config
+47442ec found more efficient solution
+5883b6e I found a couple of ways to do this, the time complexity seems to be the same for both
+6f47e19 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+a7a01bc create two-sum.js
+342f5da a few hackhours
+2c0e6ca Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+34461cb create stack-queue.js
+2d4d7a9 not in place
+b8a5aa6 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+6d7a458 create rotate-grid.js
+99a5bab Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+e553ffa create parse-dates.js
+967d8f6 almost there, but not quite
+c03f24f Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+905cb61 create num-to-words.js
+e298319 not sure on the space complexity
+dee3845 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+5430534 create merge-array.js
+a9f078f use sendgrid @ 3
+0efe68d use sendgrid @ 3
+ef7d92e not effecient
+229a62f Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+51ab794 create apple-stocks.js
+40cc10c Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+c410402 create reverse-linked-list.js
+6787840 Add cs-automation token
+da331e0 Add cs-automation token
+3cc8b64 I hope this is what you're looking for
+a64f817 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+0a3ab70 create max-stack.js
+5a11f5b (fix) run script prior to build
+d40f371 (fix) run script prior to build
+457df8e Update token and Node 6
+7377d46 merge updates
+9eb5139 use Node 6
+6883494 (fix) put keys in env matrix
+1f9ed53 this is very much wrong
+69f1294 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+03fcf5f create zip-linked-lists.js
+5e89251 (fix) put keys in env matrix
+823467b (fix) put keys in env matrix
+b5dc9a1 Okay, last attempt
+ef05ac1 fixed
+6c2b7f0 seems too easy, but what do I know?
+33d6fa6 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+6ea59be create highest-product.js
+09d7cd2 seems hacky, but it passes the tests
+c366b4f Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+1761042 create match-word.js
+11bc2b8 I think I actually got one right!
+d16493a Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+15dc55c create bin-to-dec.js
+2569b47 remove merge token
+6ad3fa0 remove merge token
+d9608cf works for 3 tests, but isn't right
+a83889c Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+69dd84a create subset-sum.js
+ff98278 brute force FTW
+90d4a31 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8 "deleting"
+ddcda38 string rotation corrected
+711fc9d create roman-numeral.js
+b47d420 Merge pull request #48 from CodesmithLLC/update-token
+46ba3b4 update token
+085b273 Merge branch 'add-merge-token'
+66d5cf8 new merge token.
+0b6d950 adds new keys
+b81167e adds new keys
+9008600 (fix) add author
+938fbf8 add author
+2f028f9 not quite right
+2bac346 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+67705d0 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8 "merging"
+fa02a53 create balanced-parens.js
+5c75bd6 (fix) add travis keys
+ffa4f54 adds new secure keys
+27bf821 string rotation corrected
+c5cb2ec string rotation done
+c1484e0 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8 "message"
+10a302e create string-rotation.js
+8672e42 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+d2deaa9 (fix) add secure keys to ENV
+a0bbaca adds keys as secure ENV variables
+df6703d swap in place done without reverse, ven though i know it could have used that
+2bb5b8e Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+acc0bae create reverse-in-place.js
+50be3bc pow done
+278dfcc create pow.js
+9d77dfc Update README.md
+637e8a7 (feat) adds PullRequest screenshot
+6a495bb hack hours, mean-mode may not have been added correctly previously
+331e036 Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+a6fb2c7 create kth-to-last-node.js
+1162238 mode-mean done
+2ad08d5 create mode-mean.js
+dee563c draw stairs complete
+9b4653c fizzbuzz
+b1a0ade Merge branch 'master' of https://github.com/CodesmithLLC/hack-hour-8
+0e37628 create draw-stairs.js
+1bcfadf fizzbuzz done
+90f4a46 (feat) adds PullRequest screenshot
+b90aa6e (origin/zhiwenhuang, origin/sarjford, origin/s1akr, origin/petridw, origin/nongaap, origin/mshaked1, origin/kevoutthebox, origin/jafow, origin/davidvorona, origin/crosky1291, origin/colin-m-b, origin/campallison, origin/blkwtkns, origin/binhxn, origin/azai91, origin/VLeon, origin/ShrayBans, origin/ScottMillerWesCoas, origin/MorganChristison, origin/Harla101, origin/CWilliams014) Hack-hour-gui creating package.json
+b9c0775 Hack-hour-gui creating challenges/fizzbuzz.js
+1a01b97 Hack-hour-gui creating README.md
+d517fda Hack-hour-gui creating .travis.yml
+0640111 Hack-hour-gui creating .gitignore
+604503f Hack-hour-gui creating .eslintrc
