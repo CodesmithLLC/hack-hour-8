@@ -3,14 +3,11 @@
  */
 
 function countStairs(n) {
-    function fib(num) {
         if (num < 2){
             return 1;
         }else{
-            return fibonacci(num-2) + fibonacci(num-1);
+            return countStairs(num-2) + countStairs(num-1);
         }
-    }
-    return fib(n -1) 
 }
 
 module.exports = countStairs;
