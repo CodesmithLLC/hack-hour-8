@@ -3,7 +3,15 @@
  */
 
 function countStairs(n) {
-
+  var possibilites = 0;
+  if(n > 0) {
+    possibilites += Math.floor(n/2);
+    possibilites += n % 2;
+    return countStairs(n - 1);
+  }
+  return possibilites;
 }
 
 module.exports = countStairs;
+
+console.log(countStairs(10));
