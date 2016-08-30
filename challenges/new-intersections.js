@@ -1,8 +1,8 @@
 /**
  *
  * You are given an array x and an array y that represent the coordinates of several OLD points
- * 
- *   - x is the array of x-coordinates and y is the array of y-coordinates 
+ *
+ *   - x is the array of x-coordinates and y is the array of y-coordinates
  *   - (x[i], y[i]) correspond to coordinates of the i'th OLD point
  *
  * Write an algorithm to find the number of NEW points that can be placed 
@@ -13,11 +13,11 @@
  * Constraints and Notes:
  *
  * 	 - x and y will contain the same number of elements
- * 	 
+ *
  */
 
 function newIntersections(x, y){
-
+  //
 }
 
 module.exports = newIntersections;
