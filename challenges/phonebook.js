@@ -42,8 +42,6 @@ function makeJazBookIntoARealPhoneBookObject(jazbook){
   return phonebook;
 }
 
-
-
 var objectToExport = {
   findName: findName,
   makeJazBookIntoARealPhoneBookObject: makeJazBookIntoARealPhoneBookObject

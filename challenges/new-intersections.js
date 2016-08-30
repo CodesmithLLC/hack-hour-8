@@ -17,7 +17,26 @@
  */
 
 function newIntersections(x, y){
-
+	x.sort((a, b) => {
+		return a - b;
+	});
+	y.sort((a, b) => {
+		return a - b;
+	});
+	let max;
+	let counter = 0;
+	let j = 0;
+	x[x.length - 1] < y[y.length - 1] ? max = x[x.length - 1] : max = y[y.length - 1];
+	for (let i = 1; i < max; i++) {
+		for (let j = 0; j < x.length; j++) {
+			if (i > x[j] && i < x[j + 1]) {
+				if (i > y[j] && i < y[j + 1]) {
+					counter++;
+				}
+			}
+		}
+	}
+	return counter;
 }
 
 module.exports = newIntersections;
