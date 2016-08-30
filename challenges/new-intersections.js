@@ -16,8 +16,16 @@
  * 	 
  */
 
-function newIntersections(x, y){
+ //INPUT: x-array, y-array
 
+function newIntersections(x, y){
+	//instantiate counter
+	//check to see if any duplicates in x array and duplicates in y array - get index 
+	//if x array-duplicate, store to cache
+	//if y array-duplicate, store to cache
+	//check value of x duplicate and compared to index of y array in x array - check if between
+	//check value of y duplicate and compared to index of x array in y array - check if between
+	//if between, increment counter
 }
 
 module.exports = newIntersections;
