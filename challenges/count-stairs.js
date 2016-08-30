@@ -3,7 +3,20 @@
  */
 
 function countStairs(n) {
+	var ways = 0;
+	recursive(n);
+	return ways;
 
+	function recursive(total) {
+		if(total < 0) return false;
+		else if(total === 0) {
+			ways++;
+			return false;
+		}
+		return recursive(total-1) || recursive(total-2);
+	}
 }
+
+
 
 module.exports = countStairs;
