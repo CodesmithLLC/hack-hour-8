@@ -1,4 +1,4 @@
-5/**
+/**
  * Given a single input string, write a function that produces all possible anagrams
  * of a string and outputs them as an array. At first, don't worry about
  * repeated strings.  What time complexity is your solution?
@@ -22,7 +22,7 @@ function anagrams(string) {
 
     let extra = right + left;
     result.push(current + extra);
-    
+
     for (let n = 1; n < extra.length; n++) {
       let curr = extra[n];
       let prev = extra.slice(0, n);

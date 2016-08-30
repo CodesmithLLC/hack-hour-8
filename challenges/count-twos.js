@@ -12,7 +12,7 @@ function countTwos(num) {
 
   for (let i = 1; i <= num; i++) {
     let numString = i + "";
-    
+
     if (numString.indexOf("2") > -1 ) {
       let numArr = numString.split("");
 
@@ -30,9 +30,9 @@ function countTwos(num) {
 //altternative
 // function countTwos(target, num) {
 //   var count = 0;
-  
+
 //   var regex = new RegExp(target, 'g');
-  
+
 //   for (var i = target; i <= num; i++) {
 //     i.toString().replace(regex, function() {
 //       count++;
@@ -42,5 +42,3 @@ function countTwos(num) {
 // }
 
 module.exports = countTwos;
-
-
