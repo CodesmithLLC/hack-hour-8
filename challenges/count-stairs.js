@@ -3,28 +3,24 @@
  */
 
 
+
 function countStairs(n) {
-    /*Approach: recursion.  All permutations to get to a certain number.  
+    /*Approach: Handle 0 and 1 as base cases, start with n, go
+    down to zero or 1, and add result (line 21). 
     */
-    if (n === 0) return 0; 
-    if (n === 1) return 1; 
-    let totalWays = 0, sum = 0; 
-    function addOneorTwo (sum){
-     if (sum === n) {
-        console.log('sum match', sum)
-        totalWays++;
-        }
-     else if (sum > n) return null; 
-     else {
-        console.log('sum', sum); 
-        return addOneorTwo(sum += 2) + addOneorTwo(sum += 1);
-     }
+   if (n === 0) {
+    //console.log('match0', n)
+    return 0; 
+   }
+    else if (n === 1) {
+    //console.log('match1', n)    
+    return 1; 
     }
-    addOneorTwo(0); 
-    return totalWays; 
-    
+  else {
+    console.log(n); 
+    return countStairs(n-1) + countStairs(n-2); 
+  }
     
 }
-countStairs(5)
 
 module.exports = countStairs;
