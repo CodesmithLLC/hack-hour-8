@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const position = str.match(/\d/);
+  const x = parseInt(str.charAt(0));
+  const y = parseInt(str.charAt(1));
+  const numOfSpaces = 0;
 
+  function insideBoard(x, y) {
+    return x >= 1 && x <=8 && y >=1 && y <= 8;
+  }
+
+  if (insideBoard(x - 1, y + 2)) numOfSpaces++;
+  if (insideBoard(x + 1, y + 2)) numOfSpaces++;
+  if (insideBoard(x + 2, y + 1)) numOfSpaces++;
+  if (insideBoard(x + 2, y - 1)) numOfSpaces++;
+  if (insideBoard(x + 1, y - 2)) numOfSpaces++;
+  if (insideBoard(x - 1, y - 2)) numOfSpaces++;
+  if (insideBoard(x - 2, y - 1)) numOfSpaces++;
+  if (insideBoard(x - 2, y - 1)) numOfSpaces++;
+
+  return numOfSpaces;
 }
 
 module.exports = knightjumps;
