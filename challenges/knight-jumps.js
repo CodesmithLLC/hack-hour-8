@@ -11,7 +11,19 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+	var place = str.split(' ');
+	var x = parseInt(place[0]);
+	var y = parseInt(place[1]);
+	var ways = 0;
+	var mutX, mutY;
+	var combinationsX = [1, 1, 2, 2, -1, -1, -2, -2];
+	var combinationsY = [2, -2, 1, -1, 2, -2, 1, -1];
+	for (var i = 0; i < 8; i++) {
+		mutX = x + combinationsX[i];
+		mutY = y + combinationsY[i];
+		if(mutX >= 1 && mutX <= 8 && mutY <= 8 && mutY >= 1) ways++;
+	}
+	return ways;
 }
 
 module.exports = knightjumps;
