@@ -10,8 +10,32 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
+/*
+Approach:
+Parse string to extract x and y coordinates: helper function
+Run a knight function to determine all coordinates moves
+Count all coordinates within 1x1 to 8x8
+Return number of moves
+*/
 
+
+
+function knightjumps(str) {
+  var x = parseInt(str[1],10);
+  var y = parseInt(str[3],10);
+  var firstMove = [1,1,-1,-1,2,2,-2,-2];
+  var secondMove = [2,-2,2,-2,1,-1,1,-1];
+  var count = 0;
+  for(var i = 0; i < 8; i++){
+  	if(firstMove[i]+x < 9 && firstMove[i]+x >= 0) {
+  	  if(secondMove[i]+y < 9 && secondMove[i]+y >= 0){
+  	  	count++
+  	  }
+  	}
+  }
+
+  return count;
 }
+
 
 module.exports = knightjumps;
