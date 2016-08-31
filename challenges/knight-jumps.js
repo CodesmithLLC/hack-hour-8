@@ -11,6 +11,46 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let strArr = str.split(" ");
+	let x = strArr[0];
+	let y = strArr[1];
+
+	let counter = 0;
+
+	while (x < 8 && y < 8 && y > 0 && x > 0) {
+		counter ++;
+		x++;
+		y+=2;
+	}
+
+	x = strArr[0];
+	y = strArr[1];
+
+	while (x < 8 && y < 8 && y > 0 && x > 0) {
+		counter ++;
+		x--;
+		y+=2;
+	}
+
+	x = strArr[0];
+	y = strArr[1];
+
+	while (x < 8 && y < 8 && y > 0 && x > 0) {
+		counter ++;
+		x--;
+		y-=2;
+	}
+
+	x = strArr[0];
+	y = strArr[1];
+
+	while (x < 8 && y < 8 && y > 0 && x > 0) {
+		counter ++;
+		x++;
+		y-=2;
+	}
+
+	return counter;
 
 }
 
