@@ -16,8 +16,24 @@
  * 	 
  */
 
-function newIntersections(x, y){
+/*
+Intersecting new point meets the following criteria:
+New X === 2 Old X with same value && New Y is > Old Y and < Old Y
+New Y === 2 Old Y with same value && New X is > Old X and < Old X
+Approach:
+  Find all the X coordinates with the same values
+  Find all the Y coordinates that have the same values but also are with range of the Y values in the matched X set && X coordinate pair > && < x coordinate of matched X coordinates 
+  If the combined matched X and matched Y is not an old coordinate then count the number
+  Return the number of new points that can be placed
+*/
 
+function newIntersections(x, y){
+  var count = 0;
+
+
+  return count;
 }
+
+
 
 module.exports = newIntersections;
