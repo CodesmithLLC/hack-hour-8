@@ -16,8 +16,30 @@
  * 	 
  */
 
+//loop through x-coordinates array, look for another point with same x-coordinates and store them,
+//loop through y-coordinates array, looking for matching y coordinates within x-coordinate range
 function newIntersections(x, y){
-
+	if(x.length<4) return 0;
+	for(var i = 0; i < x.length-1; i++){
+		for(var j = i + 1; j < x.length; j++){
+			if(x[i] = x[j]){
+				var xCoord = x[i];
+				if(y[i]<y[j]){
+					var y1 = y[i];
+					var y2 = y[j];
+				}
+				else{
+					var y1 = y[j];
+					var y2 = y[i];
+				}
+				for(var k = 0; k < x.length; k++){
+					if(y[k] < y2 && y[k] > y1 && x[k] ==== xCoord){
+						
+					}
+				}
+			}
+		}
+	}
 }
 
 module.exports = newIntersections;
