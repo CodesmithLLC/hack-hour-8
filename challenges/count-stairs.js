@@ -4,12 +4,10 @@
 
 function countStairs(n) {
   var possibilites = 0;
-  if(n > 0) {
-    possibilites += Math.floor(n/2);
-    possibilites += n % 2;
-    return countStairs(n - 1);
-  }
-  return possibilites;
+  if(n < 0) {
+    return 0
+  } else if (n === 0)
+  return 1;
 }
 
 module.exports = countStairs;
