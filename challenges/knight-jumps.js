@@ -14,7 +14,7 @@ function knightjumps(str) {
   const position = str.match(/\d/g);
   const x = parseInt(position[0]);
   const y = parseInt(position[1]);
-  const numOfSpaces = 0;
+  let numOfSpaces = 0;
 
   function insideBoard(x, y) {
     return x >= 1 && x <=8 && y >=1 && y <= 8;
