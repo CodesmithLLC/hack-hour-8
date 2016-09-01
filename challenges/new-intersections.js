@@ -19,6 +19,7 @@
 //loop through x-coordinates array, look for another point with same x-coordinates and store them,
 //loop through y-coordinates array, looking for matching y coordinates within x-coordinate range
 function newIntersections(x, y){
+	
 	if(x.length<4) return 0;
 	for(var i = 0; i < x.length-1; i++){
 		for(var j = i + 1; j < x.length; j++){

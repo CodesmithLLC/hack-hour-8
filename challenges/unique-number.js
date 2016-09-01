@@ -10,6 +10,7 @@
  *
  */
 function uniqueNumber(array) {
+	// only works with even number of duplicates
 	var cache = {};
 	array.forEach(function(num){
 		if(!cache[num]) cache[num] = true;

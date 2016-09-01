@@ -11,13 +11,12 @@
  */
 
 function repeatNumbers(array) {
-	//O(2n)
-	array = array.sort(function(a,b){ return a-b});
-	for(var i = 0; i < array.length; i++){
-		if(array[i] < 1) return 0;
-		if(array[i]===array[i+1]) return array[i];
+	let store = {};
+	for(let i = 0; i < array.length; i++){
+		if(!store[array[i]]) store[array[i]] = true;
+		else return array[i];
 	}
-	return 0;
 }
+console.log(repeatNumbers([1,2,3,4,5,3]));
 
 module.exports = repeatNumbers;

@@ -2,9 +2,9 @@
 Create a doubly linked list with an add and remove method
  */
 
-function LinkedList() {
-  this.head = null;
-  this.tail = null;
+function LinkedList(val) {
+  this.head = new Node(val);
+  this.tail = this.head;
 }
 
 function Node(val) {
@@ -18,21 +18,16 @@ Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
 	let node = new Node(val);
-	if(!this.head){
-		this.head = node;
-		this.tail = node;
-	} else {
-		this.tail.next = node;
-		node.prev = this.tail;
-		this.tail = node;
-	}
+	this.tail.next = node;
+	node.prev = this.tail;
+	this.tail = node;
 };
 
 /*
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-	var node = this.head
+	let node = this.head;
  	if(val === this.head.val) {
   		this.head = node.next;
   		return node.val;

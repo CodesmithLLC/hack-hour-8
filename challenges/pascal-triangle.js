@@ -40,7 +40,7 @@ function pascalTriangle(n) {
   for(let row = 1; row < n; row++){
     let pascalRow = [];
     for(let index = 0; index <= pascal[row-1].length; index++){
-      let first = pascal[row-1][index-1]|| 0;
+      let first = pascal[row-1][index-1] || 0;
       let second = pascal[row-1][index] || 0;
       pascalRow[index] = (first + second);
     }

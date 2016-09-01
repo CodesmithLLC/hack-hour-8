@@ -1,56 +1,58 @@
-/**
- * Create a stack.Then create a queue using two stacks.
- */
-
-
 function Stack() {
-	this.storage = {};
-	this.index = 0;
+  this.contents = {};
+  this.length = 0;
 }
 
-Stack.prototype.push = function(val){
-  	this.storage[this.index] = val;
-  	this.index++;
-  	return this.index;
-  };
+Stack.prototype.push = function(value) {
+	this.contents[this.length] = value;
+	this.length++;
+};
 
-Stack.prototype.pop = function(){
-	this.index--;
-	var temp = this.storage[this.index];
-	delete this.storage[this.index];
+Stack.prototype.pop = function() {
+	this.length--;
+	var temp = this.contents[this.length];
+	delete this.contents[this.length];
 	return temp;
 };
 
-/**
-* Queue Class
-*/
+Stack.prototype.forEach = function(callback) {
+	while(this.length >= 0){
+		var temp = this.contents[this.length];
+		delete this.contents[this.length];
+		callback(temp);
+		this.length--;
+	}
+};
+
+var stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.push(4);
+console.log(stack);
+console.log(stack.pop());
+console.log(stack);
+
 
 function Queue() {
-	this.stack1 = new Stack();
-	this.stack2 = new Stack();
-	this.deindex = 0;
+  this.stack1 = new Stack();
+  this.stack2 = new Stack();
 }
 
-Queue.prototype.enqueue = function(value){
+Queue.prototype.enqueue = function(value) {
 	this.stack1.push(value);
-	if (this.stack2.index === 0) this.stack2.push(value);
-	else{
-		while (this.stack2.index > 0) { 
-			this.stack2.pop();
-		}
-		for (var i = this.stack1.index-1; i >= this.deindex; i--) {
-			this.stack2.push(this.stack1.storage[i]);
-		}
+	return this.stack1;
+};
+
+Queue.prototype.dequeue = function() {
+	while(this.stack1.length>1){
+		var pop = this.stack1.pop();
+		this.stack2.push(pop);
 	}
-	return this.stack2;
-}
-
-Queue.prototype.dequeue = function(value){
-	if (this.stack2.index === 0) return this.stack2;
-	this.deindex++;
-	return this.stack2.pop();
-}
-
-var queue = new Queue();
-
-module.exports = {Stack: Stack, Queue: Queue};
+	var temp = this.stack1.pop();
+	while(this.stack2.length>0){
+		var popBack = this.stack2.pop();
+		this.stack1.push(popBack);
+	}
+	return temp;
+};

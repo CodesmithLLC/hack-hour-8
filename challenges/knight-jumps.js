@@ -11,6 +11,7 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+	if(str.length > 5) return 'Invalid coordinates';
 	let xCoord = parseInt(str[1]);
 	let yCoord = parseInt(str[3]);
 	if( (xCoord < 1 && xCoord < 8) || (yCoord < 1 && yCoord < 8)) return false;
