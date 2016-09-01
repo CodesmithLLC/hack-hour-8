@@ -34,6 +34,24 @@
 
 function pascalTriangle(numRows) {
 
+  let triangle = [
+    [1]
+  ],
+  tier;
+
+  for (let j = 0; j < numTiers-1; j++) {
+    tier = [1];
+
+    for (let k = 1; k < triangle[j].length; k++) {
+      console.log(triangle[j][k],triangle[j][k-1])
+      tier[k] = triangle[j][k] + triangle[j][k-1];
+    }
+    tier.push(1);
+    triangle.push(tier);
+  }
+
+  return triangle;
+
 }
 
 module.exports = pascalTriangle;
