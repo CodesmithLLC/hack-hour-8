@@ -12,6 +12,8 @@
  */
 
 function reverseInPlace(array) {
+	if (array.length === 1) return array;
+	if (!array) return [];
 	for(var i = 1; i<array.length; i++){
 		array.unshift(array[i]);
 		i++;
