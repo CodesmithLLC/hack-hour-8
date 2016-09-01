@@ -11,9 +11,9 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-  const position = str.match(/\d/);
-  const x = parseInt(str.charAt(0));
-  const y = parseInt(str.charAt(1));
+  const position = str.match(/\d/g);
+  const x = parseInt(position[0]);
+  const y = parseInt(position[1]);
   const numOfSpaces = 0;
 
   function insideBoard(x, y) {
