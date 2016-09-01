@@ -16,30 +16,46 @@
 function knightjumps(str) {
   const numArr = str.match(/[\d]/g);
   const x = numArr[0];
-  console.log('x: ', x);
   const y = numArr[1];
-  console.log('y: ', y);
+  const sizeOfBoard = 8;
 
-	if ( (x >= 3 && x <= 6) && (y >= 3 && y <= 6) ) return 8;
+  const numberOf8Moves = Math.pow(sizeOfBoard - 4, 2);
+  const numberOf6Moves = Math.pow(sizeOfBoard - 4, 2);
 
-	if (x >= 3 && x <= 6) {
-		if (y === 2 || y  === 6) {
-			return 6;
-		}
-		if (y === 1 || y  === 7) {
-			return 4;
-		}
-	}
+  if ((x >= 3 && x <= 6) && (y >= 3 && y <= 6)) return 8;
 
-		if ((y >= 3 && y <= 6)) {
-		if (x < 3 || x > 6) {
-			return 6;
-		}
-	}
+  if (x >= 3 && x <= 6) {
+    if (y === 2 || y === 7) {
+      return 6;
+    }
+    if (y === 1 || y === 8) {
+      return 4;
+    }
+  }
 
+  if ((y >= 3 && y <= 6)) {
+    if (x === 2 || x === 7) {
+      return 6;
+    }
+    if (x === 1 || x === 7) {
+      return 4;
+    }
+  }
 
+  if ((x === 2 || x === 7) && (y === 2 || y === 7)) {
+    return 4;
+  }
 
-	return 0;
+  if ((x === 1 || x === 2 || x === 7 || x === 8) && (y === 1 || y === 2 || y === 7 || y === 8)) {
+    return 3;
+  }
+
+  if ((x === 1 || x === 8) && (y === 1 || y === 8)) {
+    return 2;
+  }
+
+  return 0;
+
 }
 
 module.exports = knightjumps;
