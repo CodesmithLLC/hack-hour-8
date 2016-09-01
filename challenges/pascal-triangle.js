@@ -1,3 +1,4 @@
+'use strict';
 /*
   Construct Pascal's Triangle up to n levels deep, starting from n = 1. Each row
   is represented as an array of numbers.
@@ -34,6 +35,22 @@
 
 function pascalTriangle(numRows) {
 
+  let result = [];
+
+  for(let i = 1; i <= numRows; i++){
+    let arr = new Array(i);
+    arr[0] = 1;
+    arr[arr.length - 1] = 1;
+    if(i > 2){
+      for(let j = 1; j < arr.length - 1; j++){
+        arr[j] = result[i - 2][j] + result[i - 2][j - 1];
+      }
+    }
+    result.push(arr);
+  }
+
+  return result;
 }
 
+// console.log(pascalTriangle(7));
 module.exports = pascalTriangle;
