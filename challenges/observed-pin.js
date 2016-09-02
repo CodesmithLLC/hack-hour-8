@@ -39,12 +39,35 @@ expectations = {
 
 */
 
-
-
-
 function getPINs(observed) {
-
+	let options = {
+		1: [1,2,4],
+		2: [1,2,3,5],
+		3: [2,3,6],
+		4: [1,4,5,7],
+		5: [2,4,5,6,8],
+		6: [3,5,6,9],
+		7: [4,7,8],
+		8: [5,7,8,9,0],
+		9: [6,8,9],
+		0: [8,0]
+	}
+	// split observed into array
+	let stringArray = observed.split('');
+	// form array of arrays of possibilities for each observed digit
+	let optionsArray = stringArray.map(function(digit){
+		return options[digit];
+	})
+	let final = [];
+	// recurse through each subarray to form all possibilities, adding each digit from the next array to a new combo
+	(function formCombos(array, combo){
+		combo = combo || '';
+		if(combo.length === optionsArray.length) return final.push(combo);
+		array.forEach(function(digit){
+			return formCombos(optionsArray[combo.length+1], combo+digit);
+		})
+	})(optionsArray[0])
+	return final;
 }
-
-
+console.log(getPINs('11'));
 module.exports = getPINs
