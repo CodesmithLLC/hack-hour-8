@@ -44,6 +44,8 @@ expectations = {
 
 function getPINs(observed) {
 
+	// I have no idea how to approach this besides using numerous if statements
+
 }
 
 
