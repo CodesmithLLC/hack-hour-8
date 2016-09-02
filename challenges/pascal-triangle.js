@@ -33,7 +33,18 @@
 */
 
 function pascalTriangle(numRows) {
-
+  var pascalArr = [];
+  var pascalValue = [];
+  for(var i = 1; i < numRows; i++){
+    for(var k = 0; k < i; k++){
+      var value = pascalArr[i-1]+pascalArr[i];
+      pascalValue = pascalValue.concat(isNaN(value) ? [1] : value);
+    }
+    pascalArr.push(pascalValue);
+  }
+  return pascalArr;
 }
+
+console.log(pascalTriangle(2));
 
 module.exports = pascalTriangle;
