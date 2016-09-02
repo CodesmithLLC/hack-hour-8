@@ -33,6 +33,22 @@
 */
 
 function pascalTriangle(numRows) {
+  if (numRows === undefined || numRows < 1) {
+    return [];
+  }
+
+  let triangle = [[1]];
+  let row;
+
+  for (var i = 0; i < numRows - 1; i++) {
+    let row = [1];
+
+    for (var j = 1; j< triangle[i].length; j++) {
+      // somehow get values from previous rows
+    }
+
+    // add accumulating values new row
+  }
 
 }
 
