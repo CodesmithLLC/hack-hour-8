@@ -21,7 +21,7 @@ he saw could actually be another adjacent digit (horizontally or vertically,
 but not diagonally). E.g. instead of the 1 it could also be the 2 or 4. And
 instead of the 5 it could also be the 2, 4, 6 or 8.
 
-He also mentioned, he knows this kind of locks. You can enter an unlimited
+He also mentioned he knows this kind of lock. You can enter an unlimited
 amount of wrong PINs, they never finally lock the system or sound the alarm.
 That's why we can try out all possible (*) variations.
 
@@ -46,7 +46,7 @@ expectations = {
 function getPINs(observed) {
   const obd = observed.split('');
   const pins = [];
-  const va = {
+  const adjKeys = {
     0: ['0', '8'],
     1: ['1', '2', '4'],
     2: ['1', '2', '3', '5'],
@@ -62,7 +62,7 @@ function getPINs(observed) {
   let item;
 
   for (item in obd) {
-    const possible = va[obd[item]];
+    const possible = adjKeys[obd[item]];
     pins.push(possible);
   }
 
