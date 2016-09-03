@@ -18,8 +18,47 @@
 * Example: poker([3,5,5,5,2], [4,6,7,8,8]) -> "Player 1 wins"
 */
 
-function poker(hand1, hand2) {
-
+// the deck state
+function deck () {
+  var result = [];
+  var suits = {0: 'H', 1: 'D', 2: 'S', 3: 'C'};
+  for (var i = 0; i < 4; i++) {
+    for (var j = 0; j < 13; j++) {
+      result.push(suits[i] + j);
+    }
+  }
+  return result;
 }
 
+// returns 2 decks
+function shuffle (deck) {
+  var cache = {};
+  var shuffled = [];
+  while (shuffled.length < 52) {
+    var random = Math.floor(Math.random() * 52);
+    if (cache[random] === undefined) {
+      shuffled.push(deck[random]);
+      cache[random] = true;
+    }
+  }
+  return shuffled;
+}
+
+function poker(hand1, hand2) {
+  // see if hand holds the royal Flush
+  // next see if hand holds straight Flush
+  //..
+  //..
+  //..
+  // check hand for high
+
+  // if they have the same win compare the value of those two
+
+  // return who won
+}
+
+// console.log(deck());
+var deck = deck();
+var shuffled = shuffle(deck);
+console.log(shuffled);
 module.exports = poker;
