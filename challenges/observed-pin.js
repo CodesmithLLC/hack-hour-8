@@ -39,11 +39,34 @@ expectations = {
 
 */
 
-
-
-
 function getPINs(observed) {
-
+	var startArr = observed.split("");
+	var optionsArr = [];
+	var res = [];
+	for (var i = 0; i < startArr.length; i++) {
+		var temp = [];
+		if (startArr[i] === '0') temp.push('8', '0');
+		else {
+			if ((parseInt(startArr[i])) - 3 > 0) temp.push((parseInt(startArr[i]) - 3).toString())
+			if ((parseInt(startArr[i])) - 1 > 0) temp.push((parseInt(startArr[i]) - 1).toString())
+			if ((parseInt(startArr[i])) + 1 < 10) temp.push((parseInt(startArr[i]) + 1).toString())
+			if ((parseInt(startArr[i])) + 3 < 10) temp.push((parseInt(startArr[i]) + 3).toString())
+			if (startArr[i] === '8') temp.push('0');
+			temp.push(startArr[i])
+		}
+		optionsArr.push(temp)
+	}
+	function recur(startArr) {
+		if (startArr.length === 1) return startArr[0];
+		const curArr = recur(startArr.slice(1));
+		var result = [];
+		for (var j = 0; j < curArr.length; j++) {
+			for (var k = 0; k < startArr[0].length; k++) {
+				result.push(startArr[0][k] + curArr[j])
+			}
+		}return result;
+	}
+	return recur(optionsArr)
 }
 
 
