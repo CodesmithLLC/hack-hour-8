@@ -28,7 +28,6 @@ function poker(hand1, hand2) {
 		return a - b
 	})
 	
-	
 	function checkVal(hand) {
 		let handVal = 0;
 		let highCard = 0;
@@ -49,8 +48,7 @@ function poker(hand1, hand2) {
 		return handVal;
 	}
 	if (checkVal(hand1) === checkVal(hand2)) return "draw";
-	else return checkVal(hand1) > checkVal(hand2) ? "Player 1 wins" : "Player 2 wins"
-	
+	else return checkVal(hand1) > checkVal(hand2) ? "Player 1 wins" : "Player 2 wins";
 }
 
 module.exports = poker;
