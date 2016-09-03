@@ -18,8 +18,39 @@
 * Example: poker([3,5,5,5,2], [4,6,7,8,8]) -> "Player 1 wins"
 */
 
-function poker(hand1, hand2) {
 
+
+function poker(hand1, hand2) {
+	hand1.sort((a, b) => {
+		return a - b
+	})
+	hand2.sort((a, b) => {
+		return a - b
+	})
+	
+	
+	function checkVal(hand) {
+		let handVal = 0;
+		let highCard = 0;
+		if (hand[hand.length - 1] - hand[0] === 4) handVal = 100000; //find for straight
+		for (let i = 0; i < hand.length; i++) {
+			if (hand.lastIndexOf(hand[i]) - hand.indexOf(hand[i]) === 3) handVal === 10000000;
+			else if (hand.lastIndexOf(hand[i]) - hand.indexOf(hand[i]) === 2) {
+				if (handVal === 100) handVal = 1000000;
+				else handVal = 10000;
+			}
+			else if (hand.lastIndexOf(hand[i]) - hand.indexOf(hand[i]) === 1) {
+				if (handVal === 100) handVal = 1000;
+				else if (handVal === 10000) handVal = 1000000;
+				else handVal = 100;
+			}
+		}
+		if (handVal < 100) handVal = hand[4]
+		return handVal;
+	}
+	if (checkVal(hand1) === checkVal(hand2)) return "draw";
+	else return checkVal(hand1) > checkVal(hand2) ? "Player 1 wins" : "Player 2 wins"
+	
 }
 
 module.exports = poker;
