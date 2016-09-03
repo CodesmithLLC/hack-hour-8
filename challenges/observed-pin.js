@@ -69,5 +69,4 @@ function getPINs(observed) {
 	})(optionsArray[0])
 	return final;
 }
-console.log(getPINs('11'));
 module.exports = getPINs
