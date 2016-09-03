@@ -55,16 +55,18 @@ function getPINs(observed) {
   	}
   }
   for (let i = 0;  i < indexes.length; i++) {
-  	// pushing whole row, just want values next to target
-  	poss.push(pins[indexes[i][0]]);
+  	if (indexes[i][1] === 1) poss.push([pins[indexes[i][0]]]);
+  	else if (indexes[i][1] === 0) {
+  		poss.push([pins[indexes[i][0]][0], pins[indexes[i][0]][1]]);
+  	} else {
+  		poss.push([pins[indexes[i][0]][2], pins[indexes[i][0]][1]]);
+  	}
   	for (let keys in pins) {
   		if (Math.abs(Number(keys) - indexes[i][0]) === 1 && pins[keys][indexes[i][1]] !== null) {
   			poss[i].push(pins[keys][indexes[i][1]]);
   		}
   	}
   }
-  // check what this logs
-  console.log(poss);
   max = poss.length-1;
   function findCombos(arr, i) {
   	for (var j = 0, l = poss[i].length; j < l; j++) {

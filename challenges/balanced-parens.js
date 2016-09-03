@@ -25,27 +25,26 @@
  */
 
 function balancedParens(str) {
- 	function getBracs(str) {
- 		var res = [];
- 		for (var i = 0; i < str.length; i++) {
- 			if (str[i] === '(' || str[i] === '[' || str[i] === '{' || str[i] === ')' || str[i] === ']' || str[i] === '}') res.push(str[i]);
- 		}
- 		return res;
- 	}
- 	var bracs = getBracs(str);
- 	var stack = [];
- 	for (var i in bracs) {
- 		var brac = brac[i]
- 		if (brac == '(' || brac == '[' || brac == '{') {
- 			stack.push(brac)
- 		} else {
- 			if (!stack.length) return false;
- 			if (!bracMatch(stack.pop(), brac)) return false;
- 		}
- 	}
- 	return !stack.length;
- }
-
- // define bracMatch
+  var parentheses = "[]{}()";
+  var stack = [];
+  var parenPosition;
+  for(let i = 0; i < str.length; i++) {
+    parenPosition = parentheses.indexOf(str[i]);
+    if(parenPosition === -1) {
+      continue;
+    }
+    // if it's an opening paren
+    if(parenPosition % 2 === 0) {
+      stack.push(parenPosition + 1); // push next expected brace position
+    // if it's a closing paren
+    } else {
+      if(stack.length === 0 || stack.pop() !== parenPosition) {
+        return false;
+      }
+    }
+  }
+  // returns false if leftover odd parens in stack
+  return stack.length === 0;
+}
 
 module.exports = balancedParens;

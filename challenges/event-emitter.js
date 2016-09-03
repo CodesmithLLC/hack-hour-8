@@ -21,7 +21,11 @@
  */
 
 function EventEmitter() {
-
+  return {
+    events: {},
+    on: function(string, func) { this.events[string] = func },
+    trigger: function(string) { this.events[string](...arguments); }
+  }
 }
 
 module.exports = EventEmitter;
