@@ -19,7 +19,75 @@
 */
 
 function poker(hand1, hand2) {
-
+    let resHand1 = 0, resHand2 = 0, onePair1 = false, tOAK1 = false, fH1 = false, num1 = 0, num2 = 0, onePair2 = false, tOAK2 = false, fH2 = false; 
+    let sortedHand1 = hand1.sort(function(a,b){return a-b}); 
+    let sortedHand2 = hand2.sort(function(a,b){return a-b}); 
+    for (let i = 0; i < sortedHand1.length-1; i++){
+        if ((sortedHand1[i + 3] === sortedHand1[i]) && (sortedHand1[i + 2] === sortedHand1[i]) && (sortedHand1[i + 1] === sortedHand1[i])){
+            //console.log('fOAK', sortedHand1)
+            resHand1 = 7;
+            num1 = sortedHand1[i];  
+            
+        } 
+         if ((sortedHand1[i + 1] === sortedHand1[i]) && onePair1 === false){
+            onePair = true; 
+            //console.log('Pair!', sortedHand1[i + 1],sortedHand1[i]); 
+            resHand1 = 2;
+            num1 = sortedHand1[i];  
+        }
+         if ((sortedHand1[i + 2] === sortedHand1[i]) && (sortedHand1[i + 1] === sortedHand1[i]) && onePair1 === false){
+            //console.log('tOAK!', sortedHand1[i + 2], sortedHand1[i + 1],sortedHand1[i]); 
+            tOAK1 = true; 
+            resHand1 = 4;
+            num1 = sortedHand1[i];  
+        
+        }
+         if ((sortedHand1[i + 2] === sortedHand1[i]) && (sortedHand1[i + 1] === sortedHand1[i]) && onePair1 === true){
+            //console.log('fH!', sortedHand1); 
+            num1 = sortedHand1[i];  
+            resHand1 = 6;
+        }
+         if ((sortedHand1[i + 1] === sortedHand1[i]) && tOAK1 === true){
+            //console.log('fH', sortedHand1); 
+            num1 = sortedHand1[i];  
+            resHand1 = 6; 
+        }
+    }
+    for (let i = 0; i < sortedHand2.length-1; i++){
+    if ((sortedHand2[i + 3] === sortedHand2[i]) && (sortedHand2[i + 2] === sortedHand2[i]) && (sortedHand2[i + 1] === sortedHand2[i])){
+            //console.log('fOAK', sortedHand2)
+            resHand2 = 7;
+            num2 = sortedHand2[i];  
+            i += 3; 
+        } 
+         if ((sortedHand2[i + 1] === sortedHand2[i]) && onePair2 === false){
+            onePair2 = true; 
+            //console.log('Pair!', sortedHand2[i + 1],sortedHand2[i]); 
+            resHand2 = 2;
+            num2 = sortedHand1[i];  
+            
+        }
+         if ((sortedHand2[i + 2] === sortedHand2[i]) && (sortedHand2[i + 1] === sortedHand2[i]) && onePair === false){
+            //console.log('tOAK!', sortedHand2[i + 2], sortedHand2[i + 1],sortedHand2[i]); 
+            tOAK2 = true; 
+            resHand2 = 4;
+            num2 = sortedHand2[i];  
+            
+        }
+         if ((sortedHand2[i + 2] === sortedHand2[i]) && (sortedHand2[i + 1] === sortedHand2[i]) && onePair2 === true){
+            //console.log('fH!', sortedHand2); 
+            num2 = sortedHand2[i];  
+            resHand2 = 6;
+        }
+         if ((sortedHand2[i + 1] === sortedHand2[i]) && tOAK2 === true){
+            //console.log('fH', sortedHand2); 
+            num2 = sortedHand2[i];  
+            resHand2 = 6; 
+        }
+    }
+    if (resHand1 > resHand2) return 'Player 1 wins'; 
+    else if (resHand1 === resHand2) return 'Draw'; 
+    else return 'Player 2 wins'; 
 }
 
 module.exports = poker;
