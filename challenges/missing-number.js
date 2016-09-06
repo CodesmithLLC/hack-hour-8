@@ -1,3 +1,4 @@
+'use strict';
 /* 
 A zero-indexed array A consisting of N different integers is given. 
 The array contains integers in the range [1..(N + 1)], which means 
@@ -26,6 +27,13 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  return Array.sort( (a, b) => {
+    return a - b;
+  }).filter( (ele, idx) => {
+    return ele + Array[idx + 1] != ele + (ele + 1)
+  })[0] + 1;
 }
 
+// let arr = [2,3,1,5];
+// console.log(missingNum(arr));
 module.exports = missingNum;
