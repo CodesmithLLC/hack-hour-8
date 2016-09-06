@@ -44,6 +44,10 @@ expectations = {
 
 function getPINs(observed) {
 
+  //make object that holds arrays of adjacent values for each given value
+
+  //iterate through those arrays brute force style first, finding all combinations of adjacent values, with
+  //combinations having length of the 'pin' given.
 }
 
 
