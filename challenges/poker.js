@@ -20,6 +20,42 @@
 
 function poker(hand1, hand2) {
 
+	function checkStraight(hand){
+		hand = hand.sort(function(a,b){
+			return a > b;
+		})
+		let straight = hand.reduce(function(lastCard, nextCard){
+			console.log(lastCard, nextCard);
+			return nextCard === lastCard + 1 ? nextCard : 0;
+		});
+		return straight === hand[4] ? true : false
+	}
+	console.log(checkStraight(hand1));
+
+	function formHandObject(hand){
+		let handObject = {};
+		hand.forEach(function(card){
+			handObject[card] = (handObject[card] || 0) + 1;
+		});
+		let handObject1 = {}
+		for(var key in handObject){
+			if(handObject1[handObject[key]]){
+				handObject1[handObject[key]].push(key)
+			}
+			else{
+				handObject1[handObject[key]] = [key];
+			}
+		}
+		return handObject1;
+	}
+	let hand1Object = formHandObject(hand1);
+	console.log(hand1Object)
+
+	function compareHands(hand1Object, hand2Object){
+		if
+	}
 }
+
+poker([2,1,6,2,2]);
 
 module.exports = poker;
