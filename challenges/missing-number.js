@@ -25,7 +25,24 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(arr) {
+	// First sort the array
+	arr.sort(function (a,b) {
+		return a - b;
+	});
+
+	// Then loop through array and check if the previous array value + 1 equals the current value
+	for (let i = 0; i < arr.length; i++) {
+
+		// If it does not exist, return that value
+		if (arr[i] !== (arr[i + 1] - 1)) {
+			return arr[i + 1] - 1;
+		}
+	}
+
+	return false;
+
+		// Can we assume it's just one number?
 }
 
 module.exports = missingNum;
