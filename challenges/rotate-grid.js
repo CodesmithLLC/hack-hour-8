@@ -52,7 +52,7 @@ function rotateGrid(grid, n) {
   let r; // row
   let f; // first row
   let l; // last row
-  let i;
+  let i; // increment counter
   let j; // counter for each incrementation
   let temp;
 

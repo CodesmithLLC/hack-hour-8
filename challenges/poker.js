@@ -1,4 +1,4 @@
-/*Build a function that takes in two arrays of five elements, with each
+/* Build a function that takes in two arrays of five elements, with each
 * array representing a player's hand and each element
 * representing a card from a standard deck of cards:
 * 52 cards, 2 - Ace, NO suits. (Jack = 11, Queen = 12, King = 13, Ace = 14)

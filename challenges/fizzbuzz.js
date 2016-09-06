@@ -24,11 +24,11 @@
 //    f.push('buzz') : f.push(i);
 // }
 
-function fizzbuzz(num) {
+function fizzbuzz(n) {
   const f = [];
   let i;
 
-  for (i = 1; i <= num; i++) {
+  for (i = 1; i <= n; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       f.push('fizzbuzz');
     } else if (i % 3 === 0) {
