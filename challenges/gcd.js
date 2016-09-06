@@ -7,45 +7,27 @@
  *
  */
 
+// iterative:
 
-function gcdFirstTry(a, b) {
-  if (!Number.isInteger(a)) return false;
-  if (!Number.isInteger(b)) return false;
-
-  const larger = Math.max(a, b);
-  const smaller = Math.min(a, b);
-  const isPrime = (x) => {
-    let i;
-    if (x === 2) return true;
-    if (x < 2) return false;
-    for (i = Math.floor(x / 2); i >= 2; i--) {
-      if (x % i === 0) return false;
-    }
-  
-    return true;
-  };
-
-  if (a === 0 && b === 0) return undefined;
-  if (a === 0 || b === 0) return larger;
-  if (a === b) return a;
-  if ((a < 0 && b > 0) || (b < 0 && a > 0)) return 1;
-  if (isPrime(larger)) return 1;
-
-  const factors = [];
-  let f;
-
-  for (f = 1; f <= smaller; f++) {
-    if (larger % f === 0 && smaller % f === 0) {
-      factors.push(f);
-    }
-  }
-
-  return factors[factors.length - 1];
-}
+// function gcd(a, b) {
+//   if (a < 0) a = -a;
+//   if (b < 0) b = -b;
+//   if (a === 0) return b;
+//
+//   while (b !== 0) {
+//     if (a > b) {
+//       a = a - b;
+//     } else {
+//       b = b - a;
+//     }
+//   }
+//
+//   return a;
+// }
 
 function gcd(a, b) {
   if (b === 0) return a;
-  return gcdEuclid(a, a % b);
+  return gcd(b, a % b);
 }
 
 module.exports = gcd;
