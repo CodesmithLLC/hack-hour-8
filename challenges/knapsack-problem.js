@@ -10,6 +10,16 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  items.sort((a, b) => {
+    return a.weight - b.weight;
+  });
+
+  let res = 0;
+  let curWeight = 0;
+  let i = 0;
+  while (curWeight < weightAvailable) {
+    items[i].weight
+  }
 
 };
 
