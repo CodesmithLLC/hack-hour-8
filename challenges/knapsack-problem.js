@@ -1,4 +1,4 @@
-/*
+	/*
   You have a knapsack with a weight limit.
   You are presented with an array of objects, each with its own weight and value.
   Find the maximum value you can fit into your knapsack.
@@ -10,7 +10,24 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
-};
-
+	if(items.length === 0) return 'False input of items available for knapsack';
+	if(weightAvailable <= 0) return 'False input of weight available in knapsack';
+	let maxValue = 0;
+	let newTotal = 0;
+	function recurseKnapsack(items, weightAvailable, newTotal){
+		if(weightAvailable === 0 || items.length === 0){
+			if(newTotal > maxValue) return maxValue = newTotal;
+			else return;
+		}
+		if(weightAvailable - items[0].weight >= 0){
+			newTotal += items[0].value;
+			return recurseKnapsack(items.slice(1), weightAvailable - items[0].weight, newTotal);
+		}
+		else return recurseKnapsack(items.slice(1), weightAvailable, newTotal);
+	}
+	items.forEach(function(item, index){
+		recurseKnapsack(items.slice(index), weightAvailable, 0);
+	});
+	return maxValue;
+}
 module.exports = solveKnapsack;
