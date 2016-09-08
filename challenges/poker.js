@@ -20,37 +20,37 @@
 
 function poker(hand1, hand2) {
   function isfourOfAKind(hand) {
-    const cache = {};
-    const result = [];
+    const numberOf = {};
 
-    hand.forEach(el => {
-      if (cache[el]) cache[el] += 1;
-      else cache[el] = 1;
+    hand.forEach(card => {
+      if (numberOf[card]) numberOf[card] += 1;
+      else numberOf[card] = 1;
     });
 
-    const cards = Object.keys(cache);
-
-    if (cards.length === 2) {
-      if (cache[cards[0]] === 4 || cache[cards[1]] === 4) return true
+    for (let card in numberOf) {
+      if (numberOf[card] === 4) return card;
     }
 
     return false;
   }
 
   function isFullHouse(hand) {
-    const cache = {};
-    const result = [];
+    const numberOf = {};
 
-    hand.forEach(el => {
-      if (cache[el]) cache[el] += 1;
-      else cache[el] = 1;
+    hand.forEach(card => {
+      if (numberOf[card]) numberOf[card] += 1;
+      else numberOf[card] = 1;
     });
 
-    const cards = Object.keys(cache);
+    const cards = Object.keys(numberOf);
 
     if (cards.length === 2) {
-      if (cache[cards[0]] === 3 && cache[cards[1]] === 2) return true;
-      if (cache[cards[1]] === 3 && cache[cards[0]] === 2) return true;
+      if (numberOf[cards[0]] === 3 && numberOf[cards[1]] === 2) {
+        return cards[0];
+      }
+      if (numberOf[cards[1]] === 3 && numberOf[cards[0]] === 2) {
+        return cards[1];
+      }
     }
 
     return false;
@@ -64,46 +64,39 @@ function poker(hand1, hand2) {
       if (Math.abs(cards[i] - cards[i + 1]) !== 1) return false;
     }
 
-    return true;
+    return cards[4];
   }
 
   function isThreeOfAKind(hand) {
-    const cache = {};
-    const result = [];
+    const numberOf = {};
 
-    hand.forEach(el => {
-      if (cache[el]) cache[el] += 1;
-      else cache[el] = 1;
+    hand.forEach(card => {
+      if (numberOf[card]) numberOf[card] += 1;
+      else numberOf[card] = 1;
     });
 
-    const cards = Object.keys(cache);
-
-    if (cards.length === 3) {
-      if (cache[cards[0]] === 3 ||
-          cache[cards[1]] === 3 ||
-          cache[cards[2]] === 3
-          ) return true;
+    for (let card in numberOf) {
+      if (numberOf[card] === 3) return card;
     }
 
     return false;
   }
 
   function isPair(hand) {
-    const cache = {};
-    const result = [];
+    const numberOf = {};
 
-    hand.forEach(el => {
-      if (cache[el]) cache[el] += 1;
-      else cache[el] = 1;
+    hand.forEach(card => {
+      if (numberOf[card]) numberOf[card] += 1;
+      else numberOf[card] = 1;
     });
 
-    const cards = Object.keys(cache);
+    const cards = Object.keys(numberOf);
 
     if (cards.length === 4) {
-      if (cache[cards[0]] === 2 ||
-          cache[cards[1]] === 2 ||
-          cache[cards[2]] === 2 ||
-          cache[cards[3]] === 2
+      if (numberOf[cards[0]] === 2 ||
+          numberOf[cards[1]] === 2 ||
+          numberOf[cards[2]] === 2 ||
+          numberOf[cards[3]] === 2
           ) return true;
     }
 
@@ -111,21 +104,20 @@ function poker(hand1, hand2) {
   }
 
   function highCard(hand) {
-    const cache = {};
-    const result = [];
+    const numberOf = {};
 
-    hand.forEach(el => {
-      if (cache[el]) cache[el] += 1;
-      else cache[el] = 1;
+    hand.forEach(card => {
+      if (numberOf[card]) numberOf[card] += 1;
+      else numberOf[card] = 1;
     });
 
-    const cards = Object.keys(cache);
+    const cards = Object.keys(numberOf);
 
     if (cards.length === 5) {
-      
+      cards.sort((a, b) => a - b);
     }
 
-    return false;
+    return cards[4];
   }
 }
 
