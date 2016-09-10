@@ -16,10 +16,45 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+const eachPermutation = (arr, callback) => {
+  const permArr = [];
+  const usedChars = [];
+  let i;
+  let j;
+  let tempArr;
+  const res = [];
+  const miniRes = [];
 
-}
+  const permute = (input) => {
+    let i;
+    let ch;
+    for (i = 0; i < input.length; i++) {
+      ch = input.splice(i, 1)[0];
+      usedChars.push(ch);
+      if (input.length === 0) {
+        permArr.push(usedChars.slice());
+      }
+      permute(input);
+      input.splice(i, 0, ch);
+      usedChars.pop();
+    }
+    return permArr;
+  };
 
+  const pArr = permute(arr);
+
+  for (i = 0; i < pArr.length; i++) {
+    tempArr = pArr[i];
+    for (j = 0; j < tempArr.length; j++) {
+      miniRes.push(callback(tempArr[j]));
+    }
+    res.push(miniRes);
+  }
+
+  return res;
+};
+
+eachPermutation(testArr, xSq);
 
 
 module.exports = eachPermutation;
