@@ -17,9 +17,33 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+	let permutations = [];
+	let nextPerm = [];
+	let array = arr;
+	
+	function permutate(array){
 
+		console.log('perms begin recursion', permutations);
+		if(array.length === 0){
+			permutations.push(nextPerm);
+		}
+
+		for(let i = 0; i < array.length; i++){
+			array.push(array.shift());
+			nextPerm.push(array[0]);
+			permutate(array.slice(1));
+			nextPerm.pop();
+		}
+
+	}
+
+	permutate(array);
+	
+	permutations.forEach(function(item){
+		callback(item);
+	})
+	
 }
-
 
 
 module.exports = eachPermutation;
