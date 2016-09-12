@@ -17,7 +17,25 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  const temp = [];
+  const res = [];
+  let i = 0;
 
+  temp.push(arr[i++]);
+  temp.push(arr[i++]);
+  res.push(temp);
+  res.push(temp.reverse());
+
+  while (i < arr.length) {
+    let next = arr[i++];
+    temp = res;
+
+    temp.forEach(el => {
+      el.push();
+    });
+  }
+
+  return res;
 }
 
 
