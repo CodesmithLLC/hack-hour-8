@@ -14,13 +14,27 @@ function solveKnapsack(items, weightAvailable) {
     return a.weight - b.weight;
   });
 
-  let res = 0;
-  let curWeight = 0;
+  let accumWeight = 0;
   let i = 0;
-  while (curWeight < weightAvailable) {
-    items[i].weight
+
+  if (items[0].weight === weightAvailable) return items[0].weight;
+  if (items[0].weight === weightAvailable) return 0;
+
+  while (accumWeight < weightAvailable) {
+    accumWeight += items[i].weight;
+    i++;
   }
 
+  if (accumWeight === weightAvailable) return accumWeight;
+  if (accumWeight > weightAvailable) {
+    i = 0;
+    while (accumWeight > weightAvailable) {
+      accumWeight -+ items[i].weight;
+      i++;
+    }
+  }
+
+  return accumWeight;
 };
 
 module.exports = solveKnapsack;
