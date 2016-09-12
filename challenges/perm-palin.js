@@ -13,25 +13,23 @@ function permPalin(str) {
   const letters = str.split('');
   const letterObj = {};
   const freq = [];
+  const isOdd = n => n % 2 !== 0;
+  let oddFreq = [];
   let i;
   let item;
 
   for (i = 0; i < letters.length; i++) {
-    if (!letterObj[letters[i]]) {
-      letterObj[letters[i]] = 1;
-    } else if (letterObj[letters[i]]) {
-      letterObj[letters[i]] += 1;
-    }
+    if (!letterObj[letters[i]]) letterObj[letters[i]] = 1;
+    else if (letterObj[letters[i]]) letterObj[letters[i]] += 1;
   }
-
-  console.log(letterObj);
-  console.log(Object.keys(letterObj));
 
   for (item in letterObj) {
     freq.push(letterObj[item]);
   }
 
-  return letterObj;
+  oddFreq = freq.filter(isOdd);
+
+  return oddFreq.length === 1;
 }
 
 module.exports = permPalin;
