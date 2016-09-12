@@ -9,7 +9,7 @@
  *
  */
 
-function permPalin(str) {
+const permPalin = (str)  => {
   const letters = str.split('');
   const letterObj = {};
   const freq = [];
@@ -30,6 +30,6 @@ function permPalin(str) {
   oddFreq = freq.filter(isOdd);
 
   return oddFreq.length === 1;
-}
+};
 
 module.exports = permPalin;
