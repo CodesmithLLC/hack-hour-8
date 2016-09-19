@@ -12,7 +12,7 @@
 *
 * jazbooks are not always sorted...
 *
-* Develop a function that takes in a jazbook and a name, searches through the jazbook and 
+* Develop a function that takes in a jazbook and a name, searches through the jazbook and
 * returns the persons phone number. If the person does not exists, return false.
 *
 * How efficient can you make this?
