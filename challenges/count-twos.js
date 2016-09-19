@@ -8,12 +8,14 @@
 // countTwos(11420);  -> 4483
 
 
-
 function countTwos(num) {
-  let twos = 0;
-  for (var i = num; i > 0; i--) {
-    if ()
+  let count = 0;
+  for (let i = 1; i <= num; i++) {
+    if (i.toString().indexOf('2') !== -1) {
+      count += i.toString().match(/2/gi).length;
+    }
   }
+  return count;
 }
 
 module.exports = countTwos;
