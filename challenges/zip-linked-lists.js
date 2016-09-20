@@ -11,6 +11,42 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+var current;
+var holder;
+var values = [];
+	
+var getValues = function() {
+	var current = l2;
+	while (current.next !== null) {
+		values.push(current.value);
+		current = current.next;
+	}
+	if (current.next === null) values.push(current.value);
+	return values;
+}
+
+
+function insertValues () {
+	current = l1;
+	var i = 0;
+	while (current.next !== null) {
+		holder = current.next;
+		current.next = new Node(values[i]);
+		current = current.next;
+		current.next = holder;
+
+		i++;
+		current = current.next;
+	}
+	
+	if (current.next === null) current.next = new Node(values[i]);
+	return;
+}
+
+getValues();
+insertValues();
+return l1;
+	
 };
 
 module.exports = {Node: Node, zip: zip};
