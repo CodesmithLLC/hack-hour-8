@@ -33,7 +33,20 @@
 */
 
 function pascalTriangle(numRows) {
-
+  let answer = [[1]];
+  function rowMaker (array){
+    let row = [1];
+    for (let i = 1; i < array.length; i++){
+      row.push(array[i]+array[i-1]);
+    }
+    row.push(1);
+    answer.push(row);
+    return answer;
+  }
+  while (answer.length < numRows) {
+    rowMaker(answer[answer.length-1]);
+  }
+  return answer;
 }
 
 module.exports = pascalTriangle;
