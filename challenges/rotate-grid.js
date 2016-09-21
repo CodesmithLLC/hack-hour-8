@@ -18,14 +18,14 @@
 
 function rotateGrid(grid, n) {
   let container = [];
-  for (var i = 0; i < grid.length; i++) {
-    for (var x = 0; x < grid[i].length; i++) {
-      let innerContainer = [];
-        innerContainer.push(grid[i][x]);
+  for (let i = n - 1; i >= 0; i--) {
+    const innerContainer = [];
+    for (let x = n - 1; x >= 0; x--) {
+      innerContainer.push(grid[x][i]);
     }
     container.push(innerContainer);
   }
-  return container;
+  return container.reverse();
 }
 
 module.exports = rotateGrid;
