@@ -35,17 +35,27 @@ var Node = function(value) {
 
 function hasCycle(head) {
 
-  let nodeArr = [];
+  // let nodeArr = [];
+  let nodeMap = new WeakMap();
   let curr = head;
 
   while (curr) {
-    nodeArr.push(curr);
-    if (nodeArr.indexOf(curr.next) > -1) {
+      nodeMap.set(curr, 1);
+    if (nodeMap.has(curr.next)) {
       return true;
     } else {
       curr = curr.next;
     }
   }
+
+  // while (curr) {
+  // nodeArr.push(curr);
+  // if (nodeArr.indexOf(curr.next) > -1) {
+  // return true;
+  // } else {
+  // curr = curr.next;
+  // }
+  // }
 
   return false;
 }
@@ -56,7 +66,9 @@ function hasCycle(head) {
 // var node4 = node3.next = new Node('4');
 // var node5 = node4.next = new Node('5');
 // node5.next = node2;
-// console.log(hasCycle(node1)); // => false
-// hasCycle(node1); // => true
+// console.log(hasCycle(node1)); 
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = {
+  Node: Node,
+  hasCycle: hasCycle
+}
