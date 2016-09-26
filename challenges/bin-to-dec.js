@@ -14,6 +14,18 @@
  */
 
 function binToDec(binary) {
+	var bin = binary.split('');
+	console.log(bin)
+	var dec = 0;
+	var multiplier = 1;
+
+	for (var i = bin.length-1; i >= 0; i-- ){
+		if (bin[i] > 0) dec += bin[i]*multiplier
+		else dec += 0;
+		
+		multiplier *= 2;
+	}
+	return dec;
 
 }
 

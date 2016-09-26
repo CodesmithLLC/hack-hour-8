@@ -20,9 +20,18 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
+function kthToLastNode(k, head) {	
+	var container = {};
+	var counter = 1;
+	var current = head;
 
-function kthToLastNode(k, head) {
-
+	while (current.next !== null){
+		current = current.next;
+		counter += 1;
+		container[counter] = current.value; 
+	}
+	var props = Object.keys(container);	
+	return container[props[props.length-k]];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
