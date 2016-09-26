@@ -19,8 +19,10 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  for (var i = 0; i < jazbook.length; i++) {
+    if (jazzbook[i][0] === name) return jazzbook[i][1];
+  }
+  return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
