@@ -10,7 +10,10 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+  // get keys of items
+  // find all combinations of keys that add up to weightAvailable
+  // add up each of those combinations' value amounts
+  // return the highest value amount
 };
 
 module.exports = solveKnapsack;
