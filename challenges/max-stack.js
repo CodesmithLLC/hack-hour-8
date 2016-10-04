@@ -7,7 +7,30 @@
  */
 
 function Stack() {
-  // body...
+var arr = [];
+
+this.push = function(val) {
+	arr[arr.length] = val;
+	return arr.length;
+};
+
+this.pop = function() {
+	var last = arr.length-1;
+	var holder = arr[last];
+	arr = arr.slice(0,last);
+	return holder;
+};
+
+this.getMax = function() {
+	return arr.reduce(function(prev, curr) {
+		if (prev > curr) {
+			return prev;
+		} else {
+			return curr;
+		}
+	});
+};
+
 }
 
 module.exports = Stack;

@@ -20,6 +20,32 @@
 
 function poker(hand1, hand2) {
 
+  let cardcount1 = {};
+  let cardcount2 = {};
+  let flag = false;
+  let player1 = [];
+  let player2 = [];
+
+  function determineHand {
+    for (var i = 0; i < 6; i++) {
+      if (!cardcount1[hand1[i]]) cardcount1(hand1[i]);
+      else cardcount1[hand1[i]] = cardcount1[hand1[i]]+1;
+      if (!cardcount2[hand2[i]]) cardcount2(hand2[i]);
+      else cardcount2[hand2[i]] = cardcount2[hand2[i]]+1;
+    }
+    console.log(cardcount1, cardcount2)
+  }
+
+  iterate through, take count of each item in an obj
+  evaluate whether there is one step between each item, indicate flag
+  evaluate obj for 1 pair, 2, pair, 3 of a kind, 4 of a kind
+  give score of 1-5 for each match by pushing
+  sort each player's array and return logic statement of which is greater
+
+
+
+
+
 }
 
 module.exports = poker;
