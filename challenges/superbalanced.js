@@ -7,20 +7,19 @@
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
 
-class BinaryTree {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-
-  height() {
-    if (!this.left && !this.right) return 0;
-    if (!this.left) return this.right.height() + 1;
-    if (!this.right) return this.left.height() + 1;
-    return Math.max(this.left.height(), this.left.height()) + 1;
-  }
+function BinaryTree(value) {
+  // constructor(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
 }
+
+BinaryTree.prototype.height = function() {
+  if (!this.left && !this.right) return 0;
+  if (!this.left) return this.right.height() + 1;
+  if (!this.right) return this.left.height() + 1;
+  return Math.max(this.left.height(), this.left.height()) + 1;
+};
 
 function superbalanced(tree) {
   // need to finish, definitely need a lot more logic
