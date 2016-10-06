@@ -7,17 +7,35 @@
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
 
-function BinaryTree(value) {
-  this.value = value;
-  this.left = null;
-  this.right = null;
+class BinaryTree {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+
+  height() {
+    if (!this.left && !this.right) return 0;
+    if (!this.left) return this.right.height() + 1;
+    if (!this.right) return this.left.height() + 1;
+    return Math.max(this.left.height(), this.left.height()) + 1;
+  }
 }
 
 function superbalanced(tree) {
-  //need to finish, definitely need a lot more logic
-  if(tree.left === null && tree.right === null) return 1;
+  // need to finish, definitely need a lot more logic
 
-  return superbalanced(tree.left) + superbalanced(tree.right) <= 1;
+  if (!tree.left && !tree.right) return true;
+  if (tree.left && tree.right) return tree.left - tree.right < 1;
+  if (tree.left || tree.right) {
+    const exists = !tree.left ? tree.right : tree.left;
+    return exists.height < 1;
+  }
+
+  return true;
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+module.exports = {
+  BinaryTree,
+  superbalanced,
+};
