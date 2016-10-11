@@ -14,7 +14,55 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+	let container = [];
+	let sum;
+	let answer;
 
+	//create function to traverse each list and store values
+	function traverse (list) {
+		let num = [];
+		let current = list;
+		while (current.next) {
+			num.push(current.value);
+			current = current.next;
+		}
+		if (!current.next) {
+			num.push(current.value);
+			num = parseInt(num.reverse().map(function(item){
+				return item.toString();
+			}).join(''));
+			container.push(num);
+		}
+	}
+
+	//call function on lists
+	traverse(l1);
+	traverse(l2);
+
+	//add the two stored numbers from the lists together
+	sum = container[0] + container[1];
+	sum = sum.toString().split('');
+
+	//create push function
+	function add(list, val) {
+		let current = list;
+		while(current.next) current = current.next;
+		if (!current.next) current.next = new Node(val);
+		}
+
+	//create new linked list made of stored sum of lists
+	answer = new Node(parseInt(sum[sum.length-1]));
+
+	for (var i = sum.length-2; i >= 0; i--){
+		add(answer, parseInt(sum[i]))
+	}
+	return answer;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
+
+//store each Number
+//add them
+//create new linked list with number
+
+//number length isn't the same
