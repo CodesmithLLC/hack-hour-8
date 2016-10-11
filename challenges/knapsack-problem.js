@@ -16,36 +16,36 @@ function solveKnapsack(items, weightAvailable) {
   //2. iterate through combinations, keeping track of max array length when particular
   //combination has weight equal or less than given weight restriction
 
-  let groups = [],
-    maxArr = [],
-    result;
+  const groups = [],
+    maxArr = [];
 
   items.forEach((ele, idx) => {
     items.slice(idx).forEach((el, id) => {
-      groups.push(items.slice(idx, id + idx + 1))
-    })
-  })
+      groups.push(items.slice(idx, id + idx + 1));
+    });
+  });
 
   // console.log(groups.length);
-  groups.forEach((ele, idx) => {
+  groups.forEach((ele) => {
     if (ele.length > 1) {
-      let weight = 0, value = 0;
-      ele.forEach((el, id) => {
+      let weight = 0,
+        value = 0;
+      ele.forEach((el) => {
         weight += el.weight;
         value += el.value;
-      })
+      });
       maxArr.push([weight, value]);
     } else {
-      maxArr.push([ele[0].weight, ele[0].value])
+      maxArr.push([ele[0].weight, ele[0].value]);
     }
-  })
+  });
 
-  return Math.max(...maxArr.filter((ele, idx) => {
+  return Math.max(...maxArr.filter((ele) => {
     return ele[0] <= weightAvailable;
-  }).map((ele, idx) => {
+  }).map((ele) => {
     return ele[1];
   }));
-};
+}
 
 // let items = [{
   // weight: 1,
@@ -58,6 +58,6 @@ function solveKnapsack(items, weightAvailable) {
   // value: 5
 // }];
 
-// console.log(solveKnapsack(items, 5)); // returns 7 (from items[0] and items[1])
+// console.log(solveKnapsack(items, 3)); // returns 7 (from items[0] and items[1])
 // solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 module.exports = solveKnapsack;

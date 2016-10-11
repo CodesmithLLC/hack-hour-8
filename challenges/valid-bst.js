@@ -12,9 +12,7 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
   function recurseTree(bt, elder) {
-
     if (!bt.right && !bt.left) {
       return true;
     }
@@ -34,7 +32,7 @@ function validBST(tree) {
     if (bt.right != null && elder != null && bt.right.value < elder.value) {
       return false;
     }
-    let older = bt;
+    const older = bt;
 
     return recurseTree(bt.left, older) && recurseTree(bt.right, older);
   }
