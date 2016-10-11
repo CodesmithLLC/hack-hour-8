@@ -13,21 +13,7 @@ function BinaryTree(val) {
 
 function validBST(tree) {
 
-
-  // recursively search through tree, using boolean logic between returns to infer
-  // whether tree is valid or not
-  // let max = tree.value;
-  // let min = tree.left.value;
-
-
-  ///////////////////
-  function recurseTree(bt) {
-
-    // understand how to traverse through tree, superficially checking left and right side for
-    // specified conditions of BSTs, but for each recursion(or level traversal) a max and min need to
-    // be specified so that the tree is properly balanced through its entirety. Need to finished conditional
-    // logic for max and min checks.
-
+  function recurseTree(bt, elder) {
 
     if (!bt) {
       return true;
@@ -37,19 +23,23 @@ function validBST(tree) {
       return false;
     }
 
+    if (bt.left != null && elder != null && bt.left.value > elder.value) {
+      return false;
+    }
+
     if (bt.right != null && bt.right.value < bt.value) {
       return false;
     }
 
-    // if (!recurseTree(bt.left) || !recurseTree(bt.right)) {
-      // return false;
-    // }
+    if (bt.right != null && elder != null && bt.right.value < elder.value) {
+      return false;
+    }
+    elder = bt;
 
-    return recurseTree(bt.left) && recurseTree(bt.right);
+    return recurseTree(bt.left, elder) && recurseTree(bt.right, elder);
   }
-  ///////////////////
 
-  return recurseTree(tree);
+  return recurseTree(tree, null);
 }
 
 module.exports = {
