@@ -6,52 +6,53 @@
 
 
 function BinaryTree(val) {
-    this.value = val;
-    this.left = null;
-    this.right = null;
+  this.value = val;
+  this.left = null;
+  this.right = null;
 }
 
 function validBST(tree) {
 
 
-    //recursively search through tree, using boolean logic between returns to infer
-    //whether tree is valid or not
+  // recursively search through tree, using boolean logic between returns to infer
+  // whether tree is valid or not
+  // let max = tree.value;
+  // let min = tree.left.value;
 
-    ///////////////////
-    function recurseTree(bt, max, min) {
 
-            //understand how to traverse through tree, superficially checking left and right side for 
-            //specified conditions of BSTs, but for each recursion(or level traversal) a max and min need to 
-            //be specified so that the tree is properly balanced through its entirety. Need to finished conditional 
-            //logic for max and min checks.
-            //
-            // var max = tree.value;
-            // var min = tree.left.value;
+  ///////////////////
+  function recurseTree(bt) {
 
-            if (!bt) {
-                return true;
-            }
+    // understand how to traverse through tree, superficially checking left and right side for
+    // specified conditions of BSTs, but for each recursion(or level traversal) a max and min need to
+    // be specified so that the tree is properly balanced through its entirety. Need to finished conditional
+    // logic for max and min checks.
 
-            if (bt.left != null && bt.left.value > bt.value) {
-                return false;
-            }
 
-            if (bt.right != null && bt.right.value < bt.value) {
-                return false;
-            }
+    if (!bt) {
+      return true;
+    }
 
-            if (!recurseTree(bt.left) || !recurseTree(bt.right)) {
-                return false;
-            }
+    if (bt.left != null && bt.left.value > bt.value) {
+      return false;
+    }
 
-            return true;
-        }
-        ///////////////////
+    if (bt.right != null && bt.right.value < bt.value) {
+      return false;
+    }
 
-    return recurseTree(tree);
+    // if (!recurseTree(bt.left) || !recurseTree(bt.right)) {
+      // return false;
+    // }
+
+    return recurseTree(bt.left) && recurseTree(bt.right);
+  }
+  ///////////////////
+
+  return recurseTree(tree);
 }
 
 module.exports = {
-    BinaryTree: BinaryTree,
-    validBST: validBST
+  BinaryTree: BinaryTree,
+  validBST: validBST
 };

@@ -21,14 +21,16 @@ BinaryTree.prototype.height = function() {
   return Math.max(this.left.height(), this.left.height()) + 1;
 };
 
+// const bst = new B
+
 function superbalanced(tree) {
   // need to finish, definitely need a lot more logic
 
   if (!tree.left && !tree.right) return true;
-  if (tree.left && tree.right) return tree.left - tree.right < 1;
+  if (tree.left && tree.right) return tree.left.height() - tree.right.height() <= 1;
   if (tree.left || tree.right) {
     const exists = !tree.left ? tree.right : tree.left;
-    return exists.height < 1;
+    return exists.height() <= 1;
   }
 
   return true;
