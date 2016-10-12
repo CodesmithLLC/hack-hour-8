@@ -1,4 +1,3 @@
-'use strict';
 /*
   You have a knapsack with a weight limit.
   You are presented with an array of objects, each with its own weight and value.
@@ -12,18 +11,24 @@
 
 function solveKnapsack(items, weightAvailable) {
 
-  //1. find all combinations of grouping objects, no restrictions
-  //2. iterate through combinations, keeping track of max array length when particular
-  //combination has weight equal or less than given weight restriction
+  // 1. find all combinations of grouping objects, no restrictions
+  // 2. iterate through combinations, keeping track of max array length when particular
+  // combination has weight equal or less than given weight restriction
 
-  const groups = [],
+  function mapCombinations(array) {
+    const result = [];
+    const f = function(prefix, array) {
+      array.forEach(function(e, i) {
+        result.push(prefix.concat(e));
+        f(prefix.concat(e), array.slice(i + 1));
+      });
+    };
+    f([], array);
+    return result;
+  }
+
+  const groups = mapCombinations(items),
     maxArr = [];
-
-  items.forEach((ele, idx) => {
-    items.slice(idx).forEach((el, id) => {
-      groups.push(items.slice(idx, id + idx + 1));
-    });
-  });
 
   // console.log(groups.length);
   groups.forEach((ele) => {
@@ -58,6 +63,6 @@ function solveKnapsack(items, weightAvailable) {
   // value: 5
 // }];
 
-// console.log(solveKnapsack(items, 3)); // returns 7 (from items[0] and items[1])
+// console.log(solveKnapsack(items, 5)); // returns 7 (from items[0] and items[1])
 // solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 module.exports = solveKnapsack;
