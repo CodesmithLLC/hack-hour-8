@@ -12,8 +12,8 @@
 function solveKnapsack(items, weightAvailable) {
   function mapCombinations(list) {
     const result = [];
-    const f = (prefix, array) => {
-      array.forEach((e, i) => {
+    const f = function(prefix, array) {
+      array.forEach(function(e, i) {
         result.push(prefix.concat(e));
         f(prefix.concat(e), array.slice(i + 1));
       });
@@ -26,11 +26,11 @@ function solveKnapsack(items, weightAvailable) {
   const maxArr = [];
 
   // console.log(groups.length);
-  groups.forEach((ele) => {
+  groups.forEach(function(ele) {
     if (ele.length > 1) {
       let weight = 0;
       let value = 0;
-      ele.forEach((el) => {
+      ele.forEach(function(el) {
         weight += el.weight;
         value += el.value;
       });
@@ -40,9 +40,9 @@ function solveKnapsack(items, weightAvailable) {
     }
   });
 
-  return Math.max(...maxArr.filter((ele) => {
+  return Math.max(...maxArr.filter(function(ele) {
     return ele[0] <= weightAvailable;
-  }).map((ele) => {
+  }).map(function(ele) {
     return ele[1];
   }));
 }
