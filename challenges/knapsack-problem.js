@@ -10,27 +10,29 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-  function mapCombinations(list) {
+
+
+  const mapCombinations = function(list) {
     const result = [];
-    const f = function(prefix, array) {
-      array.forEach(function(e, i) {
+    const f = (prefix, array) => {
+      array.forEach((e, i) => {
         result.push(prefix.concat(e));
         f(prefix.concat(e), array.slice(i + 1));
       });
     };
     f([], list);
     return result;
-  }
+  };
 
   const groups = mapCombinations(items);
   const maxArr = [];
 
   // console.log(groups.length);
-  groups.forEach(function(ele) {
+  groups.forEach((ele) => {
     if (ele.length > 1) {
       let weight = 0;
       let value = 0;
-      ele.forEach(function(el) {
+      ele.forEach((el) => {
         weight += el.weight;
         value += el.value;
       });
@@ -40,22 +42,23 @@ function solveKnapsack(items, weightAvailable) {
     }
   });
 
-  return Math.max(...maxArr.filter(function(ele) {
+  return Math.max(...maxArr.filter((ele) => {
     return ele[0] <= weightAvailable;
-  }).map(function(ele) {
+  }).map((ele) => {
     return ele[1];
   }));
 }
 
+
 // let items = [{
-  // weight: 1,
-  // value: 3
+// weight: 1,
+// value: 3
 // }, {
-  // weight: 2,
-  // value: 4
+// weight: 2,
+// value: 4
 // }, {
-  // weight: 3,
-  // value: 5
+// weight: 3,
+// value: 5
 // }];
 
 // console.log(solveKnapsack(items, 5)); // returns 7 (from items[0] and items[1])
