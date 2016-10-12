@@ -10,31 +10,26 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
-  // 1. find all combinations of grouping objects, no restrictions
-  // 2. iterate through combinations, keeping track of max array length when particular
-  // combination has weight equal or less than given weight restriction
-
-  function mapCombinations(array) {
+  function mapCombinations(list) {
     const result = [];
-    const f = function(prefix, array) {
-      array.forEach(function(e, i) {
+    const f = (prefix, array) => {
+      array.forEach((e, i) => {
         result.push(prefix.concat(e));
         f(prefix.concat(e), array.slice(i + 1));
       });
     };
-    f([], array);
+    f([], list);
     return result;
   }
 
-  const groups = mapCombinations(items),
-    maxArr = [];
+  const groups = mapCombinations(items);
+  const maxArr = [];
 
   // console.log(groups.length);
   groups.forEach((ele) => {
     if (ele.length > 1) {
-      let weight = 0,
-        value = 0;
+      let weight = 0;
+      let value = 0;
       ele.forEach((el) => {
         weight += el.weight;
         value += el.value;
