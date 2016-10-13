@@ -1,3 +1,5 @@
+//This definitely needs to be redone
+
 /* You have two numbers represented by linked lists. Each node contains a single digit. The digits
  * are stored in reverse order, such that the 1's digit is at the head of the list. Write
  * a function that adds the two numbers and returns the sum as a linked list with the same
@@ -8,7 +10,7 @@
  *
  */
 
-function node(val) {
+function Node(val) {
   this.value = val;
   this.next = null;
 }
