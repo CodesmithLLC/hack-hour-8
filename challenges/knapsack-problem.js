@@ -1,3 +1,4 @@
+'use strict';
 /*
   You have a knapsack with a weight limit.
   You are presented with an array of objects, each with its own weight and value.
@@ -9,6 +10,7 @@
   solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 */
 
+// works but not exporting correctly???
 function solveKnapsack(items, weightAvailable) {
 
 
