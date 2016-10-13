@@ -1,4 +1,3 @@
-'use strict';
 /*
   You have a knapsack with a weight limit.
   You are presented with an array of objects, each with its own weight and value.
@@ -12,8 +11,6 @@
 
 // works but not exporting correctly???
 function solveKnapsack(items, weightAvailable) {
-
-
   const mapCombinations = function(list) {
     const result = [];
     const f = (prefix, array) => {
