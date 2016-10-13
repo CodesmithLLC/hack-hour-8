@@ -35,6 +35,11 @@ function validBST(tree) {
     }
     const older = bt;
 
+    if (!bt.right || !bt.left) {
+      const direction = !bt.right ? bt.left : bt.right;
+      return recurseTree(direction, older);
+    }
+
     return recurseTree(bt.left, older) && recurseTree(bt.right, older);
   }
 
