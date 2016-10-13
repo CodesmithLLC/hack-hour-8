@@ -51,7 +51,6 @@ function solveKnapsack(items, weightAvailable) {
   }));
 }
 
-
 // let items = [{
 // weight: 1,
 // value: 3
