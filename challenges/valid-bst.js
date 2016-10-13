@@ -34,7 +34,7 @@ function validBST(tree) {
     }
     const older = bt;
 
-    return recurseTree(bt.left, older) && recurseTree(bt.right, older);
+    return recurseTree(bt.left, older) || recurseTree(bt.right, older);
   }
 
   return recurseTree(tree, null);
