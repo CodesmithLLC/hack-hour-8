@@ -1,45 +1,49 @@
 /**
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
-function lol(input){
+function lol(input) {
   console.log(input);
 }
 
 // function highestProduct(array) { 
-  // var max = 0;
+// var max = 0;
 
-  // (function huntMax(arr){
-    // if(arr.length < 3) return;
-    // if(arr.length === 3){
-      // var num = arr.reduce(function(p,c){
-        // return p + c;
-      // });
+// (function huntMax(arr){
+// if(arr.length < 3) return;
+// if(arr.length === 3){
+// var num = arr.reduce(function(p,c){
+// return p + c;
+// });
 
-      // if(num > max ){
-        // max = num;
-      // }else{
-        // return;
-      // }
-    // }
-    // var newArr = arr.slice(1);
-    // return huntMax(newArr) || huntMax(arr);
-  // })(array);
+// if(num > max ){
+// max = num;
+// }else{
+// return;
+// }
+// }
+// var newArr = arr.slice(1);
+// return huntMax(newArr) || huntMax(arr);
+// })(array);
 
- // return max; 
+// return max; 
 // }
 
-function highestProduct(array){
-  if(array.length < 3) return 0;
-  if(array.length === 3) return array.reduce(function(p,c){return p + c;});
-  var cloneArr = array.slice();
+function highestProduct(array) {
+  if (!array || array.length < 3) return 0;
+  if (array.length === 3) return array.reduce((p, c) => {
+    return p * c;
+  }, 1);
 
-  cloneArr.sort(function(a,b){
+  const cloneArr = array.slice();
+  const len = array.length;
+
+  cloneArr.sort((a, b) => {
     return a - b;
   });
 
-  var len = array.length;
-  var firstProd = cloneArr[0] * cloneArr[1] * cloneArr[len - 1]
-  var secondProd = cloneArr[len - 1] * cloneArr[len - 2] * cloneArr[len - 3];
+  const firstProd = cloneArr[0] * cloneArr[1] * cloneArr[len - 1];
+  const secondProd = cloneArr[len - 1] * cloneArr[len - 2] * cloneArr[len - 3];
+
   return Math.max(firstProd, secondProd);
 }
 
