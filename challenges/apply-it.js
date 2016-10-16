@@ -37,14 +37,14 @@ function applyIt(func, args) {
 
     return function() {
 
-      //horrible solution
-      return func(args[0], args[1], args[2]);
+      //horrible solution, needs to be parsed
+      return func(...args);
     }
 }
 
 
 
-var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
-console.log(jaero());
+// var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
+// console.log(jaero());
 
-// module.exports = applyIt;
+module.exports = applyIt;

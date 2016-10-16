@@ -25,11 +25,11 @@ if (typeof commonElements === 'function') {
     });
 
     it('should return a array of strings and numbers', function() {
-      expect(commonElements(['dog',3,69,34],['dog',3,45,67,'cat'],[3,78,'dog','cat'],[3,78,'dog', 'cat'])).to.eql([3,'dog']);
+      expect(commonElements(['dog',3,69,34],['dog',3,45,67,'cat'],[3,78,'dog','cat'],[3,78,'dog', 'cat'])).to.eql(['dog', 3]);
     });
 
     it('should return a array of strings and numbers without duplicates', function() {
-      expect(commonElements(['dog','dog', 3,3],['dog','dog',3,3],['dog','dog', 3,3],['dog','dog',3,3])).to.eql([3,'dog']);
+      expect(commonElements(['dog','dog', 3,3],['dog','dog',3,3],['dog','dog', 3,3],['dog','dog',3,3])).to.eql(['dog', 3]);
     });
 
   });
