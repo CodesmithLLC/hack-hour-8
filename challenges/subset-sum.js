@@ -9,6 +9,23 @@
  */
 
 function subsetSum(array, target) {
+ //  2 3 4 7 -> 5
+ //  -3 -2 1 8 -> 6
+ //  3 4 5 12 12 34 -> 32
+ //  -2 1 3 3 7 -> 10
+ //
+ // a b c d
+ // a c d
+ // a d
+ // b c d
+ // b d
+ // c d
+ // d
+  // sum #'s consecutively
+  // if sum goes over target or if you reach the end of the set, start summing
+  // again beginning with the same element but skipping the element after it
+
+  // first loop is the base number that we will be summing the rest of the #'s on to
   for (var i = 0; i < array.length; i++) {
     let sum = array[i];
 
