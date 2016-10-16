@@ -17,9 +17,15 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-
+  let permArr = [];
+  const recurse = function(ana, array) {
+    if (!array.length) permArr.push(ana);
+    for (let i = 0; i < array.length; i++) {
+      recurse(ana.concat(array[i]), array.slice(0, i).concat(array.slice(i + 1)));
+    }
+  };
+  recurse([], arr);
+  permArr.forEach(ele => callback(ele));
 }
-
-
 
 module.exports = eachPermutation;
