@@ -56,4 +56,4 @@ function balancedParens(input) {
 // console.log(balancedParens(')('));  // false
 // console.log(balancedParens('(())'));  // true
 // console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
-// module.exports = balancedParens;
+module.exports = balancedParens;
