@@ -12,40 +12,39 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+function bestProfit(prices) {
+  if(!prices || prices.length === 0) return 0;
+  //Straightforward, O(n^2) solution - not really efficient
+  // var maxDiff = 0;
+  // stock_prices_yesterday.forEach(function(ele,idx){
+  // stock_prices_yesterday.forEach(function(el,id){
+  // if(maxDiff < (ele - el) ) maxDiff = ele - el;
+  // })
+  // })
+  // return maxDiff;
+  //////////////
 
-    //Straightforward, O(n^2) solution - not really efficient
-    // var maxDiff = 0;
-    // stock_prices_yesterday.forEach(function(ele,idx){
-    // stock_prices_yesterday.forEach(function(el,id){
-    // if(maxDiff < (ele - el) ) maxDiff = ele - el;
-    // })
-    // })
-    // return maxDiff;
-    //////////////
+  // This should be O(n) time complexity
+  let max,
+    i,
+    diffs = [],
+    min = prices[0],
+    len = prices.length;
 
-    //This should be O(n) time complexity
-    var arr = stock_prices_yesterday.slice(),
-        len = stock_prices_yesterday.length,
-        cache = [],
-        i = len - 3,
-        max = Math.max(arr[len - 1], arr[len - 2]);
-    min = Math.min(arr[len - 1], arr[len - 2]);
-
-    for (; i >= 0; i--) {
-        if (arr[i] > max) {
-            cache.push(max - min);
-            max = arr[i];
-        }
-        if (arr[i] < min) {
-            min = arr[i];
-        }
+  for (i = 1; i < len; i++) {
+    if (prices[i] < prices[i + 1]) {
+      min = prices[i] < min ? prices[i] : min;
     }
+    if (prices[i] > prices[i - 1]) {
+      max = !max || max < prices[i] ? prices[i] : max;
+    }
+  }
 
-    return Math.max(...cache);
-
+  return !max ? 0 : max - min;
 }
 
-
+// console.log(bestProfit([1, 6, 15, 4, 9, 3, 22]));
 // console.log(bestProfit([400, 300, 800, 600, 100]));
+// console.log(bestProfit([5, 4, 8, 9, 2]));
+// console.log(bestProfit([8, 5, 4, 3, 2, 9, 2]));
 module.exports = bestProfit;
