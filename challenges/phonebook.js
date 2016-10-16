@@ -1,4 +1,3 @@
-'use strict';
 /**
  * You are given an array of arrays.  The subarrays are first names and phone numbers.
  *
@@ -19,7 +18,7 @@
  * How efficient can you make this?
  */
 
-function findName(jazbook, name) {
+function phonebook(jazbook, name) {
 
   return makeJazBookIntoARealPhoneBookObject(jazbook)[name] ? makeJazBookIntoARealPhoneBookObject(jazbook)[name] : false;
 }
@@ -35,7 +34,7 @@ function makeJazBookIntoARealPhoneBookObject(jazbook) {
 
 
 var objectToExport = {
-  findName: findName,
+  phonebook: phonebook,
   makeJazBookIntoARealPhoneBookObject: makeJazBookIntoARealPhoneBookObject
 };
 
