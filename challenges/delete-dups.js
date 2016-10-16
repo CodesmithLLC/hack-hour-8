@@ -33,6 +33,7 @@
 
 // non buffer version
 function deleteDups(head) {
+  if (head === null) return head;
   let curr = head;
 
   // search and delete function
@@ -46,12 +47,10 @@ function deleteDups(head) {
     searchAndDestroy(node.next, val);
   }
 
-  while (curr) {
-    searchAndDestroy(curr, curr.value);
-    curr = curr.next;
-  }
+  searchAndDestroy(curr, curr.value);
+  curr = curr.next;
 
-  return head;
+  return deleteDups(curr);
 }
 
 
