@@ -8,41 +8,27 @@
  */
 
 function maxSubarray(arr) {
-  var sumCache = [],
-    len = arr.length,
-    i,
-    j;
+  const sumCache = [];
+  const len = arr.length;
+  let i;
+  let j;
 
   for (i = 0; i < len; i++) {
-    for (j = i; j < len; j++) {
-      sumCache.push(arr.slice(i, j + 1));
+    for (j = len; j > i; j--) {
+      sumCache.push(sum(arr.slice(i, j)));
     }
   }
-
-  var sumLen = sumCache.length,
-    max = 0,
-    k,
-    idx;
-
-  for (k = 0; k < sumLen; k++) {
-    if (sum(sumCache[k]) > max) {
-      max = sum(sumCache[k]);
-      idx = k;
-    }
+  
+  // helper sum function
+  function sum(array) {
+    return array.reduce((p, c) => {
+      return p + c;
+    });
   }
-  return sumCache[idx];
+
+  return Math.max(...sumCache);
 }
 
-//helper sum function
-function sum(array) {
-  var len = array.length,
-    sum = 0,
-    i;
-  for (i = 0; i < len; i++) {
-    sum += array[i];
-  }
-  return sum;
-}
 
 module.exports = maxSubarray;
 // console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
