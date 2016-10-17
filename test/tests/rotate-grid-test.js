@@ -11,7 +11,7 @@ if(typeof rotateGrid === 'function') {
     it('should rotate grid 90 degrees and display 2x2 grid', function() {
       expect(rotateGrid([[7,8],[1,2]],2)).to.eql([[1, 7], [2, 8]]);
       expect(rotateGrid([[3,4],[7,8]],2)).to.eql([[7, 3], [8, 4]]);
-      expect(rotateGrid([[1, 2, 3],[4, 5, 6],[7, 8, 9]],2)).to.eql([[4, 1], [5, 2]]);
+      expect(rotateGrid([[1, 2],[4, 5]],2)).to.eql([[4, 1], [5, 2]]);
     });
 
     it('should rotate a 3x3 grid', function() {
@@ -20,7 +20,7 @@ if(typeof rotateGrid === 'function') {
     });
 
     it('should work with a 4x4 grid', function() {
-      expect(rotateGrid([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16,17]],4)).to.eql(
+      expect(rotateGrid([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]],4)).to.eql(
         [[13, 9, 5, 1], [14, 10, 6, 2], [15, 11, 7, 3], [16, 12, 8, 4]]);
     });
   });
