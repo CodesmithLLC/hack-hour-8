@@ -3,36 +3,50 @@
 // matchWord('__END_DNE-----');  -> true
 // matchWord('__ENDDNE__');  -> false       (not separated by a space)
 // matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
-// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
+// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ]
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
-function log(input) {
-    console.log(input);
-}
+// function log(input) {
+// console.log(input);
+// }
 
 function matchWord(str) {
-    if (!str.length) return true;
+  if (!str.length) return true;
 
-    var lowered = str.toLowerCase();
-    var letterStr = lowered.replace(/[^a-z]/gi, ' ');
-    var strArrayed = letterStr.trim().split(' ');
+  const filtered = str.toLowerCase()
+    .replace(/[^a-z]/gi, ' ')
+    .split(' ')
+    .filter((ele) => {
+      return ele !== '';
+    });
 
-    if (strArrayed.length % 2 === 1) return false;
-    var matchArr = [];
+  function reduction(array) {
+    if (array.length === 1) return false;
+    if (array.length === 0) return true;
+    if (array[0] === revStr(array[array.length - 1])) {
+      array.shift();
+      array.pop();
+      return reduction(array);
+    }
+    if (array[0] === revStr(array[1])) {
+      array.shift();
+      array.shift();
+      return reduction(array);
+    }
+    return false;
+  }
 
-    strArrayed.forEach(function(ele, idx) {
-        var revStr = ele.split('').reverse().join('');
-        if ((matchArr.indexOf(ele) < 0) && (matchArr.indexOf(revStr) < 0)) {
-            matchArr.push(ele);
-        }
-        if (matchArr.indexOf(revStr) > -1) {
-            matchArr.splice(matchArr.indexOf(revStr), 1);
-        }
-    })
+  function revStr(string) {
+    return string.split('').reverse().join('');
+  }
 
-    return matchArr.length === 0;
+  return reduction(filtered);
 }
 
 
+// log(matchWord('for__if__rof__fi')); //  -> false     not properly closed. like ( [) ]
+// log(matchWord('IF()()fi[]')); //  -> true        (should be case-insensitive)
 // log(matchWord('__ENDDNE-----'));
+// log(matchWord('__END_DNE-----')); //  -> true
+// log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 module.exports = matchWord;
