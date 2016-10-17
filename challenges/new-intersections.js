@@ -14,57 +14,49 @@
  * Constraints and Notes:
  *
  * 	 - x and y will contain the same number of elements
- * 	 
  */
 
 function newIntersections(x, y) {
-  if (x.length < 4 || y.length < 4) return [];
+  const xIntersects = [];
+  const yIntersects = [];
+  const xCache = makeCache(x);
+  const xMap = Object.keys(xCache).filter((e) => {
+    return xCache[e].length > 1;
+  });
 
-  let xCache = makeCache(x),
-    // yCache = makeCache(y),
-    xKeys = Object.keys(xCache),
-    // yKeys = Object.keys(yCache),
-    xIntersects = [],
-    yIntersects = [];
+  const yCache = makeCache(y);
+  const yMap = Object.keys(yCache).filter((e) => {
+    return yCache[e].length > 1;
+  });
 
-  for(let k in xCache){
-    if(xCache[k].length > 1){
-      var pairs = pairPermutes(xCache[k]);
-      pairs.forEach( (ele, idx) => {
-        y.forEach( (el, id) => {
-          if(el > Math.min(y[ele[0]], y[ele[1]]) && el < Math.max(y[ele[0]], y[ele[1]])){
-            xIntersects.push(k)
-            yIntersects.push(el)
-          }
-        })        
-      })
-    }
+
+  if (xMap.length && yMap.length) {
+    xMap.forEach((e) => {
+      const [a, b] = xCache[e];
+      yMap.forEach((el) => {
+        if (+el > Math.min(y[a], y[b]) && +el < Math.max(y[a], y[b])) {
+          xIntersects.push(+e);
+          yIntersects.push(+el);
+        }
+      });
+    });
   }
-
-  return [xIntersects, yIntersects];
+  return xIntersects.length;
 }
 
+
 function makeCache(array) {
-  let cache = {};
+  const cache = {};
   array.forEach((ele, idx) => {
     if (cache[ele]) {
-      cache[ele].push(idx)
+      cache[ele].push(idx);
     } else {
       cache[ele] = [idx];
     }
-  })
+  });
   return cache;
 }
 
-function pairPermutes(array){
-  var result = [],
-    len = array.length;
-  array.forEach( (ele, idx) => {
-    for(var i = idx + 1; i < len - 1; i++){
-      result.push([ele, array[i]]);
-    }
-  })
-  return result;
-}
-
+// console.log(makeCache([1, 2, 3, 4, 3]));
+// console.log(newIntersections([1, 3, 2, 2, 0], [2, 2, 1, 3, 3]));
 module.exports = newIntersections;
