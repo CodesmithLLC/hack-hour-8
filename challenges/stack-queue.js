@@ -4,71 +4,51 @@
 
 
 function Stack() {
-  // body...
-  var $ = this;
-  $.length = 0;
-  $.collection = {};
+  this.length = 0;
+  this.collection = {};
 
-  ///////////////////
-  $.push = function(baz){
-    $.collection[$.length++] = baz;
-    return $.length;
-  }
+  this.push = function(value) {
+    this.collection[this.length++] = value;
+    // return this.length;
+  };
 
-  ///////////////////
-
-  //////////////////
-  $.pop = function(){
-    if($.length <= 0){
-      $.length = 0;
+  this.pop = function() {
+    if (this.length <= 0) {
+      this.length = 0;
       return undefined;
     }
-    var temp = $.collection[$.length - 1];
-    delete $.collection[--$.length]
+    let temp = this.collection[--this.length];
+    delete this.collection[this.length];
 
     return temp;
-  }
-  //////////////////
-
+  };
 }
-
 
 
 /**
-* Queue Class
-*/
+ * Queue Class
+ */
 
 
 function Queue() {
+  this.stack1 = new Stack();
+  this.stack2 = new Stack();
 
-  var stack1 = new Stack();
-  var stack2 = new Stack();
+  this.enqueue = function(value) {
+    this.stack1.push(value);
+  };
 
-  //To replicate `adding` element to queue, we either place element in stack1
-  //if there are no elements, or if there are elements, we move existing elements
-  //to stack2, then add new element to stack1, then move back existing elements
-  //that were added to stack2 to stack1, thus giving us the desired queue order
-  this.enqueue = function(foo){
-    if(stack1.length > 0){
-      for(var k in stack1){
-        stack2.push(stack1.collection[k]);
-      }
-    }else{
-      return stack1.push(foo);
-    }
+  // to return the first-most element added
+  this.dequeue = function() {
+    Object.keys(this.stack1.collection).forEach(() => {
+      this.stack2.push(this.stack1.pop());
+    });
 
-    stack1.push(foo);
-    for(var j in stack2){
-      stack1.push(stack2.collection[j]);
-    }
-    return stack1.length;
-  }
-
-  //Since we have desired order in place in stack1, we simply pop from stack1
-  //to return the first-most element added
-  this.dequeue = function(){
-    return stack1.pop();
-  }
+    return this.stack2.pop();
+  };
 }
 
-module.exports = {Stack: Stack, Queue: Queue};
+module.exports = {
+  Stack: Stack,
+  Queue: Queue
+};
