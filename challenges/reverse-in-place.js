@@ -12,17 +12,13 @@
  */
 
 function reverseInPlace(array) {
-//move elements from end to front NO NEW VARIABLES
-//possibly bubble up through array...but no holder variable?
-for (let i = array.length-1; i > 0; i--){
-  array[i] = array[i-1]
-  //not working because overwriting without saving overwritten element
+  let temp;
+  for (let i = array.length - 1; i >= Math.floor(array.length / 2); i--) {
+    temp = array[i];
+    array[i] = array[array.length - 1 - i]
+    array[array.length - 1 - i] = temp
+  }
+  return array;
 }
-console.log(array);
-}
-
-
-
-reverseInPlace(['a','b','c','d']);
 
 module.exports = reverseInPlace;
