@@ -47,4 +47,6 @@ LinkedList.prototype.remove = function (val) {
   }
 };
 
+LinkedList.add(2)
+
 module.exports = LinkedList;
