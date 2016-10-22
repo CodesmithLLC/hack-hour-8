@@ -19,7 +19,7 @@
 /*
 
 1. create new arr [] and var counter starting at 1.
-2. creat for loop that goes from 0 to num parameter and increments counter each time.
+2. create for loop that goes from 1 to num parameter and increments counter each time.
 3. inside the for loop evaluate number and if else counter value:
 	3a. Divisible by 3 and 5 push string push 'fizzbuzz'
 	3b. Divisble by 3 push string 'fizz'
@@ -29,26 +29,49 @@
 
 */
 
-function fizzbuzz(num) {
-	var container = [];
-	var counter = 1;
-	for (var i = 0; i < num; i++ ) {
-		if ( counter % 3 === 0 && counter % 5 === 0) {
-			container.push('fizzbuzz');
-			counter++;
-		} else if ( counter % 3 === 0 ) {
-			container.push('fizz');
-			counter++;
-		} else if ( counter % 5 === 0 ) {
-			container.push('buzz');
-			counter++;
-		} else {
-			container.push(counter);
-			counter++;
-		}
-	}
-	return container;
-}
+// For loop version
 
+// function fizzbuzz(num) {
+//   var container = [];
+//   for (var counter = 1; counter <= num; counter++ ) {
+//     if ( counter % 3 === 0 && counter % 5 === 0) {
+// 	  container.push('fizzbuzz');
+//     } else if ( counter % 3 === 0 ) {
+// 	  container.push('fizz');
+//     } else if ( counter % 5 === 0 ) {
+//       container.push('buzz');
+//     } else {
+//       container.push(counter);
+//     }
+//   }
+//   return container;
+// }
+
+// Recursive version
+
+function fizzbuzz(num) {
+  var container = [];
+  
+  function fizzbuzzPush(number, arr) {
+  	if (number === 0) {
+  	  return arr;
+  	} else if (number % 3 === 0 && number % 5 === 0) {
+  	  arr.unshift('fizzbuzz');
+  	  return fizzbuzzPush(number - 1, arr);
+  	} else if (number % 3 === 0) {
+  	  arr.unshift('fizz');
+  	  return fizzbuzzPush(number - 1, arr);
+  	} else if (number % 5 === 0) {
+  	  arr.unshift('buzz');
+  	  return fizzbuzzPush(number - 1, arr);
+  	} else {
+  	  arr.unshift(number);
+  	  return fizzbuzzPush(number - 1, arr);
+  	}
+  }
+
+  return fizzbuzzPush(num, container);
+
+}
 
 module.exports = fizzbuzz;
