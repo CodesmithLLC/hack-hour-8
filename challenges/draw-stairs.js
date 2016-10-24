@@ -21,40 +21,66 @@ Do a for loop that console.logs a stair case
 
 
 */
+/*
+function drawStairs(n) {
+
+	if(n < 1 || n > 100) {
+	  return console.log('Must be a number from 1 to 100');
+	}
+
+	var space = ' ';
+	var asterisks = '*';
+	var stepArr = [];
+	var step;
+	var output = [];
+	  
+	for (var i = 0; i < n; i++) {
+	  stepArr.push(asterisks);
+	}
+
+	step = stepArr.join('');
+	output.unshift(step);
+
+
+	for (var j = 0; j < n-1; j++) {
+	  stepArr[j] = space;
+	  step = stepArr.join('');
+	  output.unshift(step);
+	}
+
+	for (var k = 0; k < n; k++) {
+	  console.log(output[k]);
+	}
+
+}
+*/
 
 function drawStairs(n) {
 
-if(n < 1 || n > 100) {
-	return console.log('Must be a number from 1 to 100');
-}
+	if(n < 1 || n > 100) {
+	  return console.log('Must be a number from 1 to 100');
+	}
 
-var space = ' ';
-var asterisks = '*';
-var stepArr = [];
-var step;
-var output = [];
-  
-for (var i = 0; i < n; i++) {
-	stepArr.push(asterisks);
-}
+	var step = [];
 
-step = stepArr.join().split(',').join('');
-output.unshift(step);
+	for( var i = 0; i < n; i++) {
+		step.push(' ');
+	}
 
+  function stepBuilder(count, arr) {
+  	if (count === 0) {
+  		arr[count] = '*'
+  		return console.log(arr.join(''));
+  	}
 
-for (var j = 0; j < n-1; j++) {
-	stepArr[j] = space;
-	step = stepArr.join().split(',').join('');
-	output.unshift(step);
-  
-}
-  
-for (var k = 0; k < n; k++) {
-	console.log(output[k]);
-}
+  	arr[count] = '*'
+  	console.log(arr.join(''));
+  	return stepBuilder(count-1, arr);
+
+  }
+
+	return stepBuilder(n-1, step);
 
 }
-
-drawStairs(6);
 
 module.exports = drawStairs;
