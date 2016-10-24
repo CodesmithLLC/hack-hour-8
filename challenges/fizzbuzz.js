@@ -54,20 +54,32 @@ function fizzbuzz(num) {
   
   function fizzbuzzPush(number, arr) {
   	if (number === 0) {
+  	  
+  	  // Base Case: Returns array
   	  return arr;
+
   	} else if (number % 3 === 0 && number % 5 === 0) {
+  	  
   	  arr.unshift('fizzbuzz');
   	  return fizzbuzzPush(number - 1, arr);
+
   	} else if (number % 3 === 0) {
+
   	  arr.unshift('fizz');
   	  return fizzbuzzPush(number - 1, arr);
+
   	} else if (number % 5 === 0) {
+
   	  arr.unshift('buzz');
   	  return fizzbuzzPush(number - 1, arr);
+
   	} else {
+
   	  arr.unshift(number);
   	  return fizzbuzzPush(number - 1, arr);
+
   	}
+
   }
 
   return fizzbuzzPush(num, container);
