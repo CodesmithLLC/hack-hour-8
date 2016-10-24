@@ -9,7 +9,7 @@
  *
  */
 
-
+/*
 function modemean(array) {
 	var mean = Math.floor(
 		array.reduce(function(previous, current){
@@ -51,6 +51,43 @@ function modemean(array) {
  	console.log('mode '+mode) ;
  	console.log( mean === mode ? true : false );
  	return mean === mode ? true : false;
+}
+*/
+
+function modemean(array) {
+
+  var mean = Math.floor(
+    array.reduce(function(previous, current){
+      return previous + current;
+    })/array.length);
+
+  function modeCalc(arr) {
+    var counter = {};
+    var count;
+    var mode;
+
+    arr.forEach(function(value){
+      counter[value] ? counter[value] = counter[value] + 1 : counter[value] = 1;
+    });
+
+    for(var k in counter) {
+      if(counter[k] > (count ? count : 0)) {
+        count = counter[k];
+        mode = k;
+      }
+
+      if(counter[k] === count && k > mode) {
+        count = counter[k];
+        mode = k;
+      }
+      
+    }
+
+    return mode; 
+
+  }
+ 
+  return mean === modeCalc(array) ? true : false;
 }
 
 
