@@ -19,10 +19,9 @@
 
 /*
 Solution approach:
-I'm going to try and build a function that 
-1. traverses a linked list (probably use a while loop)
+1. traverses a linked list using while loop
 2. pushes the value of each node into an array as it traverses
-3. returns the value of at k
+3. returns the value of at array.length - k
 4. If there is time, set up the function to account for edge cases (i.e. k is > number of values)
 */
 
@@ -33,16 +32,20 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (k < 1) {
+    return console.log('Integer must be greater than 0!');
+  }
   var valueContainer = [];
   var obj = head;
+
   while (obj) {
   	valueContainer.push(obj.value);
-  	obj = obj.next
+  	obj = obj.next;
   }
 
   if (k > valueContainer.length) {
-  	console.log('Not enough values to get the '+k+' to the last node value!')
-  	console.log('There are '+valueContainer.length+' values in this linked list and '+valueContainer[0]+' is the first value.')
+  	console.log('Not enough values to get the '+k+' to the last node value!');
+  	return console.log('There are '+valueContainer.length+' values in this linked list and '+valueContainer[0]+' is the first value.'); 
   }
   
   return valueContainer[valueContainer.length - k];
