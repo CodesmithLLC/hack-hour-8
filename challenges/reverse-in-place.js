@@ -35,6 +35,4 @@ function reverseInPlace(array) {
 
 }
 
-console.log(reverseInPlace(['1','2','3','4']));
-
 module.exports = reverseInPlace;
