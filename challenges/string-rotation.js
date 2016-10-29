@@ -14,13 +14,13 @@ If length of the two strings do not match return false,
 else return isSubstring of reordered 2nd string.
 */
 
-function isSubstring(s1, s2) {
+function isSubstring (s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
 
 
-function stringRotation(s1, s2) {
+function stringRotation (s1, s2) {
 	if (s1.length !== s2.length) {
 		return false;
 	}
