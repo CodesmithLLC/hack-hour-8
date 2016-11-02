@@ -36,16 +36,30 @@ Approach:
 
 
 function balancedParens(input){
-	var container = []; 
+	var bracketObj = {
+		'[' : ']',
+		'(' : ')',
+		'{' : '}'
+	},
+	open = [], 
+	close = [],
+	count = 0; 
 	
 	input.split('').forEach(function(current){
-		if(current === '{' || current === '}' || current === '('|| current === ')'|| current === '['|| current === ']') container.push(current);
-	})
+		if (current === '{' || current === '('|| current === '[') {
+			open.push(bracketObj[current]);
+			count++;
+		} else if (current === '}' || current === ')' || current === ']') {
+			close.push(open.splice(open.length-1,1)[0] === current ? true : false);
+			count++;
+		} 
+	});
 
-	if (container.length % 2 > 0 ) {
-		return false }
+	if ( count % 2 > 0 ) {
+		return false; 
+	}
 
-	//return JSON.stringify(container.join('')).replace(/[\[\]']+/g,'')	
+	return close.indexOf(false) > -1 ? false : true;
 
 }
 
