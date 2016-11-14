@@ -29,46 +29,24 @@ Approach:
 
 function romanNumeral(n) {
 	var output = [];
-	
+	var number = n;
 	var numbers = [1000,900,500,400,100,90,50,40,10,9,8,7,6,5,4,3,2,1];
-	var numerals = ["M","CM","D","CD","C","XC","L","XL","X","IX","VIII","VII","VI","V","IV","III","II","I"];
-
-	// const romanObj = {
-	// 	1000: "M",
-	// 	900: "CM",
-	// 	500: "D",
-	// 	400: "CD",
-	// 	100: "C",
- //    90: "XC",
- //    50: "L",
-	// 	40: "XL",
-	// 	10: "X",
-	// 	9: "IX",
-	// 	8: "VIII",
-	// 	7: "VII",
-	// 	6: "VI",
-	// 	5: "V",
-	// 	4: "IV",
-	// 	3: "III",
-	// 	2: "II",
-	// 	1: "I",
-	// }
-
+  var numerals = ["M","CM","D","CD","C","XC","L","XL","X","IX","VIII","VII","VI","V","IV","III","II","I"];
+	
 	if (numbers.indexOf(n) > -1) {
 		return numerals[numbers.indexOf(n)];
+	}	
+
+	for (var i = 0; i < numbers.length; i++) {
+		if (number >= numbers[i]) {
+			output.push(numerals[i]);
+			number = number - numbers[i];
+			i--;
+		} else if (number === 0) {
+			return output.join('');
+		}
 	}
-
-	for (var k in romanObj) {
-		/*if (k > n) {
-			return console.log(k % n);
-		}*/
-		console.log('k', k)
-		console.log(Math.floor(n/k));
-	}
-
-
 }
 
-console.log(romanNumeral(500));
 
 module.exports = romanNumeral;
