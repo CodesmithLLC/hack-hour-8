@@ -39,8 +39,43 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
+var days = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':0};
+
+var months = {'Jan': 0, 'Feb':1, 'Mar':2, 'Apr':3,'May':4,'Jun':5,'Jul':6,'Aug':7,'Sep':8,'Oct':9,'Nov':10,'Dec':11};
 function parseDates(str) {
-  
+	var today = new Date();
+	var todayDay = today.getDay();
+	var todayDate = today.getDate();
+	var todayMonth = today.getMonth();
+ 	var targetYear = today.getFullYear();
+	var targetMonth;
+	var targetDate;
+	var targetDay;
+	var targetHours;
+	var targetMins;
+	var strArr = str.split(' ');
+	if (strArr[0] === 'Today') return today;
+	var keys = Object.keys(days).concat(Object.keys(months));
+	if (keys.indexOf(strArr[0]) < 0){
+		return today;
+	} 
+	//time
+	targetHours = parseInt(strArr[strArr.length-2].slice(0,-3));
+	targetMins = parseInt(strArr[strArr.length-2].slice(-2))
+	// month-date format
+	if(strArr[strArr.length-1] === 'PM') targetHours+=12;
+	
+		if(strArr[0].length ===3){
+		targetMonth = months[strArr[0]];
+		targetDate = parseInt(strArr[1].slice(0,-2));
+	}
+	// day of week format
+	else{
+		targetMonth = todayMonth;
+		targetDay = days[strArr[0]];
+		targetDate = todayDate - (todayDay-targetDay);
+	}
+	return new Date(targetYear,targetMonth,targetDate,targetHours,targetMins);
 }
 
 module.exports = parseDates;

@@ -14,7 +14,28 @@
  */
 
 function binToDec(binary) {
+	var binArr = binary.split('').reverse();
+	return binArr.reduce(function(prev, curr, index){
+		if(curr === '1') return prev += Math.pow(2, index);
+		else return prev;
+	},0)
+}
 
+function decToBin(dec){
+	if (dec === 1) return '1';
+	var bin = '';
+	var binSpaces = Math.floor(Math.log2(dec));
+	while(binSpaces>=0){
+		if(dec >= Math.pow(2, binSpaces)){
+			bin += '1';
+			dec -= Math.pow(2,binSpaces)
+		}
+		else{
+			bin+='0'
+		}
+		binSpaces--
+	}
+	return bin;
 }
 
 module.exports = binToDec;

@@ -14,7 +14,25 @@
  */
 
 function mergeArrays(arr1, arr2) {
+	// edge cases of one array or the other being empty
+	if(arr1.length === 0) return arr2;
+	if(arr2.length === 0) return arr1;
+	// new arrays identical to parameters arr1, arr2 to keep function pure, depending on which is longer
+	var arr3, arr4;
+	if(arr1.length>=arr2.length){
+		arr3 = [].concat(arr1);
+		arr4 = [].concat(arr2);
+	}
+	else{
+		arr3 = [].concat(arr2);
+		arr4 = [].concat(arr1);
+	}
 
+	for(var i = 0; i < arr3.length; i++){
+		if(arr4[0]<arr3[i]) arr3.splice(i,0,arr4.shift());
+		if(i === arr3.length-1 && arr4.length > 0) arr3.splice(arr3.length,0,arr4.shift())
+	}
+	return arr3;
 }
 
 module.exports = mergeArrays;
