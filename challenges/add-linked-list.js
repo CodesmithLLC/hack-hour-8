@@ -14,6 +14,34 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+    let ll1tot = [];
+  	let ll2tot = [];
+  	let curr1 = l1;
+  	let curr2 = l2;
+
+  	while (curr1.next) {
+  		ll1tot.unshift(curr1.value);
+  		curr1 = curr1.next;
+  	}
+  	ll1tot.unshift(curr1.value);
+
+  	while (curr2.next) {
+  		ll2tot.unshift(curr2.value);
+  		curr2 = curr2.next;
+  	}
+  	ll2tot.unshift(curr2.value);
+
+  	let newlltot = (+ll2tot.join("") + +ll1tot.join("")).toString();
+
+  	newlltot.split("").reverse();
+
+  	let retLL = new Node(newlltot[0]);
+  	let tail = retLL
+  	for (let i=1; i < newlltot.length; i++){
+  		tail.next = new Node(newlltot[i]);
+  		tail = tail.next;
+  	}
+  	return retLL;
 
 }
 

@@ -3,7 +3,11 @@
  */
 
 function highestProduct(array) {
+  if (!Array.isArray(array)){return 'not array'}
+  let sortedArr = array.sort(function(a,b){return a-b;});
 
+
+	return sortedArr[array.length-1]*sortedArr[array.length-2]*sortedArr[array.length-3];
 }
 
 

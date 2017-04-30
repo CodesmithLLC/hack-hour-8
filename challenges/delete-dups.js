@@ -13,7 +13,22 @@
 
 
 function deleteDups(head) {
+  let hashTable = {};
+	let current = head;
+	let prev;
 
+	while (current.next){
+
+		if (hashTable[current.value] === undefined) {
+			hashTable[current.value] = true;
+		} else {
+			current = prev.next
+		}
+		prev = current;
+		current = current.next;
+	}
+
+	return current
 }
 
 module.exports = deleteDups;

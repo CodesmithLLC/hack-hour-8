@@ -21,7 +21,9 @@
  */
 
 function EventEmitter() {
-
+  this.events = {};
+  this.on = (letter, cb) => { this.events[letter] = cb; };
+  this.trigger = (letter, ...args) => { this.events[letter](...args); };
 }
 
 module.exports = EventEmitter;
