@@ -14,7 +14,19 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    let result = [];
 
+    while (arr1.length > 0 || arr2.length > 0) {
+        if (arr1[0] !== undefined && (arr2[0] === undefined || arr1[0] < arr2[0])) {
+            result.push(arr1[0]);
+            arr1.splice(0, 1);
+        } else {
+            result.push(arr2[0]);
+            arr2.splice(0, 1);
+        }
+    }
+
+    return result;
 }
 
 module.exports = mergeArrays;

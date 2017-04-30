@@ -23,6 +23,24 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
 
+  var levelsDeep = 0;
+  var arr = [];
+  var keepSearching = true;
+  var searchBy = head.next;
+
+  while(keepSearching) {
+    if(searchBy !== null) {
+      arr.push(searchBy.value);
+      searchBy = searchBy.next;
+      levelsDeep += 1;
+    } else {
+      keepSearching = false;
+    }
+  }
+
+  var position = levelsDeep - k;
+  return arr[position];
+
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

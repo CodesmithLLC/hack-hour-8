@@ -13,6 +13,31 @@
  */
 
 function numToWords(num) {
+    var numbers = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+    var hundreds = 'Hundred';
+    var thousand = 'Thousand';
+    var million = 'Million';
+    var trillion = 'Trillion';
+    var quadrillion = 'Quadrillion';
+    var tentys = 'Twen';
+    var thir = 'Thir';
+    var fifs = 'Fif'
+    var lessThen20 = 'teen'
+    var lessThen100 = 'ty';
+
+
+
+
+    var current_place = (num + "").length;
+    var current_index = 0;
+
+    function calculateNumber(num) {
+        var current_place = (num + "").length;
+        var current_index = 0;
+
+
+
+    }
 
 }
 
