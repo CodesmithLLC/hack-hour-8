@@ -14,7 +14,16 @@
 */
 
 function drawStairs(n) {
-
+	var col, row = n;
+	var result = '';
+	for (var i = 1; i <= n; i++){
+		for (var k = n; k > 0; k--){
+			if (k > i) result += " ";
+			else result += "*";
+		}
+		result += "\n";
+	}
+	console.log(result);
 }
 
 
