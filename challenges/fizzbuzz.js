@@ -17,7 +17,28 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+    if (isNaN(num)){
+        throw 'error: please enter a number, you silly goose';    
+        }
+    if (num < 1){
+        throw "error: consider using a number greater than zero, you silly goose";   
+        }
+    var array = []; 
+    for (var i = 1; i <= num; i++){
+        if (i % 3 === 0 && i % 5 === 0){
+            array.push('fizzbuzz');    
+        }
+        else if (i % 3 === 0){
+            array.push('fizz');    
+        } 
+        else if (i % 5 === 0){
+            array.push('buzz');    
+        }
+        else {
+            array.push(i);    
+        }
+    }
+    return array; 
 }
 
 module.exports = fizzbuzz;
