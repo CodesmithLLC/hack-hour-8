@@ -6,12 +6,32 @@
  
 
 function BinaryTree(val) {
-    this.value = val;
-    this.left = null;
-    this.right = null;
+  this.value = val;
+  this.left = null;
+  this.right = null;
 }
 
-function validBST(tree) {
+function validBST(val) {
+	this.root = null;
+}
+
+validBST.prototype.add = function(val) {
+	let root = this.root;
+
+	let currentRoot = root;
+	let newRoot = new BinaryTree(val);
+
+	if(!root){
+    this.root = new BinaryTree(val);
+    return;
+	}
+
+	while (currentRoot) {
+		// if value is less than root, add new tree to the left of it
+		if (val < currentRoot.value) {
+			currentRoot.left = newRoot;
+		}
+	}
 
 }
 

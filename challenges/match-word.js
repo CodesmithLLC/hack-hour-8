@@ -8,7 +8,18 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+	let regexStr = str.replace(/[^A-Za-z0-9]/g, ' ').trim().toLowerCase();
+	let splitStr = regexStr.split(' ');
+	let lastStr = splitStr[splitStr.length - 1];
+	let reverseLastStr = lastStr.split('').reverse().join('');
+	
+	if (splitStr[0] === reverseLastStr) {
+		return true;
+		// console.log(true);
+	} else {
+		return false;
+		// console.log(false);
+	}
 }
 
 module.exports = matchWord;

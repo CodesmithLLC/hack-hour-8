@@ -12,8 +12,22 @@
 
 
 
-function deleteDups(head) {
+function deleteDups(value) {
+	let current = this.head,
+			nextNode = current.next,
+			hash = {};
 
+	while(nextNode != null) {
+    if(!hash[nextNode.value]) {
+      hash[nextNode.value] = true;
+    } else {
+      current.next = nextNode.next;
+      this._size--;
+    }
+    
+    current = nextNode;
+    nextNode = nextNode.next;
+  }
 }
 
 module.exports = deleteDups;

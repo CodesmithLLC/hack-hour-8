@@ -17,7 +17,36 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+	// store results in an array
+	let fizzBuzzArray = [];
 
+
+	// loop the numbers up until the given input number WHILE checking for divisible numbers
+	// each number should be pushed into an array
+	for (var i = 1; i <= num; i++) {
+
+		// check if number is divisible by both 3 and 5, return 'fizzbuzz' when true
+		if (i % 3 === 0 && i % 5 === 0) {
+			fizzBuzzArray.push('fizzbuzz');
+		}
+
+		// check if number is divisible by 3, return 'fizz' when true
+		else if (i % 3 === 0) {
+			fizzBuzzArray.push('fizz');
+		}
+
+		// check if number is divisible by 5, return 'buzz' when true
+		else if (i % 5 === 0) {
+			fizzBuzzArray.push('buzz');
+		}
+
+		// otherwise just push number to the fizzBuzzArray
+		else {
+			fizzBuzzArray.push(i);
+		}
+	}
+
+	return fizzBuzzArray;
 }
 
 module.exports = fizzbuzz;
