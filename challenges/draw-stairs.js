@@ -13,8 +13,16 @@
 
 */
 
-function drawStairs(n) {
-
+function drawStairs(n){
+	let emptyStep = [];
+	for (var i = 0; i < n; i++){
+		emptyStep.push("x");
+	}
+	for (var j = n - 1; j >= 0; j--){
+		emptyStep[j] = "*"
+		var step = emptyStep.join('')
+		console.log(step.replace(/x/g, ' '));
+	}
 }
 
 

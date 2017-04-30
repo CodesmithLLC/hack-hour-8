@@ -40,7 +40,31 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  // initialize variables, handle edge cases
+  let dateStr = str.split(' ');
+  let currentDate = new Date();
+  const dayNum = currentDate.getDay();
+  if (dateStr.length < 3) return Date.now();
+
+  // start core logic
+  if (dateStr.length === 4) {
+    var editDate = [];
+    dateStr[1] = dateStr[1].split('').slice(0,2).join('');
+    dateStr[1] = dateStr[1].split('');
+    dateStr[1].push(',');
+    dateStr[1] = dateStr[1].join('');
+    editDate.push(dateStr.shift());
+    editDate.push(dateStr.shift());
+    editDate.push('2016');
+    dateStr = editDate.concat(dateStr);
+    dateStr = dateStr.join(' ');
+    date = new Date(dateStr);
+    date = date.toString().split(' ').join(' ')
+    return date;
+  }
+  if (dateStr.length === 3) {
+  	// find num of day, subtract from num of current date and find its date
+  }
 }
 
 module.exports = parseDates;

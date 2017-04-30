@@ -12,8 +12,21 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
-function numToWords(num) {
+ function numToWords(num) {
+   const ones = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+   const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+   const onesAndTeens = ones.concat(teens);
+   if (num.toString().length <= 2) return onesAndTeens[num-1];
+   const tens = ['Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+   const bigBoysInDaHizzle = ['Hundred', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+   const numArr = num.toString().split('')
+   let tripleArr = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+   console.log(tripleArr.length);
 
-}
+   for (var i = 0; i < numArr.length; i++) {
+     tripleArr.push(numArr[i]);
+   }
+   console.log(tripleArr);
+ }
 
 module.exports = numToWords;

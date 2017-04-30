@@ -9,8 +9,19 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
-
-}
+ function getAllProducts(array) {
+ 	var products = [];
+ 	findProducts(array, 0);
+ 	function findProducts(array, i) {
+ 		if (i === array.length) return;
+ 		var tempVal = array.splice(i,1);
+ 		var mult = array.reduce(function(a,b) { return a*b; });
+ 		products.push(mult);
+ 		array.splice(i,0,tempVal);
+ 		i = i+1;
+ 		findProducts(array, i);
+ 	}
+ 	return products;
+ }
 
 module.exports = getAllProducts;
