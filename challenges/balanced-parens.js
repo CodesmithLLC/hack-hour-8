@@ -25,7 +25,25 @@
  */
 
 function balancedParens(input){
+	let counterObj = {
+		openParen: input.match(/[(]/gi),
+		closedParen: input.match(/[)]/gi),
+		openBrack: input.match(/[[]/gi),
+		closedBrack: input.match(/[\]]/gi),
+		openCurl: input.match(/[{]/gi),
+		closedCurl: input.match(/[}]/gi)
+		};
 
+	for (var key in counterObj) {
+		if (counterObj[key] === null) counterObj[key] = 0;
+		else counterObj[key] = counterObj[key].length;
+	}
+
+	if (counterObj.openParen === counterObj.closedParen && counterObj.openBrack === counterObj.closedBrack && counterObj.openCurl === counterObj.closedCurl) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 module.exports = balancedParens;

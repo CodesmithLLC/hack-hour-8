@@ -10,7 +10,16 @@
  */
 
 function getAllProducts(array) {
-
+  let perms = array[0];
+  let temp = [];
+  function findPerms () {
+    for (var i = 1; i < array.length; i++){
+      for (var y = 0; y < perms.length; y++){
+        temp.push(array.splice(y, 0, array[i]));
+        temp.push(array.splice(y+1, 0, array[i]));
+      }
+    }
+  }
 }
 
 module.exports = getAllProducts;

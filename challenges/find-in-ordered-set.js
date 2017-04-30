@@ -11,7 +11,18 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+  var store = arr;
 
+	function recur (store, target) {
+	if (target === store[Math.floor(store.length/2)]) return true;
+	else if (target > store[Math.floor(store.length/2)] && store.length > 1) {
+		store = store.slice(-(Math.floor(store.length/2)))
+		recur (store, target);
+	} else {
+		store = store.slice(0, Math.floor(store.length/2));
+		recur (store, target);
+	}
+	}
 }
 
 
