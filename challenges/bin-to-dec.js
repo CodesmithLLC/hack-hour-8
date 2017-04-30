@@ -14,7 +14,16 @@
  */
 
 function binToDec(binary) {
+<<<<<<< HEAD
+	var revStgArr = binary.split('').reverse();
+	var num = 0;
+	for(var i = 0; i < revStgArr.length; i++){
+		num += (revStnArr[i] * Math.pow(2, i)); 
+	}
+	return num;
+=======
 
+>>>>>>> 17610421d8957ae9a071d5ef594cd4787b986595
 }
 
 module.exports = binToDec;

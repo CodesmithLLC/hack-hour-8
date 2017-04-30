@@ -15,7 +15,12 @@
 
 function drawStairs(n) {
 
+	for(var i = 1; i <= n <= 100; i++){
+		var spaces = ' ';
+		var steps = '*'
+	var theseStairs = spaces.repeat(n-i).concat(steps.repeat(i));
+	console.log(theseStairs);
 }
-
+}
 
 module.exports = drawStairs;

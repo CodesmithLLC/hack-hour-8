@@ -25,7 +25,36 @@
  */
 
 function balancedParens(input){
-
+//if the string is an odd number return false 
+var str = input;
+var result = false;
+if (str.length % 2 === 1) return false;
+//if each of the brackets close right away return true
+for (var i = 0; i < str.length; i + 2){
+	if (str.charAt(i) === '(' && str.charAt( i + 1 ) === ')') {
+		result = true;
+	} 
+	else if (str.charAt(i) === '(' && str.charAt( str.length - 1 - i ) === ')') {
+		result = true;
+	}
+	else if (str.charAt(i) === '[' && str.charAt( i + 1 ) === ']'){
+		result = true;
+	} 
+	else if (str.charAt(i) === '[' && str.charAt( str.length - 1 - i ) === ']') {
+		result = true;
+	}
+	else if (str.charAt(i) === '{' && str.charAt( i + 1 ) === '}'){
+		result = true;
+	} 
+	else if (str.charAt(i) === '{' && str.charAt( str.length - 1 - i ) === '}') {
+		result = true;
+	}
+	else { 
+		result = false; 
+	}
+	return result;
+}
+//split the string in half and compare each position for its closing bracket
 }
 
 module.exports = balancedParens;
