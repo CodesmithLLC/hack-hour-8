@@ -12,8 +12,27 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+function bestProfit(stockPricesYesterday) {
+  const spy = stockPricesYesterday;
+  const len = spy.length;
+  let i;
+  let j;
+  let changeInPrice = Number.NEGATIVE_INFINITY;
+  let maxChangeInPrice = Number.NEGATIVE_INFINITY;
 
+  if (len < 2) return 0;
+
+  for (j = 1; j < len; j++) {
+    for (i = 0; i < len - 1; i++) {
+      changeInPrice = spy[j] - spy[i];
+      maxChangeInPrice = Math.max(changeInPrice, maxChangeInPrice);
+      if (changeInPrice < 0 || changeInPrice < maxChangeInPrice) {
+        continue;
+      }
+    }
+  }
+
+  return maxChangeInPrice > 0 ? maxChangeInPrice : 0; // need to figure out why this didn't pass
 }
 
 module.exports = bestProfit;

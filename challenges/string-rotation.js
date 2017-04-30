@@ -12,7 +12,23 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  let i = 0;
+  let j = 0;
+  let res = false;
 
+  if (typeof s1 !== 'string' || typeof s2 !== 'string') return false;
+  if (s1.length !== s2.length) return false;
+  if (s1 === s2) return true;
+
+  for (j; j < s2.length; j++) {
+    for (i; i < s1.length; i++) {
+      if (isSubstring(s1[i], s2[j])) {
+        res = true;
+      }
+    }
+  }
+
+  return res;
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };

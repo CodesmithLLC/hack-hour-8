@@ -16,13 +16,51 @@
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
 
+ /*
+Have to get to the last node (this.next == null) and move backwarsds
+Have a counter variable, starting at one (representing the last node)
+for each step up in the linked list, increment the counter by one until it reaches k
+return that node
+ */
+
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function kthToLastNode(k, head) {
+  let len = 0;
+  let i = 1;
 
+// edge case: k is < 1 and unusable
+  if (k < 1) {
+    return undefined;
+  }
+// edge case: list undefined
+  if (this.value == null) {
+    return undefined;
+  }
+// check for list length of one
+  if (this.value === head && this.next == null) {
+    return this.value;
+  }
+
+// get length
+  while (!this.next == null) {
+    for (i in list) {
+      if (!this.value == null) {
+        len++;
+      }
+    }
+  }
+
+  const kthFromEnd = len - k;
+
+  if (k > len) {
+    return undefined;
+  }
+//loop through list to get to the last item
+//
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node: Node, kthToLastNode: kthToLastNode };

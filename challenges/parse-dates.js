@@ -31,7 +31,7 @@
 
 // parseDates('Jan 1st')
 // parseDates('hello')
-// parseDates('Today 2 PM')        => invalid formats, so all return Date object for today at the current time: 'Thu Dec 17 2015 11:31:00 GMT-0800 (PST)'
+// parseDates('Today 2 PM') => invalid formats, so all return Date object for today at the current time: 'Thu Dec 17 2015 11:31:00 GMT-0800 (PST)'
 
 // FAQ:
 // - seconds / milliseconds of the returned Date object do not matter
@@ -39,8 +39,38 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
-function parseDates(str) {
-  
+// const ex1 = 'Thursday 12:37 PM';
+// const ex2 = 'Nov 19th 1:12 PM';
+// const ex3 = 'Mar 1st 6:09 PM';
+// const ex4 = 'Monday 5:33 PM';
+// const ex5 = 'Friday 7:04 PM';
+// const ex6 = 'Today 2:01 PM';
+
+function getMonth(str) {
+  return ('JanFebMarAprMayJunJulAugSepOctNovDec'.indexOf(str) / 3 + 1);
 }
+
+function parseDates(str) {
+  const arr = str.split(' ');
+  const today = new Date();
+  const year = today.getFullYear();
+  let month;
+  let day;
+  let hour;
+  let minutes;
+
+  if (arr[0].length === 3) {
+    month = getMonth(arr[0]);
+    day = arr[1].replace(/[\D]/gi, '');
+    hour = arr[2].split(':')[0];
+    minutes = arr[2].split(':')[1];
+  }
+
+	// console.log('year: ', year, 'month: ', month, 'day: ', day, 'hour: ', hour, 'minutes: ', minutes);
+
+  return new Date(year, month, day, hour, minutes);
+}
+
+parseDates(ex2);
 
 module.exports = parseDates;
