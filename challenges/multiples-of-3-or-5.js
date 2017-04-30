@@ -6,6 +6,13 @@
 
 function sumMultiples3Or5Below1000() {
   var sum = 0;
+  for (var i = 0; i <= 1000){
+  	if (i % 3 === 0){
+  		sum += i;
+  	} else if (i % 5 === 0){
+  		sum += i;
+  	}
+  }
 
   return sum;
 }

@@ -14,7 +14,19 @@
  */
 
 function mergeArrays(arr1, arr2) {
+<<<<<<< HEAD
+	//loop through grab the first element of the array compare them and push them into a new array
+	var newArr = [];
+	var arr1 = arr1;
+	var arr2 = arr2; 
+	var len = arr1.len + arr2.len;
 
+	for(var i = 0; i < len; i++){
+		
+	}
+=======
+
+>>>>>>> 34461cb4c784d3e3c1719b096cc0eb7a8d8d10b6
 }
 
 module.exports = mergeArrays;

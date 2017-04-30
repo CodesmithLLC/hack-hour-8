@@ -11,7 +11,20 @@
 
 
 function modemean(array) {
+	var sortedArr = array.sort();
+	var totalSum = sortedArr.reduce(function(a, b) {
+  return a + b;
+});
+	var mean = Math.floor(totalSum / sortedArr.length);
+	var mode;
+	for(var i = sortedArr.length; i > 0; i--){
+		if(sortedArr[i] === sortedArr[i - 1]) {
+			mode = sortedArr[1]
+			return mode;
+		}
 
+	}
+	return mode === mean;
 }
 
 module.exports = modemean;

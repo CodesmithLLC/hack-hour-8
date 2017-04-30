@@ -13,7 +13,26 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+	var origArr = stock_prices_yesterday;
+	var max = Math.max(...origArr);
+	var min = Math.min(...origArr);
+	var maxTime = origArr.indexOf(max);
+	var minTime = origArr.indexOf(min);
+	var buyTime;
+	var sellTime;
+	
+	var removed = [];
+	while (maxTime < minTime){
+		removed.push(origArr.splice(maxTime, 1)[0]);
+		max = Math.max(...origArr);
+		maxTime = origArr.indexOf(max);
+		minTime = origArr.indexOf(min);
+	}
+	sellTime =  maxTime + removed.length;
+	buyTime = minTime + removed.length; 
+	return "buy: " + buyTime + " sell: " + sellTime; 
+	
+	
 
 }
-
 module.exports = bestProfit;

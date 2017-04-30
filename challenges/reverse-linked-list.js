@@ -14,7 +14,20 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+<<<<<<< HEAD
+	
+	function lowestSeach(node){
+		if(node.next !== null){
+			node = node.next;
+			return lowestSearch(node);
+		}
+		else(node.next === null){
+			
+		}
+	}
+=======
 
+>>>>>>> 51ab7945c1b445dd4ddea5b87d2525fbb3a3ba14
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
