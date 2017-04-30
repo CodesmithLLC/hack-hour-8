@@ -13,6 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+	if (stock_prices_yesterday.length < 2) return 0;
+	
+	stock_prices_yesterday = stock_prices_yesterday.sort(function(a,b){
+		return a > b;
+	})
+	
+	var holder = [];
+	for (var i = 0; i < stock_prices_yesterday.length; i++) {
+		if (stock_prices_yesterday[i]) holder.push(stock_prices_yesterday[i]);
+	}
+	
+	return holder[holder.length-1] - holder[0];
+
 
 }
 
