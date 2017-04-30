@@ -12,7 +12,18 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+	// test to see if they are the same at start
+	if (s1 == s2) return true;
+	// split s2 into an array
+	s2Arr = s2.split('');
+	// shift last element of s2 arr into the front and test to see if it is the same
+	// as s1
+	for (var i = 0; i < s2Arr.length; i++) {
+		s2Arr.unshift(s2Arr.pop());
+		s2Str = s2Arr.join('');
+		if (s2Str == s1) return true;
+	}
+	return false;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

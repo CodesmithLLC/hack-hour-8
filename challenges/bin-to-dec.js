@@ -12,9 +12,31 @@
  * Extension:
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
-
+"use strict";
 function binToDec(binary) {
-
+  binary = binary.split("");
+  let negative = false;
+  if (binary[0] == '-') {
+    negative = true;
+    binary.shift();
+  }
+  let sum = 0;
+  for (let i = 0, j = binary.length - 1; i < binary.length; i++, j--) {
+    if (binary[i] == '1') {
+      sum = sum + Math.pow(2, j);
+      console.log('sum iter ' + sum);
+    }
+  }
+  return negative ? sum * -1 : sum;
 }
 
+function decToBin(num) {
+  const binary = [];
+  for (let i = 1; i <= num; i++) {
+    
+
+  }
+}
 module.exports = binToDec;
+
+console.log(decToBin(16));

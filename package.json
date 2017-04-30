@@ -16,6 +16,7 @@
   "dependencies": {
     "async": "^1.4.2",
     "aws-sdk": "^2.2.24",
+    "chai": "^3.5.0",
     "ejs": "^2.3.4",
     "expect.js": "^0.3.1",
     "mocha": "^2.2.5",
@@ -23,10 +24,13 @@
     "request": "^2.65.0",
     "sendgrid": "^3.0.8"
   },
-  "author": "Jared Fowler <jared@codesmith.io> (https://github.com/jafow)",
+  "author": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-8.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "extends": "airbnb"
 }
