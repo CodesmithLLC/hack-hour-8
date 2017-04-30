@@ -8,7 +8,25 @@
  */
 
 function maxSubarray(arr) {
+  const cache = {};
+  let max = Number.NEGATIVE_INFINITY;
+  let len = arr.length;
 
+  if (arr.length < 1) return arr;
+
+  while (len) {
+    for (let i = 0, x = 0, j = len; x < arr.length - len; x++, i++, j++) {
+      let sub = arr.slice(i, j);
+      let sum = sub.reduce((a, b) => a + b);
+      if (sum > max) {
+        max = sum;
+        cache[max] = JSON.stringify(sub);
+      }
+    }
+    len--;
+  }
+
+  return JSON.parse(cache[max]);
 }
 
 module.exports = maxSubarray;

@@ -25,7 +25,54 @@
  */
 
 function balancedParens(input){
+  const parens = input.replace(/[^\(\)\{\}\[\]]/g, '');
+  const arr = [];
 
+  if (isOpeningBracket(parens.charAt(0))) arr.push(parens.charAt(0));
+  else return false;
+
+  for (let i = 1; i < parens.length; i++) {
+    const char = parens.charAt(i);
+    if (isOpeningBracket(char)) {
+      arr.push(char);
+    } else if (isMatched(arr[arr.length-1], char)) {
+      arr.pop();
+    }
+  }
+
+  return arr.length === 0 ? true : false;
+
+  function isMatched(open, close) {
+    switch (open + close) {
+      case '()':
+      case '[]':
+      case '{}':
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isOpeningBracket(char) {
+    switch (char) {
+      case '(':
+      case '[':
+      case '{':
+        return true;
+      default:
+        return false;
+    }
+  }
+  function isClosingBracket(char) {
+    switch (char) {
+      case ')':
+      case ']':
+      case '}':
+        return true;
+      default:
+        return false;
+    }
+  }
 }
 
 module.exports = balancedParens;

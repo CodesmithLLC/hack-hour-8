@@ -13,7 +13,18 @@
   */
 
 function anagrams(string) {
+  const res = [];
+  if (string.length === 1) {
+    res.push(string);
+    return res;
+  }
 
+  res.push(string.slice(-2, string.length));
+  res.push(string.slice(-2, string.length).split('').reverse().join(''));
+
+  if (string.length === 2) return res;
+
+  const temp = [...res];
 }
 
 module.exports = anagrams;

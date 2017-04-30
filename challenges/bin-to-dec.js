@@ -14,7 +14,12 @@
  */
 
 function binToDec(binary) {
-
+  const bin = binary.split('').reverse().join('');
+  let res = 0;
+  for (let i = 0; i < bin.length; i++) {
+    if (bin[i] === '1') res = res + Math.pow(2, i);
+  }
+  return res;
 }
 
 module.exports = binToDec;

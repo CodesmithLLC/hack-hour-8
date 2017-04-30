@@ -13,7 +13,21 @@
 
 
 function deleteDups(head) {
+  const cache = {};
+  let node = head;
+  let prev = null;
 
+  while (node) {
+    if (cache[node.value]) {
+      prev.next = node = node.next;
+    } else {
+      cache[node.value] = 1;
+      prev = node;
+      node = node.next;
+    }
+  }
+
+  return head;
 }
 
 module.exports = deleteDups;
