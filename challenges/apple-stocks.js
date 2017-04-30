@@ -12,7 +12,24 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+ //array: [5,4,3,2,1]
+//go through once and if higher, return that
+
+function bestProfit(stock) {
+	var max = 0;
+	var tempMax = 0;
+	if(stock.constructor !== Array) return 0;
+
+
+	for(var i =0; i<stock.length; i++){
+		for(var j =i+1; j<stock.length; j++){
+			tempMax = stock[j] - stock[i];
+			if (tempMax > max) max = tempMax;
+		}
+	}
+
+	if(max.constructor === Number) return max;
+	else return 0;
 
 }
 

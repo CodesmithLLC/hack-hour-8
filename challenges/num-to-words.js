@@ -12,8 +12,39 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
-function numToWords(num) {
 
+//DOESNT WORK
+function numToWords(num) {
+	num = num.toString();
+	if (num == 0) return 'zero';
+	var zeros = ['','thousand', 'million', 'trillion', 'quadrillion'];
+	// var nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+	var finalString = '';
+	var tempString = '';
+	var totalCount = Math.ceil(num.length / 3)
+	// var firstNum;
+	//split into sets of 3
+	//start at the end and add word for every set of three and then call numToHundreds
+	for(var i = 0; i<totalCount ; i++){
+		tempString = num.substring(num.length-3 - 3*i, num.length-3*i)
+		console.log(tempString)
+		// firstNum = parseInt(tempString[0])
+		// nums[firstNum-1] +
+		finalString =  numToHundreds(tempString) + zeros[i]+ finalString;
+	}
+
+	return finalString;
+}
+
+
+//WORKS
+function numToHundreds(numString){
+	var numbers = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+	var tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+	var finalString = '';
+	if (numString.length === 1) return finalString = numbers[parseInt(numString[0])];
+	if (numString.length === 2) return finalString = tens[parseInt(numString[0])-1] + numbers[parseInt(numString[1])];
+	if (numString.length === 3) return finalString = numbers[parseInt(numString[0])] + 'hundred' + tens[parseInt(numString[1])] + numbers[parseInt(numString[2])];
 }
 
 module.exports = numToWords;
