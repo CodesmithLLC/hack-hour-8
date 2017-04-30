@@ -8,7 +8,27 @@
 
 
 function countTwos(num) {
+	let n = 0;
+	
+	if (num < 2) {
+		return 0;
+	}
+	
+	// loop through each number and stringify them
+	for (let i = 0; i < num; i++) {
+		let string = i.toString();
 
+		// then loop through each string
+		for (let j = 0; j < string.length; j++) {
+			
+			// if it equals 2, increment count by 1
+			if (string[j] === '2') {
+				n++
+			}
+		}
+	}
+
+	return n;
 }
 
 module.exports = countTwos;

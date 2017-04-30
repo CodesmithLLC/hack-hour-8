@@ -10,7 +10,27 @@
  *
  */
 function uniqueNumber(array) {
+	let newObj = {};
 
+	// Loop through array and assign true to first number
+	for (var i = 0; i < array.length; i++) {
+		if (!newObj[array[i]]) {
+			newObj[array[i]] = true;
+		} else {
+			// Assign false to repeated numbers
+			newObj[array[i]] = false;
+		}
+	}
+	
+	// Loop through new object and return unique number if value is true
+	for (var key in newObj) {
+		if (newObj[key] === true) {
+			return key;
+		}
+	}
+
+	// If there are no unique numbers
+	return 'There is no unique number';
 }
 
 module.exports = uniqueNumber;

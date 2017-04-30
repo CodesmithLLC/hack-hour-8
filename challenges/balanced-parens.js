@@ -25,7 +25,32 @@
  */
 
 function balancedParens(input){
+	// Step 1
+	// const parens = '()';
+	// if (input.indexOf(parens) === -1) {
+	// 	return false;
+	// } else {
+	// 	return true;
+	// }
+	
+	// Step 2
+	// const brackets = ['()', '{}', '[]'];
+	
+	// for (var i = 0; i < brackets.length; i++) {
+	// 	if (input.indexOf(brackets[i]) === -1) {
+	// 		return false;
+	// 	} else {
+	// 		return true;
+	// 	}
+	// }
+	
+	// Step 3
+	// Using regex to find matching brackets
+	// Unfinished
 
+	const test = /[^\(]*(\(.*\))[^\)]*/;
+
+	return input.search(test);
 }
 
 module.exports = balancedParens;

@@ -14,6 +14,25 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+	let l1head = l1,
+			l2head = l2,
+					l1 = l1.next,
+					l2 = l2.next;
+
+	// if no l1, then no need to add l2
+	if (!l1) {
+		return l2;
+	}
+
+	// if no l2, then no need to add l1
+	if (!l2) {
+		return l1;
+	}
+
+	while (l1 && l2) {
+		l1 + l2head
+	}
+
 
 }
 
