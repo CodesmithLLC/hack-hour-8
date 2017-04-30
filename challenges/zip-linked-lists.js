@@ -1,4 +1,5 @@
-/* Merge two linked lists so that their nodes alternate. Let the first node of the zipped list be
+/* Merge two linked lists so that their nodes alternate.
+ * Let the first node of the zipped list be
  * the first node of the first argument, if it exists.
  * Implement the linked list using only a Node class. No need for a wrapper LinkedList class
  *
@@ -11,6 +12,15 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (l1.next === false && l2.next === false) {
+    return l1;
+  }
+  else {
+    let temp = l1.next;
+    l1.next = l2;
+    l2.next = temp;
+    zip(l1.next, l2.next);
+  }
 };
 
 module.exports = {Node: Node, zip: zip};

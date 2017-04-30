@@ -19,14 +19,29 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+    for (var i = 0; i < jazbook.length; i++) {
+      if (jazbook[i][0] === name) {
+        return jazbook[i][1]
+      }
+    }
+  return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
-
+  let phonebook = {};
+  let temp = jazbook.sort(function(a, b) {
+  	 if (a[0] < b[0]) return -1;
+  	 else if (a[0] > b[0]) return 1;
+  	 else return 0;
+  })
+  console.log(temp)
+  for (let i of jazbook) {
+  	console.log(i)
+    phonebook[i[0]] = i[1] 
+  }
   return phonebook;
 }
+
 
 
 var objectToExport = {

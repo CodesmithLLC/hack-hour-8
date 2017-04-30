@@ -3,7 +3,11 @@
  */
 
 function countStairs(n) {
-
+        if (num < 2){
+            return 1;
+        }else{
+            return countStairs(num-2) + countStairs(num-1);
+        }
 }
 
 module.exports = countStairs;

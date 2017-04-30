@@ -40,7 +40,23 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  const monthObj = {
+    'Jan': '01',
+    'Feb': '02',
+    'Mar': '03',
+    'Apr': '04',
+    'May': '05',
+    'Jun': '06',
+    'Jul': '07',
+    'Aug': '08',
+    'Sep': '09',
+    'Oct': '10',
+    'Nov': '11',
+    'Dec': '12'
+  }
+  const year = '2016';
+  var arr = str.split('');
+
 }
 
 module.exports = parseDates;

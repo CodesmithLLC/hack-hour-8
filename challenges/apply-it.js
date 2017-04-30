@@ -25,8 +25,13 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
-
-}
+ function applyIt(func, args) {
+ 	let a, b, c;
+ 	[a, b, c] = args
+ 	function x() {
+ 		return func(a, b, c)
+ 	}
+ 	return x;
+ }
 
 module.exports = applyIt;
