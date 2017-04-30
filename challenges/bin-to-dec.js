@@ -14,7 +14,25 @@
  */
 
 function binToDec(binary) {
+	let decimal = 0;
+		
+	for (let i = 0; i < binary.length; i++) {
+		decimal += binary[i] * Math.pow(2, (binary.length - (i+1)));
+	}
 
+	return decimal;
 }
+
+// //Unfinished
+// function decToBin(dec) {
+// 	// base case
+// 	if (dec > 0) {
+// 		return false;
+// 	}
+
+// 	// Find the largest power of two
+// 	// Subtract from given number
+// 	// Repeat step 1 and subtract from leftover number
+// }
 
 module.exports = binToDec;
