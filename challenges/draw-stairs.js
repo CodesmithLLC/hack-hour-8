@@ -14,7 +14,30 @@
 */
 
 function drawStairs(n) {
+  let result = '';
+  let spaces = n - 1;
+  let stars = 1;
 
+  for (let i = 0; i < n - 1; i++) {
+    
+    result += create(spaces, ' ') + create(stars, '*') + '\n';
+    spaces--;
+    stars++;
+
+  }
+
+  result += create(space, ' ') + create(stars, '*');
+  return result;
+
+  function create(num, char) {
+    let result = '';
+
+    for (let i = 0; i < num; i++) {
+      result += char;
+    }
+
+    return result;
+  }
 }
 
 

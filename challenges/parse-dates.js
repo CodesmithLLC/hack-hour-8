@@ -40,7 +40,23 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  let i = 0;
+
+  while (str.charAt(i) !== ' ') {
+    i++
+  }
+  if (str.slice(0, i) === 'Today') return handleToday();
+  if (i === 4) return handleMonth();
+  if ()
+  function handleDays() {
+    //code
+  }
+  function handleToday() {
+    // code
+  }
+  function handleMonth() {
+    // code
+  }
 }
 
 module.exports = parseDates;

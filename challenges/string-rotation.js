@@ -12,7 +12,16 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  if (typeof s1 !== 'string' || typeof s2 !== 'string') {
+    return 'type error: arguments needs to be strings';
+  }
+  if (s1.length !== s2.length) return false;
 
+  for (let i = 0; i < s1.length; i++) {
+    if (s1 === s2) return isSubstring(s1, s2);
+    s2 = s2.slice(-1) + s2.slice(0, -1);
+  }
+  return false;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

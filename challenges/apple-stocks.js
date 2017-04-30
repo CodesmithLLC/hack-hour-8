@@ -13,7 +13,8 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  const sorted = stock_prices_yesterday.sort((a, b) => a - b);
+  return sorted[sorted.length - 1] - sorted[0];
 }
 
 module.exports = bestProfit;
