@@ -10,7 +10,14 @@
  *
  */
 function uniqueNumber(array) {
-
+  let uniq = {}
+  for (var i = 0; i < array.length; i++){
+    if (!uniq[array[i]]) uniq[array[i]] = 1;
+    else uniq[array[i]] = uniq[array[i] + 1];
+    }
+  for (var prop in uniq) {
+    if (uniq[prop] === 1) return prop;
+  }
 }
 
 module.exports = uniqueNumber;
