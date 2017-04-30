@@ -13,7 +13,14 @@
 
 
 function deleteDups(head) {
-
+  const unique = {};
+  while (head.next !=== null) {
+    unique[head.value] = null;
+    if (unique.hasOwnProperty(head.next.value)) {
+      head.next = head.next.next;
+    }
+    head = head.next;
+  }
 }
 
 module.exports = deleteDups;

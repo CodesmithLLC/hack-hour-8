@@ -6,7 +6,12 @@
 
 function sumMultiples3Or5Below1000() {
   var sum = 0;
-
+  for (var i = 1; i < 1000; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      console.log(i);
+      sum += i;
+    }
+  }
   return sum;
 }
 
@@ -14,7 +19,12 @@ function sumMultiples3Or5Below1000() {
 //and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x,y,z) {
   var sum = 0;
-
+  for (var i = 1; i < z; i++) {
+    if (i % x === 0 || i % y === 0) {
+      console.log(i);
+      sum += i;
+    }
+  }
   return sum;
 }
 
@@ -23,4 +33,12 @@ var objectToExport={
   sumMultiplesXOrYBelowZ:sumMultiplesXOrYBelowZ
 };
 
+console.log(sumMultiplesXOrYBelowZ(3, 5, 1000));
+
 module.exports = objectToExport;
+
+describe('Multiples of 3 or 5', function() {
+  it('should get all multiples of 3 or 5 below 1000', function() {
+
+  }
+});

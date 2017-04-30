@@ -3,8 +3,40 @@
  */
 
 function highestProduct(array) {
-
+  var max;
+  function recursive(arr, count, extract) {
+    if (count >= 2 || arr.length === 1) {
+      for (var j = 0; j < arr.length; j++) {
+        var product = arr[j] * extract;
+        if (max === undefined) {
+          max = product;
+        } else if (product > max) {
+          max = product;
+        }
+      }
+      return;
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        var arr2 = arr.slice()
+        var extract2 = arr2.splice(i, 1);
+        extract2 = extract * extract2[0];
+        var count2 = count + 1;
+        recursive(arr2, count2, extract2);
+      }
+    }
+  }
+  recursive(array, 0, 1);
+  return max;
 }
+
+// console.log(highestProduct([1,2,3,8,2,3,4,0]))
+// console.log(highestProduct([5,5,5,10,100]));
+// console.log(highestProduct([5,2,8,1,7,2]))
+// console.log(highestProduct([2,1,2,9,1,2]))
+// console.log(highestProduct([-3,-3,-3, 5]))
+// console.log(highestProduct())
+// console.log(highestProduct())
+// console.log(8*4*4)
 
 
 module.exports = highestProduct;
