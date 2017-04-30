@@ -11,8 +11,20 @@
  *
  */
 
-function reverseInPlace(array) {
+/* APPROACH: Swapping items typically requires a temp variable, which we cannot create here.  The i
+instructions say we cannt create a new object in memory, but it doesn't say we cannot modify an
+existing object.  So I pushed the items in the array on to the end of the array in reverse order,
+then returned the 2nd half of the array.  
 
-}
+
+
+*/
+function reverseInPlace(array){
+    for (var i = array.length-2; i >= 0; i--){
+        console.log(array); 
+        array.push(array[i]); 
+    }
+    return array.slice(array.length/2); 
+    }
 
 module.exports = reverseInPlace;

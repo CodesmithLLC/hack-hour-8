@@ -12,7 +12,37 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+
+
 function bestProfit(stock_prices_yesterday) {
+/*Approach: All in 1 for loop.  Max, Min, isNaN, noProfit. So the tricky thing is that you can't sell stock BEFORE you buy it.  So this
+ain't just max - min. 
+}
+*/
+if (isNaN(...stock_prices_yesterday)) return 0; 
+if (stock_prices_yesterday.length === 0) return 0; 
+if (stock_prices_yesterday.length === 1) return 0; 
+let max =stock_prices_yesterday[0] , min =stock_prices_yesterday[0] ; 
+for (var i = 0; i < stock_prices_yesterday.length; i++){
+    if (isNaN(stock_prices_yesterday[i])) return 0; 
+    else if (stock_prices_yesterday[i] > max){
+        max = stock_prices_yesterday[i]; 
+    }
+    else if (stock_prices_yesterday[i] < min){
+        min = stock_prices_yesterday[i]; 
+    }
+}
+if (stock_prices_yesterday.indexOf(min) < stock_prices_yesterday.indexOf(max)) return max-min;
+
+let arrMaxCheck = stock_prices_yesterday.slice(0, stock_prices_yesterday.indexOf(max)+1)
+let arrMinCheck = stock_prices_yesterday.slice(stock_prices_yesterday.indexOf(min)); 
+// console.log('maxArr', arrMaxCheck, 'minArr', arrMinCheck); 
+let maxDiff = max - Math.min(...arrMaxCheck); 
+let minDiff = Math.max(...arrMinCheck) - min; 
+if (maxDiff === 0 && minDiff === 0)return 0; 
+if (maxDiff >= minDiff) return maxDiff;
+return minDiff; 
+
 
 }
 

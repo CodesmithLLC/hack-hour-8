@@ -10,7 +10,28 @@
  *
  */
 function uniqueNumber(array) {
+//Brute force - sort, check elem before and after each item in array, 
+//if no match, return item
+  // sortedArr = array.sort(function(a,b){return a-b}); 
+  // for (var i = 1; i < array.length; i++){
+  //   if (sortedArr[i - 1] !== sortedArr[i] && sortedArr[i + 1] !== sortedArr[i]) return sortedArr[i]; 
+  // }
 
+//Approach: push item into obj as key/value pair, if key already
+//exists, delete key/value,.  return remaining item in obj
+
+var obj = {}; 
+for (var i = 0; i < array.length; i++){
+  if (obj[array[i]]) {
+    delete obj[array[i]]; 
+  }
+  else obj[parseInt(array[i])] = array[i]; 
+   res = (Object.keys(obj)); 
+   //console.log('res', res)
 }
+ return parseInt(res[0]);
+
+}   
+
 
 module.exports = uniqueNumber;
