@@ -15,6 +15,31 @@
 
 function drawStairs(n) {
 
+	var stairs = "";
+
+	for (var i = 0; i < n; i++){
+		
+		var level = "";
+
+		var space = n - i; 
+		var star = i;
+		
+		
+		for (var j =0; j < space-1; j++){
+			level += ' ';
+			
+		}
+		for (var k =0; k <= star; k++){
+			level += '*';
+		}
+		
+		console.log(level);
+		
+		stairs += level+"\n";
+	}	
+
+	//couldn't get the new line character to work so I just console logged ever iteration of outer for loop
+
 }
 
 
