@@ -14,7 +14,21 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+	var num1="", num2="", sum, i=1;
+	for(var current=l1.head;current;current=current.next){
+		num1 = current.value.toString() + num1;
+	}
+	for(var current=l2.head;current;current=current.next){
+		num2 = current.value.toString() + num2;
+	}
+	sum = (parseInt(num1) + parseInt(num2)).toString();
 
+	for(var current=l1.head;current;current=current.next){
+		current.value = parseInt(sum[sum.length-i]);
+		i++;
+	}
+	
+	return l1;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

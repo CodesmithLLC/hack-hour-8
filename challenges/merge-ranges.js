@@ -11,7 +11,16 @@
 
 
 function mergeRanges(array) {
+	var res = [];
+	var max, min;
+	if(array.length%2 ===1) res.push(array.shift());
+	for(var i=0; i<array.length; i+=2){
+		max = Math.max(...array[i].concat(array[i+1]));
+		min = Math.min(...array[i].concat(array[i+1]));
+		res.push([min, max]);
+	}
 
+	return res;
 }
 
 module.exports = mergeRanges;

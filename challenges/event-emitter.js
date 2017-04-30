@@ -21,7 +21,21 @@
  */
 
 function EventEmitter() {
+	this.funcStore = {};
+	this.funcFreq = {};
+	this.on = function(name, func) {
+		this.funcStore[name] = func;
+		if(this.funcFreq[name]) this.funcFreq[name]++;
+		else this.funcFreq[name] = 1;
+	};
 
+	this.trigger = function(name, ...args) {
+		var times = this.funcFreq[name];
+		console.log(args)
+		for(var i = 0; i < times; i++){
+			this.funcStore[name](...args);
+		}
+	};
 }
 
 module.exports = EventEmitter;

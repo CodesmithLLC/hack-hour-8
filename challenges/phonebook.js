@@ -19,12 +19,16 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  jazbook = makeJazBookIntoARealPhoneBookObject(jazbook);
+  if(jazbook[name]) return jazbook[name];
+  else return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
-
+	var phonebook = {};
+	for (var i = 0; i < jazbook.length; i++) {
+		phonebook[jazbook[i][0]] = jazbook[i][1];
+	}
   return phonebook;
 }
 

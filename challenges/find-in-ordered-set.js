@@ -9,9 +9,28 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
+//uses binary search
 function findInOrderedSet(arr, target) {
 
+	var minIndex = 0;
+	var maxIndex = arr.length - 1;
+	var currentIndex, currentElement;
+
+	while (minIndex <= maxIndex) {
+		currentIndex = (minIndex + maxIndex) / 2 | 0;
+		currentElement = arr[currentIndex];
+
+		if(currentElement < target) {
+			minIndex = currentIndex + 1;
+		} else if (currentElement > target) {
+			maxIndex = currentIndex - 1;
+		} else {
+			return true;
+		}
+	}
+	
+	//if can't find return false
+	return false;
 }
 
 
