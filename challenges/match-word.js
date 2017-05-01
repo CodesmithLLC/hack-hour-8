@@ -8,7 +8,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+	// remove punctuation and extra spaces
+	var stripped = str.toLowerCase().replace(/[^a-zA-Z]+|\s{2,}/gi,' ').replace(/^\s+|\s+$/g,'');
+	// split stripped string into an array of all words
+	var strippedArr = stripped.split(' ');
+	// check empty case
+	if (strippedArr[0] === '') return true;
+	// set array to hold forward words and populate with first word in string
+	var wordsArr = [];
+	wordsArr[0] = strippedArr[0];
+	// loop through rest of words in string
+	for (var i = 1; i < strippedArr.length; i++){
+		var wordCheck = strippedArr[i].split('').reverse().join('')
+		// if reverse word matches most recent forward word in array, remove forward word from array
+		if (wordCheck === wordsArr[wordsArr.length-1]) wordsArr.pop();
+		// if word is not reverse of most recently opened word, add to array
+		else wordsArr.push(strippedArr[i]);
+	}
+	// check if all words have been closed properly
+	if (wordsArr.length === 0) return true
+	return false;
+	}
 }
 
 module.exports = matchWord;

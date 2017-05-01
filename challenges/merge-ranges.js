@@ -11,7 +11,13 @@
 
 
 function mergeRanges(array) {
-
+	var merged = [];
+	array = array.sort(function(a,b){ return a[0] - b[0];});
+	array.forEach(function(range){
+		if( merged.length === 0 || ( (merged[merged.length-1][1] < range[0]) && (merged[merged.length-1[1] < range[1]]) ) ) merged.push(range);
+		else merged[merged.length-1][1] = range[1];
+	});
+	return merged;
 }
 
 module.exports = mergeRanges;

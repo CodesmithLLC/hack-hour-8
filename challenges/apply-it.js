@@ -26,7 +26,10 @@
  */
 
 function applyIt(func, args) {
-
+	for(var i = 0; i < args.length; i++){
+		func = func.bind(null, args[i]);
+	}
+	return func;
 }
 
 module.exports = applyIt;

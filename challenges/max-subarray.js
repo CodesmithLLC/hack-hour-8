@@ -8,7 +8,28 @@
  */
 
 function maxSubarray(arr) {
-
+	var subs = {};
+	arr.forEach(function(num, index){
+		var subArr = arr.slice(index);
+		var subSum = subArr.reduce(function(tot, num){
+			return tot += num;
+		});
+		subs[subSum] = subArr;
+		subArr.forEach(function(num, index){
+			var subSubArr = subArr.slice(0,index+1);
+			var subSubSum = subSubArr.reduce(function(tot, num){
+				return tot += num;
+			});
+			subs[subSubSum] = subSubArr;
+		});
+	});
+	var sums = Object.keys(subs).map(function(item){
+		return parseInt(item);
+	})
+	return sums.reduce(function(max, i){
+		if(i > max) return i;
+		return max;
+	})
 }
 
 module.exports = maxSubarray;

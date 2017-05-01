@@ -10,7 +10,16 @@
  */
 
 function getAllProducts(array) {
-
+	let products = [];
+	array.forEach(function(item, index){
+		getProduct(array.slice(0,index).concat(array.slice(index+1)));
+	});
+	function getProduct(array){
+		products.push(array.reduce(function(prod, num){
+			return prod *= num;
+		}, 1));
+	}
+	return products;
 }
 
 module.exports = getAllProducts;

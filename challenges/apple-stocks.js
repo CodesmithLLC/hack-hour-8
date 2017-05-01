@@ -12,8 +12,17 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-
+function bestProfit(stp) {
+	if(typeof stp[0] !== 'number') return 0;
+	var low = stp[0];
+	var max = stp[1]-low;
+	stp.forEach(function(time){
+		if(typeof time !== 'number') return 0;
+		if(time < low) low = time;
+		if(time - low > max) max = time-low;
+	})
+	if( max < 1 ) return 0;
+	return max;
 }
 
 module.exports = bestProfit;

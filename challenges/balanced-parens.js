@@ -25,7 +25,22 @@
  */
 
 function balancedParens(input){
-
+	var stripped = input.replace(/[^\(\)\{\}\[\]]+/gi,'');
+	console.log(stripped);
+	var count = 0;
+	var parenType;
+	for (var i = 0; i < stripped.length; i++){
+		if (stripped.charAt(i) === '(' || stripped.charAt(i) === '[' || stripped.charAt(i) === '{'){
+			count++;
+			parenType = stripped.charAt(i);
+			parenCount = i
+		}
+		else if ((stripped.charAt(i) === ')' || stripped.charAt(i) === ']' || stripped.charAt(i) === '}') && (stripped.charCodeAt(i) - parenType.charCodeAt() <= 2)){
+			count--;
+			parenType = stripped.charAt(parenCount-count+1);
+		}
+	}
+	return (count === 0) ? true : false;
 }
 
 module.exports = balancedParens;

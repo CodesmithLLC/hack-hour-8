@@ -26,6 +26,16 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+	//get sum of all integers from 1 to (N+1) including missing element
+	//using sum of linear series of number: n*(n+1)/2, where n = Array.length + 1
+	let sum = (Array.length+1)*(Array.length+2)/2;
+
+	//subtract all present integers from sum to find missing element
+	let answer = Array.reduce(function(total, num){
+		return total - num;
+	}, sum);
+
+	return answer;
 }
 
 module.exports = missingNum;
