@@ -3,7 +3,13 @@
  */
 
 function countStairs(n) {
-
+  var possibilites = 0;
+  if(n < 0) {
+    return 0
+  } else if (n === 0)
+  return 1;
 }
 
 module.exports = countStairs;
+
+console.log(countStairs(10));

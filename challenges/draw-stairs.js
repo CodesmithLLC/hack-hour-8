@@ -14,7 +14,26 @@
 */
 
 function drawStairs(n) {
+<<<<<<< HEAD
+var result = '';
+var spaces = '';
+var stars = '';
 
+for (let i = 0; i < n; i++) {
+	for(var k = 0; k < n - k; k++){
+	spaces += '@';
+	}
+	for(var j = 0; j < n - spaces.length; j++){
+	stars += '*';
+	}
+	result += spaces + stars + '/n';
+}
+
+return result;
+// :(
+=======
+
+>>>>>>> 2ad08d5fbe0eb6ef7a8741fa3b9f91a29257505a
 }
 
 

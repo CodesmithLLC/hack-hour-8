@@ -14,7 +14,23 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  // add L1.head + L2.head... store as new linked list?
+  // then traverse until l2.next && l1.next === null?
+  // return linked list...
+  var sumLinkedList = {
+    head : new Node(l1.head + l2.head),
+    tail : this.head
+  }
+  var currentNodeSum = sumLinkedList.head;
+  var currentL1Node = l1.head;
+  var currentl2Node = l2.head;
+  while (currentL1Node !== null && currentl2Node !== null) {
+    currentNodeSum.next = new Node(currentL1Node.value + currentl2Node.value);
+    currentL1Node = currentL1Node.next;
+    currentl2Node = currentl2Node.next;
+    currentNodeSum = currentNodeSum.next;
+  }
+  return sumLinkedList;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

@@ -8,10 +8,19 @@ findInOrderedSet(nums, 4);  -> true
 findInOrderedSet(nums, 2);  -> false
 
  */
-
+//Going for O(Log n);
 
 function findInOrderedSet(arr, target) {
-
+  var mid = Math.floor(arr.length/2);
+  if(target === arr[mid]) {
+    return true;
+  } else if (target < arr[mid]){
+    return findInOrderedSet(arr.slice(0, mid), target);
+  } else if (target > arr[mid]){
+    return findInOrderedSet(arr.slice(mid + 1, arr.length), target);
+  } else {
+    return false;
+  }
 }
 
 

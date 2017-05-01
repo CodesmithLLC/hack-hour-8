@@ -13,7 +13,9 @@
   */
 
 function anagrams(string) {
-
+  
 }
 
 module.exports = anagrams;
+
+console.log(anagrams('abc'));

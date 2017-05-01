@@ -19,7 +19,39 @@
 */
 
 function poker(hand1, hand2) {
+  let handsToPlay = {
+      fourofakind : [],
+      fullhouse : [],
+      straight: [],
+      threeofAkind: [],
+      twopair: [],
+      onepair: [],
+      highcard: highCardVal(hand1, hand2)
+    };
+
+    function highCardVal(){
+      if(Math.max.apply(null, hand1) > Math.max.apply(null, hand2)){
+        return 1
+      } else {
+        return 2
+      }
+    }
+
+    let matches = 0;
+    let pairs = 0;
+
+    for(let i = 0; i < hand1.length; i++) {
+      for(let j = 0; j < hand1.length; j++){
+        if(hand1[i] === hand1[j] && i !== j){
+          console.log('repeated ' + hand1[j]);
+          reviewed[hand]
+        }
+      }
+    }
+
 
 }
 
 module.exports = poker;
+
+ poker([3,3,5,5,5,2], [4,6,7,8,8])

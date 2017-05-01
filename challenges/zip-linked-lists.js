@@ -11,6 +11,19 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  // traverse linked lists, setting the .next prop to equal the node of other llist.
+  // vice versa through tranversal, until l2.next === null
+  var l1Current = l1.head;
+  var l2Current = l2.head;
+  var nodeHolder = l1Current.next;
+  l1Current.next = l2Current;
+  l2Current.next = nodeHolder;
+  nodeHolder =
+
+  while(l2Current.next){
+
+  }
+
 };
 
 module.exports = {Node: Node, zip: zip};

@@ -14,7 +14,17 @@
  */
 
 function binToDec(binary) {
-
+/* each 1 represents a power of two, string is zero indexed right to left
+zero represnts zero.
+sum of all 1's (post 2 to the nth) to return number converted
+*/
+  const results = [];
+  for (let i = 0; i < binary.length; i++) {
+    if (binary.charAt(i) === '1') {
+      results.push(Math.pow(2, (binary.length - 1) - i));
+    }
+  }
+  return results.reduce((a, b) => a + b);
 }
-
+console.log(binToDec('101'))
 module.exports = binToDec;
