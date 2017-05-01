@@ -13,6 +13,16 @@
   */
 
 function anagrams(string) {
+	let newArray = [];
+
+	for (let i = 0; i < splitStr.length; i++) {
+		let letter = string[i];
+
+		let shorterWord = string.substring(0, i) + string.substring(i + 1, string.length - 1);
+
+		// Keep one letter and return all possible letter combinations
+	}
+
 
 }
 

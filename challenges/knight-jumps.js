@@ -11,7 +11,39 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+	let splitStr = str.split(' '),
+			xPoint = parseInt(splitStr[0]),
+			yPoint = parseInt(splitStr[1]),
+			counter = 0;
+			
 
+	// Brute force all day baby
+	if (xPoint + 2 < 8 && yPoint + 1 < 8) {
+		counter++;
+	} 
+	if (xPoint + 2 < 8 && yPoint - 1 > 0) {
+		counter++;
+	}
+	if (xPoint - 2 > 0 && yPoint + 1 < 8) {
+		counter++;
+	}
+	if (xPoint - 2 > 0 && yPoint - 1 > 0) {
+		counter++;
+	}
+	if (xPoint + 1 < 8 && yPoint + 2 < 8) {
+		counter++;
+	}
+	if (xPoint + 1 < 8 && yPoint - 2 > 0) {
+		counter++;
+	}
+	if (xPoint - 1 > 0 && yPoint + 2 < 8) {
+		counter++;
+	}
+	if (xPoint - 1 > 0 && yPoint - 2 > 0) {
+		counter++;
+	}
+
+	return counter;
 }
 
 module.exports = knightjumps;

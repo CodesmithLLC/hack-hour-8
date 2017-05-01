@@ -17,7 +17,18 @@
  */
 
 function newIntersections(x, y){
+	// keep counter variable
+	var counter = 0;
 
+	// loop through x-coords
+
+	// loop through y-coords
+
+	// (if y coords is +/- 1 index value, increase counter)
+
+	// (if x coords is +/- 1 index value, increase counter)
+
+	// need to filter out edges
 }
 
 module.exports = newIntersections;

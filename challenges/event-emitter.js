@@ -20,8 +20,12 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
-function EventEmitter() {
-
+function EventEmitter(event) {
+	this.storage = {
+		event: function (event) {
+			console.log(event);
+		}
+	}
 }
 
 module.exports = EventEmitter;

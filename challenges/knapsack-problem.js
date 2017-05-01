@@ -10,7 +10,25 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+	let weightCounter = 0;
+	let sum = 0;
 
+	// as long as the amount of objects we have is less than available weight
+	if (weightCounter <= weightAvailable) {
+		for (let key in items) {
+
+			// PSEUDO: add current value to the sum
+			sum = sum + items[key]['value']
+
+			// subtract weight available with weight of item
+			weightAvailable - items[key]['weight']
+
+			// then move on to the next item and subtract weight / add value
+		}
+	}
+
+	// return sum of maximum value
+	return sum;
 };
 
 module.exports = solveKnapsack;

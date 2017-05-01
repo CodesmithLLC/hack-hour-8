@@ -10,7 +10,23 @@
  */
 
 function getAllProducts(array) {
+	var products = [],
+			above = 1,
+			below = 1;
 
+	
+	// elements below the target number
+	for (var i = 0; i < array.length; i++) {
+		// sum = sum * array[j];	
+		// products.push(array[j-i])
+	}
+	
+	// elements above the target number
+	for (var j = array.length - 1; j >= 0; j--) {
+		
+	}
+	
+	// array = below * above
 }
 
 module.exports = getAllProducts;

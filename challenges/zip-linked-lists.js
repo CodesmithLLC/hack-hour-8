@@ -11,6 +11,31 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+	let head = l1,
+			temp = l1,
+			l1 = l1.next;
+
+	// if no l1, then no need to zip l2
+	if (!l1) {
+		return l2;
+	}
+
+	// if no l2, then no need to zip l1
+	if (!l2) {
+		return l1;
+	}
+
+	while (l1 && l2) {
+		temp.next = l2;
+		l2 = l2.next;
+		temp = temp.next;
+		
+		temp.next = l1;
+		l1 = l1.next;
+		temp = temp.next;
+	}
+
+	return head;
 };
 
 module.exports = {Node: Node, zip: zip};

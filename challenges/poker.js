@@ -19,7 +19,37 @@
 */
 
 function poker(hand1, hand2) {
+	let possibleHand1 = {};
+	let possibleHand2 = {};
 
+	// Check hand1's hand
+	for (let i = 0; i< hand1.length; i++) {
+    	let num = hand1[i];
+    	possibleHand1[num] = possibleHand1[num] ? possibleHand1[num]+1 : 1;
+	}
+	
+	let arr1 = Object.keys( possibleHand1 ).map(function ( key ) { return possibleHand1[key]; });
+	
+	return arr1[arr1.length-1];
+	
+	
+	// check hand2's hand
+	for (let i = 0; i< hand2.length; i++) {
+    	let num = hand2[i];
+    	possibleHand2[num] = possibleHand2[num] ? possibleHand2[num]+1 : 1;
+	}
+
+	let arr2 = Object.keys( possibleHand1 ).map(function ( key ) { return possibleHand1[key]; });
+	
+	return arr2[arr2.length-1];
+
+	if (arr1[arr1.length-1] > arr2[arr2.length-1]) {
+		return "Player 1 wins";
+	} else if (arr1[arr1.length-1] < arr2[arr2.length-1]) {
+		return "Player 2 wins";
+	} else {
+		return "Draw";
+	}
 }
 
 module.exports = poker;
