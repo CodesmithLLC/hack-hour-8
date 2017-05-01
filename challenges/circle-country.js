@@ -22,8 +22,25 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+function circleCountry (x, y, r, start_x, start_y, end_x, end_y) {
+    //Approach: check radius and circle center of each circle against starting x && starting y, then if 
+    //ending point is outside of circle radius and starting point is inside, increment circles to cross
+    //counter 
+    var circlesToCross = 0;
 
+    for (var i = 0; i < x.length; i++){
+    var distanceStart = Math.sqrt((x[i] - start_x) * (x[i] - start_x) + (y[i] - start_y) * (y[i] - start_y));
+
+    var distanceEnd = Math.sqrt((x[i] - end_x) * (x[i] - end_x) + (y[i] - end_y) * (y[i] - end_y));
+
+    var radius = r[i];
+
+    if (distanceStart < radius && distanceEnd > radius || 
+            distanceStart > radius && distanceEnd < radius){
+            circlesToCross++;
+    }   
+    }
+    return circlesToCross;
 }
 
 module.exports = circleCountry;

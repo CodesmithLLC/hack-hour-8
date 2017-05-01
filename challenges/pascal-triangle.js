@@ -33,7 +33,28 @@
 */
 
 function pascalTriangle(numRows) {
+  /*
+  Approach: each number is the sum of the two numbers directly above it, so we'll need to
+  iterate through the previous row, add up the numbers 'above'  
+  */
 
+  if ( numRows < 1) return [];
+
+    var res = [[1]];
+    var row;
+
+    for (var j = 0; j < numRows-1; j++) {
+      row = [1];
+
+      for (var k = 1; k < res[j].length; k++) {
+        row[k] = res[j][k] + res[j][k-1];
+      }
+      // push the trailing 1 to complete the row
+      row.push(1);
+      res.push(row);
+    }
+
+    return res;
 }
 
 module.exports = pascalTriangle;
